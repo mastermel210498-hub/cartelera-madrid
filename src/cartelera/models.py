@@ -28,6 +28,7 @@ class Sesion(BaseModel):
     inicio: datetime  # naive, hora local de Madrid
     version: str | None = None  # "VOSE", "VO", "Castellano"... si la cadena lo indica
     formatos: list[str] = Field(default_factory=list)  # "3D", "IMAX", "4DX", "ATMOS"...
+    eventos: list[str] = Field(default_factory=list)  # "Coloquio", "Sesión TETA", "Ciclo X"...
     sala: str | None = None
     url: str | None = None  # compra o ficha
     poster: str | None = None

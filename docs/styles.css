@@ -139,3 +139,20 @@ footer { padding: 1.5rem 1.25rem 2rem; font-size: .8rem; text-align: center; }
   .poster { width: 64px; }
   .top { flex-wrap: wrap; }
 }
+
+/* ---------- sesiones especiales ---------- */
+.pase .tag.e { background: color-mix(in srgb, var(--accent) 22%, transparent); color: #fde68a; }
+.filtros select#evento { min-width: 200px; }
+
+/* ---------- quedada ---------- */
+.quedada { display: grid; gap: .4rem; }
+#quedadaPanel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: .6rem .75rem; }
+.ayuda { margin: 0 0 .4rem; font-size: .85rem; }
+.fila { display: flex; flex-wrap: wrap; gap: .25rem .8rem; font-size: .8rem; }
+.radio { display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: var(--muted); margin-top: .4rem; }
+.radio input { flex: 1; accent-color: var(--accent); }
+.pin span {
+  display: inline-block; transform: translate(-50%, -100%); white-space: nowrap;
+  background: var(--accent); color: #1a1300; font: 600 11px/1 system-ui; padding: 4px 6px; border-radius: 6px;
+  box-shadow: 0 1px 4px #0008;
+}

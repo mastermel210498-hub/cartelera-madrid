@@ -57,6 +57,33 @@ class TituloLimpio:
     slug: str
     version: str | None = None
     formatos: list[str] = field(default_factory=list)
+    eventos: list[str] = field(default_factory=list)
+
+
+# Sesiones especiales: se sacan del título para que "Sesión Teta: Wild Horse Nine" sea la
+# misma película que "Wild Horse Nine", con la etiqueta del evento en la sesión.
+_EVENTOS: list[tuple[re.Pattern, str | None]] = [
+    (re.compile(r"^sesi[oó]n\s+teta\s*[:\-–]?\s*", re.I), "Sesión TETA (con bebés)"),
+    (re.compile(r"^(?:sesi[oó]n\s+)?(?:con\s+)?beb[eé]s\s*[:\-–]\s*", re.I), "Con bebés"),
+    (re.compile(r"\s*[-–+]\s*crochet\s*&\s*cine\s*$", re.I), "Crochet & Cine"),
+    (re.compile(r"\s*(?:\+|[-–(]\s*)\s*(?:proyecci[oó]n\s+)?(?:con\s+)?coloquio[^)\]]*\)?\s*$", re.I),
+     "Coloquio"),
+    (re.compile(r"\s*(?:\+|[-–(]\s*)\s*encuentro\s+con[^)\]]*\)?\s*$", re.I), "Encuentro"),
+    (re.compile(r"\s*(?:\+|[-–(]\s*)\s*presentaci[oó]n[^)\]]*\)?\s*$", re.I), "Presentación"),
+    (re.compile(r"\s*(?:\+|[-–(]\s*)\s*q\s?&\s?a\)?\s*$", re.I), "Coloquio"),
+]
+# Etiquetas que NO tocan el título (el título ya lo dice), sólo marcan la sesión
+_ETIQUETAS: list[tuple[re.Pattern, str]] = [
+    (re.compile(r"\bballet\b|royal ballet|bolshoi", re.I), "Ballet"),
+    (re.compile(r"\b(?:[oó]pera|zarzuela|rigoletto|traviata|tosca|carmen \(|chenier|\(roh\))", re.I),
+     "Ópera y zarzuela"),
+    (re.compile(r"\b(?:festival|cutrecon|rompemadrid|abono)\b", re.I), "Festival"),
+    (re.compile(r"\bcortometrajes?\b", re.I), "Cortometrajes"),
+    (re.compile(r"\b(?:concierto|live (?:from|in)|world tour|in cinemas)\b", re.I), "Concierto"),
+    (re.compile(r"\btaller\b", re.I), "Taller"),
+]
+_CICLO = re.compile(r"\s*\[([^\]]{3,40})\]\s*$")
+_CICLOS_IGNORAR = {"renoir", "princesa", "verdi"}
 
 
 def slugify(text: str) -> str:
@@ -88,6 +115,18 @@ def limpiar_titulo(raw: str) -> TituloLimpio:
     t = " ".join((raw or "").split())
     t = _COLA_FICHA.sub("", t)
     t = _PREFIJOS.sub("", t)
+    eventos: list[str] = []
+    m = _CICLO.search(t)  # "El mal padre [PROYECTO VIRIDIANA]" → ciclo
+    if m:
+        nombre = m.group(1).strip()
+        if nombre.lower() not in _CICLOS_IGNORAR:
+            eventos.append("Ciclo " + nombre.title())
+        t = t[: m.start()].strip()
+    for rx, etiqueta in _EVENTOS:
+        if rx.search(t):
+            t = rx.sub("", t).strip()
+            if etiqueta and etiqueta not in eventos:
+                eventos.append(etiqueta)
     version: str | None = None
     formatos: list[str] = []
 
@@ -117,10 +156,15 @@ def limpiar_titulo(raw: str) -> TituloLimpio:
     t = re.sub(r"\(\s*\)|\[\s*\]", "", t)
     t = re.sub(r"\s*[-–:·|,]+\s*$", "", t).strip()
     t = " ".join(t.split())
+    for rx, etiqueta in _ETIQUETAS:
+        if rx.search(t) and etiqueta not in eventos:
+            eventos.append(etiqueta)
     if not t:  # el "título" era sólo un token: mejor dejarlo como venía
         t = " ".join((raw or "").split())
     t = _bonito(t)
-    return TituloLimpio(titulo=t, slug=slugify(t), version=version, formatos=formatos)
+    return TituloLimpio(
+        titulo=t, slug=slugify(t), version=version, formatos=formatos, eventos=eventos
+    )
 
 
 def _solo_tokens(s: str) -> bool:
@@ -134,6 +178,8 @@ def _solo_tokens(s: str) -> bool:
 def version_desde_texto(texto: str) -> str | None:
     """Detecta versión en textos sueltos ('Versión Original Subtitulada', 'English,es')."""
     t = unidecode(texto or "").lower()
+    if re.search(r"version original (en )?(castellano|espanol)", t):
+        return "Castellano"
     if re.search(r"\bv\.?o\.?s\.?e?\b|subtitulad|original subt", t):
         return "VOSE"
     if re.search(r"version original|\bv\.?o\.?\b", t):

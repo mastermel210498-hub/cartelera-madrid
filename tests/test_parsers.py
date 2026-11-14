@@ -56,7 +56,7 @@ def test_renoir_solo_bloque_escritorio():
     s = renoir.parse_dia(html("renoir_dia.html"), POR_ID["renoir-retiro"], date(2026, 11, 14))
     assert len(s) == 3  # no duplica el bloque md
     assert s[0].sala == "04" and s[0].duracion_min == 155
-    assert s[0].version == "VO"  # "Versión Original Castellano"
+    assert s[0].version == "Castellano"  # "Versión Original Castellano" = peli española
     assert s[2].version == "VOSE" and s[2].inicio == datetime(2026, 11, 14, 22, 30)
 
 
@@ -151,3 +151,38 @@ def test_solo_enlace_fuera_del_run_y_en_el_indice(tmp_path):
     assert {c["cadena"] for c in enl} == set(SOLO_ENLACE)
     assert all(c.get("web") for c in enl)
     assert [o["cadena"] for o in idx["otras_cadenas"]] == list(SOLO_ENLACE)
+
+
+@pytest.mark.parametrize("raw,titulo,eventos", [
+    ("Sesión Teta: Wild Horse Nine", "Wild Horse Nine", ["Sesión TETA (con bebés)"]),
+    ("EL MAL PADRE [PROYECTO VIRIDIANA]", "El mal padre", ["Ciclo Proyecto Viridiana"]),
+    ("DERSU UZALA (EL CAZADOR) [WILDER CINEMA]", "Dersu uzala (el cazador)", ["Ciclo Wilder Cinema"]),
+    ("Scrooge y los fantasmas de la navidad - Crochet & Cine", "Scrooge y los fantasmas de la navidad",
+     ["Crochet & Cine"]),
+    ("La bola negra + coloquio con el equipo", "La bola negra", ["Coloquio"]),
+    ("Sirat (presentación con Oliver Laxe)", "Sirat", ["Presentación"]),
+    ("CLÁSICOS AL DETALLE – TALLER [RENOIR]", "Clásicos al detalle – taller", ["Taller"]),
+    ("Ballet El Cascanueces desde The Royal Ballet", "Ballet El Cascanueces desde The Royal Ballet",
+     ["Ballet"]),
+    ("Rigoletto (Festival Arena at St. Margarethen)", "Rigoletto (Festival Arena at St. Margarethen)",
+     ["Ópera y zarzuela", "Festival"]),
+    ("Encuentros en la tercera fase", "Encuentros en la tercera fase", []),
+])
+def test_eventos(raw, titulo, eventos):
+    from cartelera.normalize import limpiar_titulo
+
+    r = limpiar_titulo(raw)
+    assert (r.titulo, r.eventos) == (titulo, eventos)
+
+
+def test_evento_agrupa_con_la_peli_normal():
+    from cartelera.models import Sesion
+    from cartelera.pipeline import unificar
+
+    t = datetime(2026, 11, 14, 12, 0)
+    pelis, comp = unificar([
+        Sesion(cine_id="verdi-madrid", titulo="Wild Horse Nine", inicio=t),
+        Sesion(cine_id="verdi-madrid", titulo="Sesión Teta: Wild Horse Nine", inicio=t),
+    ])
+    assert [p["id"] for p in pelis] == ["wild-horse-nine"]
+    assert comp[1]["e"] == ["Sesión TETA (con bebés)"]

@@ -92,7 +92,8 @@ def unificar(sesiones: list[Sesion]) -> tuple[list[dict], list[dict]]:
             duraciones[slug][s.duracion_min] += 1
         version = s.version or lt.version
         formatos = sorted(set(s.formatos) | set(lt.formatos))
-        clave = (s.cine_id, slug, s.inicio, version, s.sala)
+        eventos = sorted(set(s.eventos) | set(lt.eventos))
+        clave = (s.cine_id, slug, s.inicio, version, s.sala, tuple(eventos))
         if clave in vistas:
             continue
         vistas.add(clave)
@@ -101,6 +102,8 @@ def unificar(sesiones: list[Sesion]) -> tuple[list[dict], list[dict]]:
             c["v"] = version
         if formatos:
             c["f"] = formatos
+        if eventos:
+            c["e"] = eventos
         if s.sala:
             c["s"] = s.sala
         if s.url:

@@ -27,6 +27,7 @@
     <input id="q" type="search" placeholder="Buscar película…" autocomplete="off" />
     <select id="cine" aria-label="Cine"><option value="">Todos los cines</option></select>
     <div class="chips" id="cadenas" aria-label="Cadenas"></div>
+    <select id="evento" aria-label="Tipo de sesión"><option value="">Todas las sesiones</option></select>
     <label class="toggle"><input type="checkbox" id="vose" /> Sólo VOSE/VO</label>
     <label class="toggle"><input type="checkbox" id="pasadas" checked /> Ocultar pasadas</label>
     <div class="horas" aria-label="Franja horaria">
@@ -42,6 +43,20 @@
     <aside class="lateral">
       <div id="map" class="mapa" aria-label="Mapa de cines"></div>
       <button id="cerca" class="secundario">📍 Ordenar cines por cercanía</button>
+      <div class="quedada" id="quedada">
+        <button id="btnQuedada" class="secundario">👥 Quedar con alguien a medio camino</button>
+        <div id="quedadaPanel" hidden>
+          <p id="quedadaAyuda" class="ayuda"></p>
+          <div class="fila">
+            <button id="qMiUbic" class="link">Usar mi ubicación para «Tú»</button>
+            <button id="qReset" class="link">Empezar de nuevo</button>
+            <button id="qSalir" class="link">Salir</button>
+          </div>
+          <label class="radio">Máx. por persona
+            <input type="range" id="qRadio" min="2" max="31" step="1" value="31" />
+            <output id="qRadioTxt">sin límite</output></label>
+        </div>
+      </div>
       <div id="estado" class="estado"></div>
     </aside>
   </main>

@@ -10,7 +10,8 @@ const MAX_PASES_COLAPSADO = 12;
 
 const st = {
   vista: "peliculas", dia: null, q: "", cine: "", cadenas: new Set(),
-  vose: false, ocultarPasadas: true, desde: 10, hasta: 24, pos: null,
+  vose: false, ocultarPasadas: true, desde: 10, hasta: 24, pos: null, evento: "",
+  quedada: null, // {paso: "a"|"b"|"listo", a: {lat,lon}, b: {lat,lon}, radio: km}
 };
 let IDX = null, PELIS = new Map(), CINES = new Map(), CADENAS = [], ENLACES = [], OTRAS = [];
 const cacheDias = new Map();
@@ -57,6 +58,7 @@ function leerHash() {
   st.cine = h.get("cine") || "";
   st.cadenas = new Set((h.get("cadenas") || "").split(",").filter(Boolean));
   st.vose = h.get("vose") === "1";
+  st.evento = h.get("evento") || "";
 }
 function escribirHash() {
   const h = new URLSearchParams();
@@ -66,6 +68,7 @@ function escribirHash() {
   if (st.cine) h.set("cine", st.cine);
   if (st.cadenas.size) h.set("cadenas", [...st.cadenas].join(","));
   if (st.vose) h.set("vose", "1");
+  if (st.evento) h.set("evento", st.evento);
   history.replaceState(null, "", "#" + h.toString());
 }
 
@@ -97,6 +100,9 @@ function filtrar(sesiones) {
     if (st.cine && s.c !== st.cine) return false;
     if (st.cadenas.size && !st.cadenas.has(cine.cadena)) return false;
     if (st.vose && !(s.v === "VOSE" || s.v === "VO")) return false;
+    if (st.evento === "*" && !(s.e && s.e.length)) return false;
+    if (st.evento && st.evento !== "*" && !(s.e || []).includes(st.evento)) return false;
+    if (quedadaLista() && !(cine.lat && (st.quedada.radio > 30 || puntuacion(cine) <= st.quedada.radio))) return false;
     if (st.ocultarPasadas && s.t < ahora) return false;
     const m = minutos(s.t);
     // pases de madrugada (00:00–05:59) cuentan como "tarde" para el filtro horario
@@ -111,6 +117,7 @@ function filtrar(sesiones) {
 function htmlPase(s) {
   const tags = [];
   if (s.v) tags.push(`<span class="tag v">${esc(s.v)}</span>`);
+  (s.e || []).forEach((e) => tags.push(`<span class="tag e">${esc(e)}</span>`));
   (s.f || []).forEach((f) => tags.push(`<span class="tag">${esc(f)}</span>`));
   const pasada = s.t < ahoraISO() ? " pasada" : "";
   const prev = s.prev ? " prev" : "";
@@ -130,14 +137,26 @@ function htmlPases(lista) {
   return `${vis}<details class="mas"><summary>+${lista.length - MAX_PASES_COLAPSADO} más</summary><div class="pases">${resto}</div></details>`;
 }
 
+const quedadaLista = () => st.quedada && st.quedada.paso === "listo";
+// Justo para los dos: lo que importa es lo que tiene que andar el que más lejos queda
+const puntuacion = (c) => Math.max(km(st.quedada.a, c), km(st.quedada.b, c));
+
 function ordenCines(ids) {
   return ids.sort((a, b) => {
     const A = CINES.get(a), B = CINES.get(b);
+    if (quedadaLista() && A.lat && B.lat) return puntuacion(A) - puntuacion(B);
     if (st.pos && A.lat && B.lat) return km(st.pos, A) - km(st.pos, B);
     return A.nombre.localeCompare(B.nombre, "es");
   });
 }
-const distTxt = (c) => (st.pos && c.lat ? ` · ${km(st.pos, c).toFixed(1)} km` : "");
+const distTxt = (c) => {
+  if (!c.lat) return "";
+  if (quedadaLista()) {
+    const f = (p) => km(p, c).toFixed(1).replace(".", ",");
+    return ` · ${f(st.quedada.a)} km tú / ${f(st.quedada.b)} km tu amigo/a`;
+  }
+  return st.pos ? ` · ${km(st.pos, c).toFixed(1).replace(".", ",")} km` : "";
+};
 
 function agrupar(lista, clave) {
   const m = new Map();
@@ -150,7 +169,10 @@ function agrupar(lista, clave) {
 
 function pintarPorPelicula(lista) {
   const porPeli = agrupar(lista, "p");
-  const ids = [...porPeli.keys()].sort((a, b) => porPeli.get(b).length - porPeli.get(a).length
+  const mejor = (pid) => Math.min(...porPeli.get(pid).map((s) => puntuacion(CINES.get(s.c))));
+  const ids = [...porPeli.keys()].sort((a, b) =>
+    (quedadaLista() ? mejor(a) - mejor(b) : 0)
+    || porPeli.get(b).length - porPeli.get(a).length
     || PELIS.get(a).titulo.localeCompare(PELIS.get(b).titulo, "es"));
   return ids.map((pid) => {
     const p = PELIS.get(pid), ses = porPeli.get(pid);
@@ -161,8 +183,10 @@ function pintarPorPelicula(lista) {
         <div class="pases">${htmlPases(porCine.get(cid))}</div></div>`;
     }).join("");
     const poster = urlSegura(p.poster);
+    const esp = ses.filter((s) => s.e && s.e.length).length;
     const meta = [p.duracion ? `${p.duracion} min` : "", `${porCine.size} cine${porCine.size > 1 ? "s" : ""}`,
-      `${ses.length} pase${ses.length > 1 ? "s" : ""}`].filter(Boolean).join(" · ");
+      `${ses.length} pase${ses.length > 1 ? "s" : ""}`, esp ? `★ ${esp} especial${esp > 1 ? "es" : ""}` : ""]
+      .filter(Boolean).join(" · ");
     return `<article class="card${poster ? "" : " sin-poster"}">
       ${poster ? `<img class="poster" loading="lazy" src="${esc(poster)}" alt="" onerror="this.closest('.card').classList.add('sin-poster');this.remove()">` : ""}
       <div><h2>${esc(p.titulo)}</h2><div class="meta">${meta}</div>${grupos}${htmlTambien()}</div></article>`;
@@ -219,6 +243,7 @@ function pintarMapa(lista) {
       maxZoom: 18, attribution: "© OpenStreetMap · © CARTO",
     }).addTo(mapa);
     capaMarcadores = L.layerGroup().addTo(mapa);
+    mapa.on("click", (e) => ponPunto(e.latlng.lat, e.latlng.lng));
   }
   capaMarcadores.clearLayers();
   const cuenta = new Map();
@@ -249,18 +274,86 @@ function pintarMapa(lista) {
       .bindPopup(`<strong>${esc(c.nombre)}</strong><br>${esc(c.cadena)}<br>${u ? `<a href="${esc(u)}" target="_blank" rel="noopener">Ver horarios en su web ↗</a>` : ""}`)
       .addTo(capaMarcadores);
   }
+  if (st.quedada) pintarQuedada();
   if (st.pos) L.circleMarker([st.pos.lat, st.pos.lon], { radius: 5, color: "#fff", fillOpacity: 1 })
     .bindTooltip("Tú").addTo(capaMarcadores);
-  if (pts.length && !st.cine) mapa.fitBounds(pts, { padding: [20, 20], maxZoom: 12 });
+  if (pts.length && !st.cine && !st.quedada) mapa.fitBounds(pts, { padding: [20, 20], maxZoom: 12 });
+}
+
+// ------------------------------------------------------------------ quedada
+function iconoPersona(txt) {
+  return L.divIcon({ className: "pin", html: `<span>${txt}</span>`, iconSize: null });
+}
+function pintarQuedada() {
+  const q = st.quedada;
+  const pon = (clave, txt) => {
+    if (!q[clave]) return;
+    const m = L.marker([q[clave].lat, q[clave].lon], { icon: iconoPersona(txt), draggable: true });
+    m.on("dragend", () => { const ll = m.getLatLng(); q[clave] = { lat: ll.lat, lon: ll.lng }; render(); });
+    m.addTo(capaMarcadores);
+  };
+  pon("a", "Tú"); pon("b", "Amigo/a");
+  if (quedadaLista()) {
+    const mid = { lat: (q.a.lat + q.b.lat) / 2, lon: (q.a.lon + q.b.lon) / 2 };
+    L.polyline([[q.a.lat, q.a.lon], [q.b.lat, q.b.lon]], { color: "#f5b942", weight: 1, dashArray: "4 6" }).addTo(capaMarcadores);
+    L.circleMarker([mid.lat, mid.lon], { radius: 4, color: "#f5b942", fillOpacity: 1 }).bindTooltip("Punto medio").addTo(capaMarcadores);
+  }
+}
+function ayudaQuedada() {
+  const q = st.quedada;
+  const t = !q ? "" : q.paso === "a" ? "1/2 · Pulsa en el mapa dónde estás tú (o usa tu ubicación)."
+    : q.paso === "b" ? "2/2 · Ahora pulsa dónde está tu amigo/a."
+    : "Listo: cines ordenados por lo que tiene que moverse el que más lejos queda. Puedes arrastrar los puntos.";
+  $("#quedadaAyuda").textContent = t;
+  $("#quedadaPanel").hidden = !q;
+  $("#btnQuedada").hidden = !!q;
+}
+function ponPunto(lat, lon) {
+  const q = st.quedada; if (!q) return;
+  if (q.paso === "a") { q.a = { lat, lon }; q.paso = "b"; }
+  else if (q.paso === "b") { q.b = { lat, lon }; q.paso = "listo"; }
+  else return;
+  ayudaQuedada(); render();
+}
+function montarQuedada() {
+  $("#btnQuedada").onclick = () => {
+    st.quedada = { paso: "a", radio: +$("#qRadio").value };
+    ayudaQuedada();
+    $("#map").scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  $("#qReset").onclick = () => { st.quedada = { paso: "a", radio: st.quedada.radio }; ayudaQuedada(); render(); };
+  $("#qSalir").onclick = () => { st.quedada = null; ayudaQuedada(); render(); };
+  $("#qMiUbic").onclick = () => navigator.geolocation?.getCurrentPosition(
+    (p) => { st.quedada.paso = st.quedada.paso === "listo" ? "listo" : "a";
+      if (st.quedada.paso === "listo") { st.quedada.a = { lat: p.coords.latitude, lon: p.coords.longitude }; render(); }
+      else ponPunto(p.coords.latitude, p.coords.longitude); },
+    () => { $("#quedadaAyuda").textContent = "No pude obtener tu ubicación: pulsa en el mapa."; });
+  $("#qRadio").oninput = (e) => {
+    $("#qRadioTxt").textContent = +e.target.value > 30 ? "sin límite" : `${e.target.value} km`;
+    if (st.quedada) { st.quedada.radio = +e.target.value; clearTimeout(window.__qr); window.__qr = setTimeout(render, 150); }
+  };
+}
+
+function rellenarEventos(ses) {
+  const tipos = [...new Set(ses.flatMap((s) => s.e || []))].sort((a, b) => a.localeCompare(b, "es"));
+  const sel = $("#evento");
+  sel.innerHTML = `<option value="">Todas las sesiones</option>` +
+    (tipos.length ? `<option value="*">★ Sólo sesiones especiales</option>` : "") +
+    tipos.map((t) => `<option value="${esc(t)}">${esc(t)}</option>`).join("");
+  if (st.evento && st.evento !== "*" && !tipos.includes(st.evento)) st.evento = "";
+  sel.value = st.evento;
 }
 
 async function render() {
   escribirHash();
   const ses = await cargarDia(st.dia);
+  rellenarEventos(ses);
   const lista = filtrar(ses);
   const cont = $("#resultados");
   if (!ses.length) cont.innerHTML = `<p class="vacio">No hay datos para este día.</p>`;
-  else if (!lista.length) cont.innerHTML = `<p class="vacio">Nada con estos filtros. Prueba a quitar alguno.</p>`;
+  else if (!lista.length) cont.innerHTML = quedadaLista()
+    ? `<p class="vacio">Ningún cine a menos de ${st.quedada.radio} km para los dos. Sube el máximo por persona.</p>`
+    : `<p class="vacio">Nada con estos filtros. Prueba a quitar alguno.</p>`;
   else cont.innerHTML = (st.vista === "cines" ? pintarPorCine(lista) : pintarPorPelicula(lista))
     + (st.vista === "cines" ? htmlCinesEnlace() : "");
   pintarMapa(lista);
@@ -313,6 +406,8 @@ function montarUI() {
   $("#q").value = st.q;
   $("#q").oninput = (e) => { clearTimeout(t); t = setTimeout(() => { st.q = e.target.value; render(); }, 150); };
   $("#cine").onchange = (e) => { st.cine = e.target.value; render(); };
+  $("#evento").onchange = (e) => { st.evento = e.target.value; render(); };
+  montarQuedada();
   $("#vose").checked = st.vose;
   $("#vose").onchange = (e) => { st.vose = e.target.checked; render(); };
   $("#pasadas").onchange = (e) => { st.ocultarPasadas = e.target.checked; render(); };
@@ -325,7 +420,7 @@ function montarUI() {
   $("#desde").oninput = $("#hasta").oninput = () => { franja(); clearTimeout(t); t = setTimeout(render, 120); };
   franja();
   $("#limpiar").onclick = () => {
-    Object.assign(st, { q: "", cine: "", vose: false, desde: 10, hasta: 24 });
+    Object.assign(st, { q: "", cine: "", vose: false, desde: 10, hasta: 24, evento: "" });
     st.cadenas.clear();
     $("#q").value = ""; $("#cine").value = ""; $("#vose").checked = false;
     $("#desde").value = 10; $("#hasta").value = 24; franja();
