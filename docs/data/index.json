@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-14T15:06",
+ "generado": "2026-11-14T15:16",
  "dias": [
   "2026-11-14",
   "2026-11-15",
@@ -13,17 +13,17 @@
   "Renoir": {
    "ok": true,
    "sesiones": 432,
-   "segundos": 3.5
+   "segundos": 4.1
   },
   "MK2": {
    "ok": true,
    "sesiones": 312,
-   "segundos": 7.1
+   "segundos": 5.7
   },
   "Verdi": {
    "ok": true,
    "sesiones": 129,
-   "segundos": 9.3
+   "segundos": 12.8
   },
   "Ocine": {
    "ok": true,
