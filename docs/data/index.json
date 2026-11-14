@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-14T15:16",
+ "generado": "2026-11-14T19:48",
  "dias": [
   "2026-11-14",
   "2026-11-15",
@@ -12,23 +12,23 @@
  "estado": {
   "Renoir": {
    "ok": true,
-   "sesiones": 432,
-   "segundos": 4.1
+   "sesiones": 431,
+   "segundos": 4.3
   },
   "MK2": {
    "ok": true,
-   "sesiones": 312,
-   "segundos": 5.7
+   "sesiones": 279,
+   "segundos": 6.0
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 129,
-   "segundos": 12.8
+   "sesiones": 123,
+   "segundos": 12.3
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 766,
-   "segundos": 170.3
+   "sesiones": 758,
+   "segundos": 169.5
   }
  },
  "cines": [
@@ -374,9 +374,7 @@
   },
   {
    "id": "diversion-navidena-con-peppa-la-experiencia-en-cines",
-   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines",
-   "poster": "https://www.bizcochito.es/img/tt115317-es-pos.webp",
-   "duracion": 60
+   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines"
   },
   {
    "id": "el-cielo-es-para-siempre",
@@ -541,7 +539,7 @@
   {
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
    "duracion": 109
   },
   {
