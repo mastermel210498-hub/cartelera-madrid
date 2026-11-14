@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-14T14:26",
+ "generado": "2026-11-14T14:39",
  "dias": [
   "2026-11-14",
   "2026-11-15",
@@ -10,25 +10,25 @@
   "2026-11-20"
  ],
  "estado": {
-  "MK2": {
-   "ok": true,
-   "sesiones": 312,
-   "segundos": 2.5
-  },
   "Renoir": {
    "ok": true,
    "sesiones": 432,
-   "segundos": 2.7
+   "segundos": 4.0
+  },
+  "MK2": {
+   "ok": true,
+   "sesiones": 312,
+   "segundos": 8.3
   },
   "Verdi": {
    "ok": true,
    "sesiones": 129,
-   "segundos": 5.0
+   "segundos": 13.1
   },
   "Ocine": {
    "ok": true,
    "sesiones": 766,
-   "segundos": 170.3
+   "segundos": 172.9
   }
  },
  "cines": [
@@ -349,8 +349,8 @@
    "duracion": 121
   },
   {
-   "id": "clasicos-al-detalle-taller-de-analisis-filmico-y-metacine-sobre-profecia-renoir",
-   "titulo": "Clásicos al detalle – taller de análisis fílmico y metacine sobre profecía [renoir]",
+   "id": "clasicos-al-detalle-taller-de-analisis-filmico-y-metacine-sobre-profecia",
+   "titulo": "Clásicos al detalle – taller de análisis fílmico y metacine sobre profecía",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83db593141e5428e7e8bb3f8ac48bf64eea8bbcc7a8f1770c069a047da.png",
    "duracion": 270
   },
@@ -361,8 +361,8 @@
    "duracion": 121
   },
   {
-   "id": "dersu-uzala-el-cazador-wilder-cinema",
-   "titulo": "Dersu uzala (el cazador) [wilder cinema]",
+   "id": "dersu-uzala-el-cazador",
+   "titulo": "Dersu uzala (el cazador)",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83af4c02b17246c1f6f93988eb4bce0c33fb73c72e75aeb1af67b92c39.jpg",
    "duracion": 144
   },
@@ -399,12 +399,6 @@
   {
    "id": "el-mal-padre",
    "titulo": "El mal padre",
-   "poster": "https://www.cinepazmadrid.es/data/fotos/afiche-elmalpadre.jpg",
-   "duracion": 120
-  },
-  {
-   "id": "el-mal-padre-proyecto-viridiana",
-   "titulo": "El mal padre [proyecto viridiana]",
    "poster": "/media/Peliculas/Cartel/CARTEL_CON_LOGO_3_PAbEBg2.jpg",
    "duracion": 120
   },
@@ -557,10 +551,6 @@
    "duracion": 115
   },
   {
-   "id": "scrooge-y-los-fantasmas-de-la-navidad-crochet-cine",
-   "titulo": "Scrooge y los fantasmas de la navidad - Crochet & Cine"
-  },
-  {
    "id": "sentido-y-sensibilidad",
    "titulo": "Sentido y sensibilidad",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83e9a608e8f5d4a82598b7cb63667af13fe2853de34387ca9fc7961cca.jpg",
@@ -629,8 +619,8 @@
    "titulo": "¿Me entiendes o te lo explico?"
   },
   {
-   "id": "erase-una-vez-en-hollywood-wilder-cinema",
-   "titulo": "Érase una vez en... Hollywood [wilder cinema]",
+   "id": "erase-una-vez-en-hollywood",
+   "titulo": "Érase una vez en... Hollywood",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83211e6b45afeb3871476128871fa1c8581ece600c5b895982d877ca02.jpg",
    "duracion": 161
   }
