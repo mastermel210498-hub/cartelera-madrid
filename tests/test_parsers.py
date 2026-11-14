@@ -139,3 +139,15 @@ def test_unificar_agrupa_y_deduplica():
     assert [p["id"] for p in pelis] == ["dune-parte-tres"]
     assert pelis[0]["titulo"] == "Dune: Parte tres" and pelis[0]["poster"] == "p1"
     assert len(comp) == 3 and comp[-1]["v"] == "VOSE"
+
+
+def test_solo_enlace_fuera_del_run_y_en_el_indice(tmp_path):
+    from cartelera.chains import ACTIVAS, SOLO_ENLACE
+    from cartelera.pipeline import Resultado, escribir
+
+    assert not {"cinesa", "kinepolis", "odeon"} & set(ACTIVAS)
+    idx = escribir(Resultado(), tmp_path)
+    enl = [c for c in idx["cines"] if c.get("enlace")]
+    assert {c["cadena"] for c in enl} == set(SOLO_ENLACE)
+    assert all(c.get("web") for c in enl)
+    assert [o["cadena"] for o in idx["otras_cadenas"]] == list(SOLO_ENLACE)

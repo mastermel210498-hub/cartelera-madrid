@@ -15,15 +15,15 @@ import logging
 import sys
 from pathlib import Path
 
-from .chains import TODAS
+from .chains import ACTIVAS, TODAS
 from .pipeline import ejecutar, escribir
 
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="cartelera", description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("-c", "--cadenas", default=",".join(TODAS),
-                    help=f"lista separada por comas (por defecto: {','.join(TODAS)})")
+    ap.add_argument("-c", "--cadenas", default=",".join(ACTIVAS),
+                    help=f"lista separada por comas (por defecto: {','.join(ACTIVAS)})")
     ap.add_argument("-d", "--dias", type=int, default=7)
     ap.add_argument("-o", "--out", type=Path, default=Path("docs/data"))
     ap.add_argument("--debug-html", type=Path, default=None)

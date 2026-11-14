@@ -24,8 +24,8 @@ tests/             tests de parsers con HTML de ejemplo
 | Renoir + Princesa (3) | `/cine/<x>/cartelera/?fecha=` | HTML estático (httpx) |
 | MK2 (2) | `/es/cartelera` (todos los días en una página) | HTML estático (httpx) |
 | Kinépolis (2) | `Drupal.settings` incrustado en el HTML público | JSON (httpx) |
-| Cinesa (14) | `/cines/<x>/` | Playwright + `<time datetime>` |
 | Ocine (4) | taquilla `tickets.<dominio>` | Playwright |
+| Cinesa (14), Kinépolis (2), Odeon (4) | **bloquean el acceso automatizado** (nov-2026) | sólo enlace a su web (`SOLO_ENLACE` en `chains/__init__.py`); el scraper se conserva por si dan permiso |
 | ~~Yelmo~~ | ahora cineyelmo.com (Cinépolis) | **pendiente** |
 
 Regla: sólo páginas públicas, nada de APIs internas; User-Agent identificable; concurrencia limitada.

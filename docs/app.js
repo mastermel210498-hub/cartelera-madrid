@@ -12,7 +12,7 @@ const st = {
   vista: "peliculas", dia: null, q: "", cine: "", cadenas: new Set(),
   vose: false, ocultarPasadas: true, desde: 10, hasta: 24, pos: null,
 };
-let IDX = null, PELIS = new Map(), CINES = new Map(), CADENAS = [];
+let IDX = null, PELIS = new Map(), CINES = new Map(), CADENAS = [], ENLACES = [], OTRAS = [];
 const cacheDias = new Map();
 let mapa = null, capaMarcadores = null;
 
@@ -76,7 +76,9 @@ async function cargarIndice() {
   IDX = await r.json();
   IDX.peliculas.forEach((p) => PELIS.set(p.id, p));
   IDX.cines.forEach((c) => CINES.set(c.id, c));
-  CADENAS = [...new Set(IDX.cines.map((c) => c.cadena))].sort();
+  CADENAS = [...new Set(IDX.cines.filter((c) => !c.enlace).map((c) => c.cadena))].sort();
+  ENLACES = IDX.cines.filter((c) => c.enlace);
+  OTRAS = IDX.otras_cadenas || [];
 }
 async function cargarDia(dia) {
   if (!cacheDias.has(dia)) {
@@ -163,8 +165,33 @@ function pintarPorPelicula(lista) {
       `${ses.length} pase${ses.length > 1 ? "s" : ""}`].filter(Boolean).join(" · ");
     return `<article class="card${poster ? "" : " sin-poster"}">
       ${poster ? `<img class="poster" loading="lazy" src="${esc(poster)}" alt="" onerror="this.closest('.card').classList.add('sin-poster');this.remove()">` : ""}
-      <div><h2>${esc(p.titulo)}</h2><div class="meta">${meta}</div>${grupos}</div></article>`;
+      <div><h2>${esc(p.titulo)}</h2><div class="meta">${meta}</div>${grupos}${htmlTambien()}</div></article>`;
   }).join("");
+}
+
+function htmlTambien() {
+  if (!OTRAS.length) return "";
+  const links = OTRAS.map((o) => {
+    const u = urlSegura(o.web);
+    return u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(o.cadena)}</a>` : esc(o.cadena);
+  }).join(" · ");
+  return `<p class="tambien">Consulta también horarios en ${links} ↗</p>`;
+}
+
+function htmlCinesEnlace() {
+  if (!ENLACES.length) return "";
+  if (st.cine && !CINES.get(st.cine)?.enlace) return "";
+  const lista = ENLACES.filter((c) => !st.cadenas.size || st.cadenas.has(c.cadena));
+  if (!lista.length) return "";
+  const ord = ordenCines(lista.map((c) => c.id)).map((id) => CINES.get(id));
+  const items = ord.map((c) => {
+    const u = urlSegura(c.web);
+    return `<li>${u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(c.nombre)} ↗</a>` : esc(c.nombre)}<small>${distTxt(c).replace(" · ", "")}</small></li>`;
+  }).join("");
+  return `<article class="card sin-poster enlaces"><div>
+    <h2>Más cines (horarios en su web)</h2>
+    <div class="meta">Estas cadenas no permiten que mostremos sus horarios aquí; te llevamos a su web.</div>
+    <ul class="lista-enlaces">${items}</ul></div></article>`;
 }
 
 function pintarPorCine(lista) {
@@ -215,6 +242,13 @@ function pintarMapa(lista) {
     div.appendChild(b);
     m.bindPopup(div).addTo(capaMarcadores);
   }
+  for (const c of ENLACES) {
+    if (!c.lat || (st.cadenas.size && !st.cadenas.has(c.cadena))) continue;
+    const u = urlSegura(c.web);
+    L.circleMarker([c.lat, c.lon], { radius: 5, weight: 1, color: "#8b97ad", fillColor: "#8b97ad", fillOpacity: .35 })
+      .bindPopup(`<strong>${esc(c.nombre)}</strong><br>${esc(c.cadena)}<br>${u ? `<a href="${esc(u)}" target="_blank" rel="noopener">Ver horarios en su web ↗</a>` : ""}`)
+      .addTo(capaMarcadores);
+  }
   if (st.pos) L.circleMarker([st.pos.lat, st.pos.lon], { radius: 5, color: "#fff", fillOpacity: 1 })
     .bindTooltip("Tú").addTo(capaMarcadores);
   if (pts.length && !st.cine) mapa.fitBounds(pts, { padding: [20, 20], maxZoom: 12 });
@@ -227,7 +261,8 @@ async function render() {
   const cont = $("#resultados");
   if (!ses.length) cont.innerHTML = `<p class="vacio">No hay datos para este día.</p>`;
   else if (!lista.length) cont.innerHTML = `<p class="vacio">Nada con estos filtros. Prueba a quitar alguno.</p>`;
-  else cont.innerHTML = st.vista === "cines" ? pintarPorCine(lista) : pintarPorPelicula(lista);
+  else cont.innerHTML = (st.vista === "cines" ? pintarPorCine(lista) : pintarPorPelicula(lista))
+    + (st.vista === "cines" ? htmlCinesEnlace() : "");
   pintarMapa(lista);
 }
 
@@ -250,7 +285,7 @@ function montarUI() {
 
   // cines y cadenas
   $("#cine").innerHTML = `<option value="">Todos los cines</option>` +
-    [...CINES.values()].sort((a, b) => a.nombre.localeCompare(b.nombre, "es"))
+    [...CINES.values()].filter((c) => !c.enlace).sort((a, b) => a.nombre.localeCompare(b.nombre, "es"))
       .map((c) => `<option value="${esc(c.id)}">${esc(c.nombre)}</option>`).join("");
   $("#cine").value = st.cine;
   $("#cadenas").innerHTML = CADENAS.map((c) =>
@@ -309,7 +344,7 @@ function montarUI() {
 
   // cabecera + estado de las cadenas
   const gen = new Date(IDX.generado);
-  $("#actualizado").textContent = `${IDX.peliculas.length} películas · ${CINES.size} cines · actualizado ${gen.toLocaleString("es-ES", { dateStyle: "medium", timeStyle: "short" })}`;
+  $("#actualizado").textContent = `${IDX.peliculas.length} películas · ${CINES.size - ENLACES.length} cines · actualizado ${gen.toLocaleString("es-ES", { dateStyle: "medium", timeStyle: "short" })}`;
   $("#estado").innerHTML = Object.entries(IDX.estado || {}).sort().map(([cad, e]) => {
     const ok = e.ok;
     const txt = ok ? `${e.sesiones} pases` : (e.reutilizadas ? `sin actualizar (uso ${e.reutilizadas} pases de ayer)` : "sin datos hoy");

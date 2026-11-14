@@ -19,4 +19,17 @@ TODAS: dict[str, type[Scraper]] = {
     "ocine": Ocine,
 }
 
-__all__ = ["Ctx", "Scraper", "TODAS"]
+# Cadenas que bloquean el acceso automatizado (Cloudflare "you have been blocked" / 403
+# desde nov-2026). No se scrapean: la web enlaza a sus horarios. Se reactivan quitándolas
+# de aquí si dan permiso o un feed.
+SOLO_ENLACE: dict[str, str] = {
+    "Cinesa": "https://www.cinesa.es/peliculas/",
+    "Kinépolis": "https://kinepolis.es/",
+    "Odeon": "https://odeonmulticines.com/",
+}
+
+ACTIVAS: dict[str, type[Scraper]] = {
+    k: v for k, v in TODAS.items() if v.cadena not in SOLO_ENLACE
+}
+
+__all__ = ["ACTIVAS", "Ctx", "SOLO_ENLACE", "Scraper", "TODAS"]

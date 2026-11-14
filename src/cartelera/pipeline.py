@@ -20,7 +20,7 @@ from dataclasses import dataclass, field
 from datetime import date, datetime
 from pathlib import Path
 
-from .chains import TODAS, Ctx
+from .chains import SOLO_ENLACE, TODAS, Ctx
 from .cines import CINES, POR_ID
 from .fetch import Fetcher
 from .models import Sesion
@@ -178,11 +178,19 @@ def escribir(res: Resultado, out_dir: Path) -> dict:
         )
 
     usados = {s["c"] for s in sesiones}
+    cines_out = [c.model_dump(exclude_none=True) for c in CINES if c.id in usados]
+    # Cines de cadenas que no se scrapean: aparecen en mapa/listado con enlace a su web
+    cines_out += [
+        {**c.model_dump(exclude_none=True), "enlace": True}
+        for c in CINES
+        if c.cadena in SOLO_ENLACE and c.id not in usados
+    ]
     index = {
         "generado": ahora.isoformat(timespec="minutes"),
         "dias": sorted(por_dia),
         "estado": res.estado,
-        "cines": [c.model_dump(exclude_none=True) for c in CINES if c.id in usados],
+        "cines": cines_out,
+        "otras_cadenas": [{"cadena": k, "web": v} for k, v in SOLO_ENLACE.items()],
         "peliculas": sorted(peliculas, key=lambda p: p["titulo"].lower()),
     }
     (out_dir / "index.json").write_text(
