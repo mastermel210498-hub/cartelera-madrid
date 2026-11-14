@@ -186,3 +186,27 @@ def test_evento_agrupa_con_la_peli_normal():
     ])
     assert [p["id"] for p in pelis] == ["wild-horse-nine"]
     assert comp[1]["e"] == ["Sesión TETA (con bebés)"]
+
+
+def test_sitio_genera_paginas(tmp_path, monkeypatch):
+    import json as _j
+
+    from cartelera.models import Sesion
+    from cartelera.pipeline import Resultado, escribir
+    from cartelera.sitio import generar
+
+    monkeypatch.setenv("ADSENSE_CLIENT", "ca-pub-1234567890")
+    hoy = date.today()
+    r = Resultado(sesiones=[
+        Sesion(cine_id="verdi-madrid", titulo="Sesión Teta: Wild Horse Nine",
+               inicio=datetime(hoy.year, hoy.month, hoy.day, 23, 0), url="https://x/1"),
+    ], estado={"Verdi": {"ok": True, "sesiones": 1}})
+    escribir(r, tmp_path / "data")
+    res = generar(tmp_path)
+    assert res["peliculas"] == 1
+    ficha = (tmp_path / "pelicula" / "wild-horse-nine" / "index.html").read_text()
+    assert "Wild Horse Nine" in ficha and "Sesión TETA" in ficha and "adsbygoogle" in ficha
+    assert (tmp_path / "cine" / "cinesa-proyecciones" / "index.html").exists()  # sólo-enlace
+    assert "pub-1234567890, DIRECT" in (tmp_path / "ads.txt").read_text()
+    assert "/pelicula/wild-horse-nine/" in (tmp_path / "sitemap.xml").read_text()
+    assert _j.loads((tmp_path / "data" / "sitio.json").read_text())["adsense"] == "ca-pub-1234567890"

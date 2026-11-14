@@ -17,6 +17,7 @@ from pathlib import Path
 
 from .chains import ACTIVAS, TODAS
 from .pipeline import ejecutar, escribir
+from .sitio import generar
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -46,6 +47,8 @@ def main(argv: list[str] | None = None) -> int:
 
     res = asyncio.run(ejecutar(cadenas, dias=args.dias, debug_dir=args.debug_html))
     index = escribir(res, args.out)
+    if args.out.name == "data":  # docs/data → generar también las páginas estáticas de docs/
+        print("páginas:", generar(args.out.parent))
 
     print(json.dumps(index["estado"], ensure_ascii=False, indent=1))
     total = sum(e["sesiones"] for e in index["estado"].values())

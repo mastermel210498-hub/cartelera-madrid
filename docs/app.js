@@ -189,7 +189,7 @@ function pintarPorPelicula(lista) {
       .filter(Boolean).join(" · ");
     return `<article class="card${poster ? "" : " sin-poster"}">
       ${poster ? `<img class="poster" loading="lazy" src="${esc(poster)}" alt="" onerror="this.closest('.card').classList.add('sin-poster');this.remove()">` : ""}
-      <div><h2>${esc(p.titulo)}</h2><div class="meta">${meta}</div>${grupos}${htmlTambien()}</div></article>`;
+      <div><h2><a href="pelicula/${encodeURIComponent(pid)}/">${esc(p.titulo)}</a></h2><div class="meta">${meta}</div>${grupos}${htmlTambien()}</div></article>`;
   }).join("");
 }
 
@@ -447,7 +447,23 @@ function montarUI() {
   }).join("");
 }
 
+// AdSense: sólo si data/sitio.json trae el ID de editor (variable ADSENSE_CLIENT del repo).
+// El aviso de consentimiento lo pone la CMP de Google configurada en el panel de AdSense.
+async function cargarAnuncios() {
+  try {
+    const r = await fetch("data/sitio.json", { cache: "no-cache" });
+    if (!r.ok) return;
+    const { adsense } = await r.json();
+    if (!/^ca-pub-\d+$/.test(adsense || "")) return;
+    const s = document.createElement("script");
+    s.async = true; s.crossOrigin = "anonymous";
+    s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsense}`;
+    document.head.appendChild(s);
+  } catch (_) { /* sin anuncios */ }
+}
+
 (async function init() {
+  cargarAnuncios();
   try {
     leerHash();
     await cargarIndice();
