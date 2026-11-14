@@ -96,8 +96,11 @@ class Ocine(Scraper):
                 url = f"{base}DetallPelicula/{p['id']}"
                 try:
                     await page.goto(url, wait_until="domcontentloaded")
-                    await page.wait_for_selector(
-                        "option.date-option, :text('No hay sesiones')", timeout=20_000
+                    # La taquilla tarda: esperamos a que pinte fechas o diga que no hay pases
+                    await page.wait_for_function(
+                        """() => document.querySelectorAll('option.date-option').length > 0
+                              || /No hay sesiones/i.test(document.body.innerText)""",
+                        timeout=45_000,
                     )
                     await page.wait_for_timeout(500)
                     fechas = await page.eval_on_selector_all(

@@ -26,19 +26,25 @@ def parse_portada(html: str) -> list[dict]:
     return list(pelis.values())
 
 
-def parse_eventos(html: str, cine: Cine, poster: str | None = None) -> list[Sesion]:
+def parse_eventos(
+    html: str, cine: Cine, poster: str | None = None, titulo: str | None = None
+) -> list[Sesion]:
+    idx = jsonld.indice_por_id(html)
     out = []
     for ev in jsonld.de_tipo(html, "ScreeningEvent"):
         if not ev.get("startDate"):
             continue
-        peli = ev.get("workPresented") or {}
+        # En las fichas, workPresented sólo trae {"@id": ...}: hay que resolverlo
+        peli = jsonld.resolver(ev.get("workPresented") or {}, idx)
+        if not (peli.get("name") or ev.get("name") or titulo):
+            continue
         oferta = ev.get("offers") or {}
         if isinstance(oferta, list):
             oferta = oferta[0] if oferta else {}
         out.append(
             Sesion(
                 cine_id=cine.id,
-                titulo=peli.get("name") or ev.get("name", ""),
+                titulo=peli.get("name") or ev.get("name") or titulo,
                 inicio=parse_iso(ev["startDate"]),
                 version=version_desde_texto(peli.get("inLanguage", "")),
                 url=oferta.get("url") or peli.get("@id"),
@@ -60,7 +66,8 @@ class Verdi(Scraper):
 
         async def ficha(p: dict) -> list[Sesion]:
             try:
-                return parse_eventos(await ctx.fetch.get_text(p["url"]), cine, p["poster"])
+                html = await ctx.fetch.get_text(p["url"])
+                return parse_eventos(html, cine, p["poster"], p["titulo"])
             except Exception as e:
                 self.log.warning("ficha %s: %s", p["url"], e)
                 return []

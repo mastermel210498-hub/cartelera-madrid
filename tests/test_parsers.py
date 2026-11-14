@@ -44,6 +44,14 @@ def test_verdi():
     assert s[1].inicio == datetime(2026, 11, 14, 20, 15)
 
 
+def test_verdi_ficha_real_con_referencias_id():
+    # Ficha real (nov-2026): workPresented = {"@id": ...} sin nombre
+    s = verdi.parse_eventos(html("verdi_ficha_real.html"), POR_ID["verdi-madrid"], None, "La bola negra")
+    assert len(s) > 5
+    assert {x.titulo for x in s} == {"La bola negra"}
+    assert s[0].duracion_min == 159
+
+
 def test_renoir_solo_bloque_escritorio():
     s = renoir.parse_dia(html("renoir_dia.html"), POR_ID["renoir-retiro"], date(2026, 11, 14))
     assert len(s) == 3  # no duplica el bloque md
