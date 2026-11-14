@@ -1,0 +1,364 @@
+{
+ "generado": "2026-11-14T13:52",
+ "dias": [
+  "2026-11-14",
+  "2026-11-15",
+  "2026-11-16",
+  "2026-11-17",
+  "2026-11-18",
+  "2026-11-19",
+  "2026-11-20"
+ ],
+ "estado": {
+  "Kinépolis": {
+   "ok": false,
+   "sesiones": 0,
+   "error": "FetchError('No pude descargar https://kinepolis.es/?main_section=hoy: HTTP 403')",
+   "segundos": 0.1
+  },
+  "Odeon": {
+   "ok": false,
+   "sesiones": 0,
+   "error": "0 sesiones",
+   "segundos": 0.2
+  },
+  "Renoir": {
+   "ok": true,
+   "sesiones": 432,
+   "segundos": 3.0
+  },
+  "MK2": {
+   "ok": true,
+   "sesiones": 312,
+   "segundos": 4.6
+  },
+  "Verdi": {
+   "ok": true,
+   "sesiones": 18,
+   "segundos": 7.4
+  },
+  "Cinesa": {
+   "ok": false,
+   "sesiones": 0,
+   "error": "0 sesiones",
+   "segundos": 267.4
+  },
+  "Ocine": {
+   "ok": true,
+   "sesiones": 14,
+   "segundos": 407.6
+  }
+ },
+ "cines": [
+  {
+   "id": "cines-princesa",
+   "nombre": "Cines Princesa",
+   "cadena": "Renoir",
+   "lat": 40.425082,
+   "lon": -3.71289,
+   "web": "https://www.cinesrenoir.com/cine/cines-princesa/cartelera/"
+  },
+  {
+   "id": "renoir-retiro",
+   "nombre": "Renoir Retiro",
+   "cadena": "Renoir",
+   "lat": 40.420249,
+   "lon": -3.676168,
+   "web": "https://www.cinesrenoir.com/cine/renoir-retiro/cartelera/"
+  },
+  {
+   "id": "renoir-plaza-de-espana",
+   "nombre": "Renoir Plaza de España",
+   "cadena": "Renoir",
+   "lat": 40.424559,
+   "lon": -3.713306,
+   "web": "https://www.cinesrenoir.com/cine/renoir-plaza-de-espana/cartelera/"
+  },
+  {
+   "id": "mk2-palacio-de-hielo",
+   "nombre": "MK2 Palacio de Hielo",
+   "cadena": "MK2",
+   "lat": 40.463319,
+   "lon": -3.635767,
+   "web": "https://www.mk2palaciodehielo.es/es/cartelera"
+  },
+  {
+   "id": "mk2-cine-paz",
+   "nombre": "MK2 Cine Paz",
+   "cadena": "MK2",
+   "lat": 40.430995,
+   "lon": -3.702535,
+   "web": "https://www.cinepazmadrid.es/es/cartelera"
+  },
+  {
+   "id": "verdi-madrid",
+   "nombre": "Cines Verdi Madrid",
+   "cadena": "Verdi",
+   "lat": 40.436681,
+   "lon": -3.703229,
+   "web": "https://madrid.cines-verdi.com/"
+  },
+  {
+   "id": "ocine-urban-xmadrid",
+   "nombre": "Ocine Urban X-Madrid (Alcorcón)",
+   "cadena": "Ocine",
+   "lat": 40.340216,
+   "lon": -3.846967,
+   "web": "https://www.ocineurbanxmadrid.es/"
+  },
+  {
+   "id": "ocine-urban-caleido",
+   "nombre": "Ocine Urban Caleido",
+   "cadena": "Ocine",
+   "lat": 40.47697,
+   "lon": -3.68788,
+   "web": "https://www.ocineurbancaleido.es/"
+  },
+  {
+   "id": "ocine-quadernillos",
+   "nombre": "Ocine Quadernillos (Alcalá)",
+   "cadena": "Ocine",
+   "web": "https://www.ocinequadernillos.es/"
+  }
+ ],
+ "peliculas": [
+  {
+   "id": "arriba-tutto",
+   "titulo": "Arriba tutto",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/arriba-tutto-poster-ig-1080x1350-2.jpg",
+   "duracion": 102
+  },
+  {
+   "id": "chopin",
+   "titulo": "Chopin",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa8393c9f862680d98e427db248e3719faf1382551a9dcbf5ed802747808.jpg",
+   "duracion": 113
+  },
+  {
+   "id": "clayface",
+   "titulo": "Clayface",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/clayface-110107.jpg",
+   "duracion": 108
+  },
+  {
+   "id": "clasicos-al-detalle-taller-de-analisis-filmico-y-metacine-sobre-profecia-renoir",
+   "titulo": "Clásicos al detalle – taller de análisis fílmico y metacine sobre profecía [renoir]",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83db593141e5428e7e8bb3f8ac48bf64eea8bbcc7a8f1770c069a047da.png",
+   "duracion": 270
+  },
+  {
+   "id": "como-robar-un-banco",
+   "titulo": "Cómo robar un banco",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/como-robar-un-banco-110020-1.jpg",
+   "duracion": 121
+  },
+  {
+   "id": "dersu-uzala-el-cazador-wilder-cinema",
+   "titulo": "Dersu uzala (el cazador) [wilder cinema]",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83af4c02b17246c1f6f93988eb4bce0c33fb73c72e75aeb1af67b92c39.jpg",
+   "duracion": 144
+  },
+  {
+   "id": "digger",
+   "titulo": "Digger",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa836c08c9846a4787d9dd4ce85cb5f3168a5acfec3dd749f3a3ba224764.jpg",
+   "duracion": 128
+  },
+  {
+   "id": "el-gato-con-sombrero",
+   "titulo": "El gato con sombrero",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s1.jpg",
+   "duracion": 105
+  },
+  {
+   "id": "el-mal-padre",
+   "titulo": "El mal padre",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/afiche-elmalpadre.jpg",
+   "duracion": 120
+  },
+  {
+   "id": "el-mal-padre-proyecto-viridiana",
+   "titulo": "El mal padre [proyecto viridiana]",
+   "poster": "/media/Peliculas/Cartel/CARTEL_CON_LOGO_3_PAbEBg2.jpg",
+   "duracion": 120
+  },
+  {
+   "id": "el-precio-de-la-red",
+   "titulo": "El precio de la red",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83cd53d56a34175822a29ca27295096337c63a4692152e4bedcfa84cd2.jpg",
+   "duracion": 112
+  },
+  {
+   "id": "el-ser-querido",
+   "titulo": "El ser querido",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83084baf1795c0a42266f525b1c5839e2a1986a1807ecace9a9e66cbdb.jpg",
+   "duracion": 135
+  },
+  {
+   "id": "esta-soledad",
+   "titulo": "Esta soledad",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa838c3e928d4d5123cc0e4a894e2b5ad42333686b42ca54f68e89dd8f7a.jpg",
+   "duracion": 110
+  },
+  {
+   "id": "hope",
+   "titulo": "Hope",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83e291b05ecf98ff92816e19d3419b3a0e23580f3c8c001594b17c98f3.jpg",
+   "duracion": 156
+  },
+  {
+   "id": "jaleos",
+   "titulo": "Jaleos",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa831e10982bc078ea7d200e3ea44e3e98e2d1425c105961f27a80d8d4f3.jpg",
+   "duracion": 80
+  },
+  {
+   "id": "karateka",
+   "titulo": "Karateka",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s0.jpg",
+   "duracion": 110
+  },
+  {
+   "id": "la-bola-negra",
+   "titulo": "La bola negra",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa831886eb920647a20198ff54902bf99ba0380ede61c8d68439955de714.jpg",
+   "duracion": 155
+  },
+  {
+   "id": "la-invitacion",
+   "titulo": "La invitación",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83b881dcf969c745f4ec3cf473b33d4b10237fea09d16aad17429daa0b.jpg",
+   "duracion": 106
+  },
+  {
+   "id": "la-odisea",
+   "titulo": "La Odisea"
+  },
+  {
+   "id": "la-oveja-shaun-mision-calabaza",
+   "titulo": "La oveja Shaun: Misión calabaza"
+  },
+  {
+   "id": "la-violinista",
+   "titulo": "La violinista",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83ef9e32730cf973d20f0186496d1d1dd4e671e8d58f4d1d940ad1b299.jpg",
+   "duracion": 109
+  },
+  {
+   "id": "leviticus",
+   "titulo": "Leviticus",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83f915849a29ed8d5bac27efdfc140c03ab35e3f58b3d55b7c31fe1a4e.jpg",
+   "duracion": 88
+  },
+  {
+   "id": "los-juegos-del-hambre-amanecer-en-la-cosecha",
+   "titulo": "Los Juegos del Hambre: Amanecer en la Cosecha",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/losjuegos.jpg",
+   "duracion": 157
+  },
+  {
+   "id": "los-miserables",
+   "titulo": "Los miserables",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa837b0b3fc43e289a230abcac5141e1b0af86e1dbc68ae03c9321c0e805.jpg",
+   "duracion": 178
+  },
+  {
+   "id": "naza",
+   "titulo": "Naza",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa839f49a928edf70529a7dec2d9c2fe80bdcbbf3f05d20a7955536f6e29.jpg",
+   "duracion": 77
+  },
+  {
+   "id": "peppa-pig-diversion-navidena-con-peppa",
+   "titulo": "Peppa pig: diversión navideña con Peppa",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004sv.jpg",
+   "duracion": 60
+  },
+  {
+   "id": "ratones-al-ataque-operacion-navidad",
+   "titulo": "Ratones al ataque: Operación Navidad",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004sq.jpg",
+   "duracion": 80
+  },
+  {
+   "id": "ruega-por-nosotras",
+   "titulo": "Ruega por nosotras",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa832dd89fb595e81297ccc3ce69d983d06280c57cd1e36185404b19dbf2.jpg",
+   "duracion": 136
+  },
+  {
+   "id": "sacamantecas",
+   "titulo": "Sacamantecas",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg",
+   "duracion": 109
+  },
+  {
+   "id": "scrooge-y-los-fantasmas-de-la-navidad",
+   "titulo": "Scrooge y los fantasmas de la Navidad",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004st.jpg",
+   "duracion": 115
+  },
+  {
+   "id": "scrooge-y-los-fantasmas-de-la-navidad-crochet-cine",
+   "titulo": "Scrooge y los fantasmas de la navidad - Crochet & Cine"
+  },
+  {
+   "id": "sentido-y-sensibilidad",
+   "titulo": "Sentido y sensibilidad",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83e9a608e8f5d4a82598b7cb63667af13fe2853de34387ca9fc7961cca.jpg",
+   "duracion": 132
+  },
+  {
+   "id": "superthings-la-pelicula",
+   "titulo": "Superthings: La película",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004rh.jpg",
+   "duracion": 93
+  },
+  {
+   "id": "tiempos-de-ilusion",
+   "titulo": "Tiempos de ilusión",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa8345521d25e2a4480ad1250167ef633067346b55bfb75f7f7945aa6b35.jpg",
+   "duracion": 119
+  },
+  {
+   "id": "victorian-psycho",
+   "titulo": "Victorian Psycho",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/victorian-psycho-110308.jpg",
+   "duracion": 102
+  },
+  {
+   "id": "washington-el-origen-de-un-lider",
+   "titulo": "Washington. El origen de un líder"
+  },
+  {
+   "id": "wicker",
+   "titulo": "Wicker",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83d5bf4e792081a9ede9e980410467ef4083dfe33e70be35d5e3a7576e.jpg",
+   "duracion": 105
+  },
+  {
+   "id": "wild-horse-nine",
+   "titulo": "Wild horse nine",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83cf2bcb9a69c605ec76c37dc25ad047a0dcc02dc5560e90e75a7b97ae.jpg",
+   "duracion": 116
+  },
+  {
+   "id": "wildwood",
+   "titulo": "Wildwood",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa838e0144d155325222ca263ff7760db4e399771e06a80fceb4b260eac8.jpg",
+   "duracion": 132
+  },
+  {
+   "id": "wildwood-el-bosque-salvaje",
+   "titulo": "Wildwood (El bosque salvaje)",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/wildwood-el-bosque-salvaje-110287.jpg",
+   "duracion": 140
+  },
+  {
+   "id": "erase-una-vez-en-hollywood-wilder-cinema",
+   "titulo": "Érase una vez en... Hollywood [wilder cinema]",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83211e6b45afeb3871476128871fa1c8581ece600c5b895982d877ca02.jpg",
+   "duracion": 161
+  }
+ ]
+}
