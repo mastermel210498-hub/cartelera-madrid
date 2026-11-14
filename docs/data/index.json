@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-14T13:52",
+ "generado": "2026-11-14T14:10",
  "dias": [
   "2026-11-14",
   "2026-11-15",
@@ -20,33 +20,33 @@
    "ok": false,
    "sesiones": 0,
    "error": "0 sesiones",
-   "segundos": 0.2
+   "segundos": 0.3
   },
   "Renoir": {
    "ok": true,
    "sesiones": 432,
-   "segundos": 3.0
+   "segundos": 3.8
   },
   "MK2": {
    "ok": true,
    "sesiones": 312,
-   "segundos": 4.6
+   "segundos": 4.2
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 18,
-   "segundos": 7.4
+   "sesiones": 129,
+   "segundos": 9.3
+  },
+  "Ocine": {
+   "ok": true,
+   "sesiones": 766,
+   "segundos": 173.3
   },
   "Cinesa": {
    "ok": false,
    "sesiones": 0,
    "error": "0 sesiones",
-   "segundos": 267.4
-  },
-  "Ocine": {
-   "ok": true,
-   "sesiones": 14,
-   "segundos": 407.6
+   "segundos": 269.0
   }
  },
  "cines": [
@@ -119,14 +119,40 @@
    "nombre": "Ocine Quadernillos (Alcalá)",
    "cadena": "Ocine",
    "web": "https://www.ocinequadernillos.es/"
+  },
+  {
+   "id": "ocine-plaza-eboli",
+   "nombre": "Ocine Plaza Éboli (Pinto)",
+   "cadena": "Ocine",
+   "lat": 40.240284,
+   "lon": -3.68965,
+   "web": "https://www.ocineplazaeboli.es/"
   }
  ],
  "peliculas": [
+  {
+   "id": "a-new-dawn",
+   "titulo": "A New Dawn",
+   "poster": "https://www.bizcochito.es/img/tt32192760-es-pos.webp",
+   "duracion": 76
+  },
   {
    "id": "arriba-tutto",
    "titulo": "Arriba tutto",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/arriba-tutto-poster-ig-1080x1350-2.jpg",
    "duracion": 102
+  },
+  {
+   "id": "caravaggio",
+   "titulo": "Caravaggio",
+   "poster": "https://www.bizcochito.es/img/tt38351366-es-pos.webp",
+   "duracion": 100
+  },
+  {
+   "id": "cecilia-una-luz-de-manana",
+   "titulo": "Cecilia, una luz de mañana",
+   "poster": "https://www.bizcochito.es/img/tt41103037-es-pos.webp",
+   "duracion": 87
   },
   {
    "id": "chopin",
@@ -139,6 +165,12 @@
    "titulo": "Clayface",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/clayface-110107.jpg",
    "duracion": 108
+  },
+  {
+   "id": "club-kid",
+   "titulo": "Club Kid",
+   "poster": "https://www.bizcochito.es/img/tt38058097-es-pos.webp",
+   "duracion": 121
   },
   {
    "id": "clasicos-al-detalle-taller-de-analisis-filmico-y-metacine-sobre-profecia-renoir",
@@ -163,6 +195,24 @@
    "titulo": "Digger",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa836c08c9846a4787d9dd4ce85cb5f3168a5acfec3dd749f3a3ba224764.jpg",
    "duracion": 128
+  },
+  {
+   "id": "diversion-navidena-con-peppa-la-experiencia-en-cines",
+   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines",
+   "poster": "https://www.bizcochito.es/img/tt115317-es-pos.webp",
+   "duracion": 60
+  },
+  {
+   "id": "el-cielo-es-para-siempre",
+   "titulo": "El cielo es para siempre",
+   "poster": "https://www.bizcochito.es/img/tt116868-es-pos.webp",
+   "duracion": 79
+  },
+  {
+   "id": "el-extranjero",
+   "titulo": "El extranjero",
+   "poster": "https://www.bizcochito.es/img/tt0062310-es-pos.webp",
+   "duracion": 104
   },
   {
    "id": "el-gato-con-sombrero",
@@ -193,6 +243,10 @@
    "titulo": "El ser querido",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83084baf1795c0a42266f525b1c5839e2a1986a1807ecace9a9e66cbdb.jpg",
    "duracion": 135
+  },
+  {
+   "id": "en-el-corazon-de-la-bestia",
+   "titulo": "En el corazón de la bestia"
   },
   {
    "id": "esta-soledad",
@@ -235,14 +289,24 @@
    "titulo": "La Odisea"
   },
   {
+   "id": "la-otra-madre",
+   "titulo": "La otra madre"
+  },
+  {
    "id": "la-oveja-shaun-mision-calabaza",
-   "titulo": "La oveja Shaun: Misión calabaza"
+   "titulo": "La oveja shaun. Misión calabaza",
+   "poster": "https://www.bizcochito.es/img/tt36841161-es-pos.webp",
+   "duracion": 91
   },
   {
    "id": "la-violinista",
    "titulo": "La violinista",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83ef9e32730cf973d20f0186496d1d1dd4e671e8d58f4d1d940ad1b299.jpg",
    "duracion": 109
+  },
+  {
+   "id": "leones-en-invierno",
+   "titulo": "Leones en Invierno"
   },
   {
    "id": "leviticus",
@@ -263,6 +327,10 @@
    "duracion": 178
   },
   {
+   "id": "los-rivales-de-amziah-king",
+   "titulo": "Los rivales de Amziah King"
+  },
+  {
    "id": "naza",
    "titulo": "Naza",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa839f49a928edf70529a7dec2d9c2fe80bdcbbf3f05d20a7955536f6e29.jpg",
@@ -275,10 +343,24 @@
    "duracion": 60
   },
   {
+   "id": "ramayana-el-nacimiento-de-una-leyenda",
+   "titulo": "Ramayana: El nacimiento de una leyenda"
+  },
+  {
    "id": "ratones-al-ataque-operacion-navidad",
    "titulo": "Ratones al ataque: Operación Navidad",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004sq.jpg",
    "duracion": 80
+  },
+  {
+   "id": "resident-evil",
+   "titulo": "Resident Evil"
+  },
+  {
+   "id": "rigoletto-festival-arena-at-st-margarethen",
+   "titulo": "Rigoletto (Festival Arena at St. Margarethen)",
+   "poster": "https://www.bizcochito.es/img/tt99470-es-pos.webp",
+   "duracion": 120
   },
   {
    "id": "ruega-por-nosotras",
@@ -294,7 +376,7 @@
   },
   {
    "id": "scrooge-y-los-fantasmas-de-la-navidad",
-   "titulo": "Scrooge y los fantasmas de la Navidad",
+   "titulo": "Scrooge y los fantasmas de la navidad",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004st.jpg",
    "duracion": 115
   },
@@ -309,10 +391,20 @@
    "duracion": 132
   },
   {
+   "id": "sesion-de-cortometrajes-terror-2026",
+   "titulo": "Sesión de Cortometrajes - Terror 2026",
+   "poster": "https://www.bizcochito.es/img/tt116338-es-pos.webp",
+   "duracion": 75
+  },
+  {
    "id": "superthings-la-pelicula",
    "titulo": "Superthings: La película",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004rh.jpg",
    "duracion": 93
+  },
+  {
+   "id": "tadeo-jones-y-la-lampara-maravillosa",
+   "titulo": "Tadeo Jones y la lámpara maravillosa"
   },
   {
    "id": "tiempos-de-ilusion",
@@ -328,7 +420,9 @@
   },
   {
    "id": "washington-el-origen-de-un-lider",
-   "titulo": "Washington. El origen de un líder"
+   "titulo": "Washington. El origen de un líder",
+   "poster": "https://www.bizcochito.es/img/tt32104007-es-pos.webp",
+   "duracion": 125
   },
   {
    "id": "wicker",
@@ -338,7 +432,7 @@
   },
   {
    "id": "wild-horse-nine",
-   "titulo": "Wild horse nine",
+   "titulo": "Wild Horse Nine",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83cf2bcb9a69c605ec76c37dc25ad047a0dcc02dc5560e90e75a7b97ae.jpg",
    "duracion": 116
   },
@@ -353,6 +447,10 @@
    "titulo": "Wildwood (El bosque salvaje)",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/wildwood-el-bosque-salvaje-110287.jpg",
    "duracion": 140
+  },
+  {
+   "id": "me-entiendes-o-te-lo-explico",
+   "titulo": "¿Me entiendes o te lo explico?"
   },
   {
    "id": "erase-una-vez-en-hollywood-wilder-cinema",
