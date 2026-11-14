@@ -60,6 +60,7 @@ jobs:
           TZ: Europe/Madrid
           PYTHONUNBUFFERED: "1"
         run: |
+          set -o pipefail
           CADENAS="${{ github.event.inputs.cadenas }}"
           python -m cartelera \
             ${CADENAS:+-c "$CADENAS"} \
