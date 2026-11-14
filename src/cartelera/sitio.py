@@ -33,11 +33,12 @@ def e(s: object) -> str:
 
 
 def cfg() -> dict:
+    # `or`: en Actions una variable no definida llega como cadena vacía, no como ausente
     return {
-        "dominio": os.getenv("SITIO_DOMINIO", "carteleramadrid.es"),
-        "adsense": os.getenv("ADSENSE_CLIENT", "").strip(),
-        "titular": os.getenv("SITIO_TITULAR", "[TITULAR]"),
-        "contacto": os.getenv("SITIO_CONTACTO", "[EMAIL DE CONTACTO]"),
+        "dominio": os.getenv("SITIO_DOMINIO") or "carteleramadrid.es",
+        "adsense": (os.getenv("ADSENSE_CLIENT") or "").strip(),
+        "titular": os.getenv("SITIO_TITULAR") or "[TITULAR]",
+        "contacto": os.getenv("SITIO_CONTACTO") or "[EMAIL DE CONTACTO]",
     }
 
 
@@ -48,12 +49,12 @@ def fecha_larga(iso: str) -> str:
 
 # --------------------------------------------------------------------------- plantilla
 def pagina(c: dict, titulo: str, descripcion: str, cuerpo: str, ruta: str,
-           jsonld: dict | None = None, raiz: str = "../../") -> str:
+           jsonld: dict | None = None, raiz: str = "../../", anuncios: bool = True) -> str:
     url = f"https://{c['dominio']}/{ruta}"
     ads = (
         f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
         f'?client={e(c["adsense"])}" crossorigin="anonymous"></script>'
-        if c["adsense"] else ""
+        if c["adsense"] and anuncios else ""
     )
     ld = (f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>'
           if jsonld else "")
@@ -89,7 +90,8 @@ def pagina(c: dict, titulo: str, descripcion: str, cuerpo: str, ruta: str,
 
 def pie(raiz: str) -> str:
     return f"""<footer class="muted pie">
-<nav><a href="{raiz}">Cartelera</a> · <a href="{raiz}sobre/">Sobre el proyecto</a> ·
+<nav><a href="{raiz}">Cartelera</a> · <a href="{raiz}vose/">Cine en VOSE</a> ·
+<a href="{raiz}especiales/">Sesiones especiales</a> · <a href="{raiz}sobre/">Sobre el proyecto</a> ·
 <a href="{raiz}aviso-legal/">Aviso legal</a> · <a href="{raiz}privacidad/">Privacidad</a> ·
 <a href="{raiz}cookies/">Cookies</a></nav>
 <p>Horarios obtenidos de las webs públicas de cada cine. Pueden cambiar: confirma siempre en la web del cine.</p>
@@ -206,8 +208,95 @@ def generar(docs: Path) -> dict:
         out = docs / "cine" / cid
         out.mkdir(parents=True, exist_ok=True)
         (out / "index.html").write_text(
-            pagina(c, f"{cine['nombre']} — cartelera y horarios", desc, cuerpo, f"cine/{cid}/", ld), "utf-8")
+            pagina(c, f"{cine['nombre']} — cartelera y horarios", desc, cuerpo, f"cine/{cid}/", ld,
+                   anuncios=bool(porDia) and not cine.get("enlace")), "utf-8")
         urls.append(f"cine/{cid}/")
+
+    # ---- páginas temáticas (contenido propio: agregación que ninguna cadena ofrece)
+    def listado_tematico(filtro) -> tuple[str, int, int]:
+        bloques, n_ses, pel_set = [], 0, set()
+        for d in dias:
+            filas = []
+            for pid in sorted(por_peli, key=lambda x: pelis[x]["titulo"].lower()):
+                por_c = {cid: [s for s in ss if filtro(s)] for cid, ss in por_peli[pid].get(d, {}).items()}
+                por_c = {k: v for k, v in por_c.items() if v}
+                if not por_c:
+                    continue
+                pel_set.add(pid)
+                n_ses += sum(len(v) for v in por_c.values())
+                cines_txt = "".join(
+                    f'<div class="grupo"><div class="quien"><a href="../cine/{e(cid)}/">{e(cines[cid]["nombre"])}</a></div>'
+                    f'<div class="pases">{pases_html(ss)}</div></div>'
+                    for cid, ss in sorted(por_c.items(), key=lambda kv: cines[kv[0]]["nombre"]))
+                filas.append(f'<h4><a href="../pelicula/{e(pid)}/">{e(pelis[pid]["titulo"])}</a></h4>{cines_txt}')
+            if filas:
+                bloques.append(f"<section><h3>{e(fecha_larga(d)).capitalize()}</h3>{''.join(filas)}</section>")
+        return "".join(bloques), n_ses, len(pel_set)
+
+    vose_html, n_vose, p_vose = listado_tematico(lambda s: s.get("v") in ("VOSE", "VO"))
+    esp_html, n_esp, p_esp = listado_tematico(lambda s: bool(s.get("e")))
+    tipos = sorted({t for d in por_peli.values() for dd in d.values() for ss in dd.values()
+                    for s in ss for t in s.get("e", [])})
+    tematicas = {
+        "vose": (
+            "Cine en VOSE en Madrid esta semana: horarios en versión original",
+            f"{p_vose} películas y {n_vose} sesiones en versión original subtitulada en cines de Madrid esta semana.",
+            f"""<h2>Cine en VOSE en Madrid esta semana</h2>
+<p>Todas las sesiones en <strong>versión original subtitulada</strong> que hemos encontrado en los cines de Madrid
+para los próximos días, agrupadas por día y película: {p_vose} películas y {n_vose} pases. Ideal si buscas ver una
+película con su audio original sin tener que mirar cine por cine.</p>
+<p>¿Prefieres filtrar por hora, por cine o por cercanía? Usa la <a href="../#vose=1">cartelera interactiva con el
+filtro «Sólo VOSE/VO»</a>.</p>{vose_html or "<p>No hay sesiones en VOSE estos días.</p>"}""",
+            n_vose > 0,
+        ),
+        "especiales": (
+            "Sesiones especiales de cine en Madrid: coloquios, sesiones con bebés, ciclos, ópera y ballet",
+            f"{n_esp} sesiones especiales esta semana en cines de Madrid: coloquios, sesiones TETA con bebés, ciclos, ópera, ballet y más.",
+            f"""<h2>Sesiones especiales de cine en Madrid</h2>
+<p>No todo es cartelera: esta semana hay <strong>{n_esp} sesiones especiales</strong> en cines de Madrid. Aquí las
+reunimos todas: {e(", ".join(tipos)) or "—"}.</p>
+<ul class="glosario">
+<li><strong>Sesión TETA (con bebés):</strong> pases pensados para ir con bebés, con luz tenue y volumen más bajo.</li>
+<li><strong>Coloquio / Encuentro / Presentación:</strong> el equipo de la película o invitados hablan con el público antes o después del pase.</li>
+<li><strong>Ciclo:</strong> programación temática del cine (retrospectivas, clásicos, cine de autor).</li>
+<li><strong>Ópera, zarzuela y ballet:</strong> retransmisiones o grabaciones de grandes teatros en pantalla grande.</li>
+</ul>{esp_html or "<p>No hay sesiones especiales estos días.</p>"}""",
+            n_esp > 0,
+        ),
+    }
+    for ruta, (titulo, desc, cuerpo, con_ads) in tematicas.items():
+        out = docs / ruta
+        out.mkdir(parents=True, exist_ok=True)
+        (out / "index.html").write_text(
+            pagina(c, titulo, desc, f'<article class="card ficha"><div>{cuerpo}</div></article>',
+                   f"{ruta}/", raiz="../", anuncios=con_ads), "utf-8")
+        urls.append(f"{ruta}/")
+
+    # ---- portada prerenderizada: lo que ve Google (y quien no tenga JS) antes de que pinte la app
+    hoy_d = dias[0] if dias else None
+    if hoy_d:
+        items = []
+        for pid in sorted(por_peli, key=lambda x: -sum(len(v) for v in por_peli[x].get(hoy_d, {}).values())):
+            dia = por_peli[pid].get(hoy_d)
+            if not dia:
+                continue
+            ncin = len(dia)
+            nses = sum(len(v) for v in dia.values())
+            primeras = sorted({s["t"][11:16] for v in dia.values() for s in v})[:6]
+            items.append(
+                f'<li><a href="pelicula/{e(pid)}/">{e(pelis[pid]["titulo"])}</a> — {ncin} cine{"s" if ncin > 1 else ""}, '
+                f'{nses} sesiones ({", ".join(primeras)}…)</li>')
+        pre = (f'<article class="card sin-poster prerender"><div><h2>Cartelera de Madrid para {e(fecha_larga(hoy_d))}</h2>'
+               f'<p>{len(items)} películas en {len({cid for p in por_peli.values() for cid in p.get(hoy_d, {})})} cines. '
+               f'Consulta también el <a href="vose/">cine en VOSE</a> y las <a href="especiales/">sesiones especiales</a>.</p>'
+               f'<ul class="lista-pre">{"".join(items)}</ul></div></article>')
+        idx_html = docs / "index.html"
+        if idx_html.exists():
+            import re as _re
+            t = idx_html.read_text("utf-8")
+            t = _re.sub(r"<!--PRERENDER-->.*?<!--/PRERENDER-->", lambda m: f"<!--PRERENDER-->{pre}<!--/PRERENDER-->",
+                        t, flags=_re.S)
+            idx_html.write_text(t, "utf-8")
 
     # ---- páginas fijas
     for ruta, (titulo, cuerpo) in paginas_fijas(c).items():
@@ -215,7 +304,7 @@ def generar(docs: Path) -> dict:
         out.mkdir(parents=True, exist_ok=True)
         (out / "index.html").write_text(
             pagina(c, titulo, titulo, f'<article class="card ficha legal"><div>{cuerpo}</div></article>',
-                   f"{ruta}/", raiz="../"), "utf-8")
+                   f"{ruta}/", raiz="../", anuncios=(ruta == "sobre")), "utf-8")
         urls.append(f"{ruta}/")
 
     # ---- sitemap, robots, ads.txt

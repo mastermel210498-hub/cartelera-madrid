@@ -11,6 +11,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sitio.css" />
 </head>
 <body>
   <header class="top">
@@ -42,7 +43,7 @@
   </section>
 
   <main class="layout">
-    <section id="resultados" class="resultados" aria-live="polite"></section>
+    <section id="resultados" class="resultados" aria-live="polite"><!--PRERENDER--><!--/PRERENDER--></section>
     <aside class="lateral">
       <div id="map" class="mapa" aria-label="Mapa de cines"></div>
       <button id="cerca" class="secundario">📍 Ordenar cines por cercanía</button>
@@ -65,7 +66,8 @@
   </main>
 
   <footer class="muted pie">
-    <nav><a href="sobre/">Sobre el proyecto</a> · <a href="aviso-legal/">Aviso legal</a> ·
+    <nav><a href="vose/">Cine en VOSE</a> · <a href="especiales/">Sesiones especiales</a> ·
+      <a href="sobre/">Sobre el proyecto</a> · <a href="aviso-legal/">Aviso legal</a> ·
       <a href="privacidad/">Privacidad</a> · <a href="cookies/">Cookies</a></nav>
     <p>Horarios obtenidos de las webs públicas de cada cine. Pueden cambiar: confirma siempre en la web del cine.</p>
   </footer>

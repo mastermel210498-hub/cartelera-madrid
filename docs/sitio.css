@@ -12,3 +12,9 @@
 .volver { margin-top: 1.2rem; }
 .pie nav { margin-bottom: .4rem; }
 @media (max-width: 700px) { .ficha { grid-template-columns: 1fr; } .poster.grande { width: 140px; } }
+.ficha h4 { margin: .8rem 0 .2rem; font-size: .95rem; }
+.ficha h4 a { color: var(--txt); }
+.glosario li { margin: .3rem 0; }
+.lista-pre { columns: 2; gap: 2rem; padding-left: 1.1rem; }
+.lista-pre a { color: var(--accent-2); }
+@media (max-width: 700px) { .lista-pre { columns: 1; } }

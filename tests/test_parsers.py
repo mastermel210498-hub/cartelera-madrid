@@ -210,3 +210,30 @@ def test_sitio_genera_paginas(tmp_path, monkeypatch):
     assert "pub-1234567890, DIRECT" in (tmp_path / "ads.txt").read_text()
     assert "/pelicula/wild-horse-nine/" in (tmp_path / "sitemap.xml").read_text()
     assert _j.loads((tmp_path / "data" / "sitio.json").read_text())["adsense"] == "ca-pub-1234567890"
+
+
+def test_tematicas_prerender_y_sin_anuncios_en_legales(tmp_path, monkeypatch):
+    import shutil as _sh
+
+    from cartelera.models import Sesion
+    from cartelera.pipeline import Resultado, escribir
+    from cartelera.sitio import generar
+
+    monkeypatch.setenv("ADSENSE_CLIENT", "ca-pub-1")
+    _sh.copy(Path(__file__).parent.parent / "docs" / "index.html", tmp_path / "index.html")
+    h = date.today()
+    r = Resultado(sesiones=[
+        Sesion(cine_id="verdi-madrid", titulo="Hamnet", inicio=datetime(h.year, h.month, h.day, 23, 0),
+               version="VOSE"),
+        Sesion(cine_id="renoir-retiro", titulo="El mal padre + coloquio", inicio=datetime(h.year, h.month, h.day, 23, 30)),
+    ], estado={})
+    escribir(r, tmp_path / "data")
+    generar(tmp_path)
+    vose = (tmp_path / "vose" / "index.html").read_text()
+    assert "Hamnet" in vose and "El mal padre" not in vose and "adsbygoogle" in vose
+    esp = (tmp_path / "especiales" / "index.html").read_text()
+    assert "El mal padre" in esp and "Coloquio" in esp
+    assert "adsbygoogle" not in (tmp_path / "aviso-legal" / "index.html").read_text()
+    assert "adsbygoogle" not in (tmp_path / "cine" / "cinesa-proyecciones" / "index.html").read_text()
+    portada = (tmp_path / "index.html").read_text()
+    assert 'href="pelicula/hamnet/"' in portada and "<!--/PRERENDER-->" in portada
