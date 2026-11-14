@@ -27,22 +27,22 @@ concurrency:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with: { python-version: "3.12", cache: pip }
       - run: pip install -e ".[dev]"
       - run: pytest -q
 
   scrape:
     needs: tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with: { python-version: "3.12", cache: pip }
 
       - name: Instalar
@@ -50,9 +50,15 @@ jobs:
           pip install -e ".[browser]"
           python -m playwright install --with-deps chromium
 
+      - name: Comprobar instalación
+        run: |
+          python --version
+          python -c "import cartelera, httpx, playwright, bs4, lxml, pydantic; print('imports OK', cartelera.__version__)"
+
       - name: Scrapear
         env:
           TZ: Europe/Madrid
+          PYTHONUNBUFFERED: "1"
         run: |
           CADENAS="${{ github.event.inputs.cadenas }}"
           python -m cartelera \
@@ -60,13 +66,34 @@ jobs:
             -d "${{ github.event.inputs.dias || '7' }}" \
             -o docs/data \
             --debug-html debug/ \
-            --check || echo "ALGUNA_CADENA_FALLO=1" >> "$GITHUB_ENV"
+            --check 2>&1 | tee scrape.log || echo "ALGUNA_CADENA_FALLO=1" >> "$GITHUB_ENV"
+
+      # Resumen visible en la página pública del run (sin iniciar sesión)
+      - name: Resumen
+        if: always()
+        run: |
+          {
+            echo "## Cartelera — resultado"
+            if [ -f docs/data/index.json ]; then
+              echo '```json'
+              python -c "import json;print(json.dumps(json.load(open('docs/data/index.json'))['estado'],ensure_ascii=False,indent=1))"
+              echo '```'
+            fi
+            echo "### Últimas líneas del log"
+            echo '```'
+            tail -n 80 scrape.log 2>/dev/null || echo "(sin log)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          # También como anotaciones (se ven en la cabecera del run)
+          grep -E "Traceback|Error|falló|WARNING" scrape.log 2>/dev/null | tail -n 15 | while IFS= read -r l; do
+            echo "::warning::${l:0:300}"
+          done || true
 
       # El HTML descargado se guarda 7 días: si una cadena falla, bájatelo desde la
       # página del run y úsalo como fixture para arreglar el parser.
       - name: Guardar HTML de depuración
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: debug-html
           path: debug/
