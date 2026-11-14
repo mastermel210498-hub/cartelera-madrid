@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-14T14:10",
+ "generado": "2026-11-14T14:26",
  "dias": [
   "2026-11-14",
   "2026-11-15",
@@ -10,43 +10,25 @@
   "2026-11-20"
  ],
  "estado": {
-  "Kinépolis": {
-   "ok": false,
-   "sesiones": 0,
-   "error": "FetchError('No pude descargar https://kinepolis.es/?main_section=hoy: HTTP 403')",
-   "segundos": 0.1
-  },
-  "Odeon": {
-   "ok": false,
-   "sesiones": 0,
-   "error": "0 sesiones",
-   "segundos": 0.3
+  "MK2": {
+   "ok": true,
+   "sesiones": 312,
+   "segundos": 2.5
   },
   "Renoir": {
    "ok": true,
    "sesiones": 432,
-   "segundos": 3.8
-  },
-  "MK2": {
-   "ok": true,
-   "sesiones": 312,
-   "segundos": 4.2
+   "segundos": 2.7
   },
   "Verdi": {
    "ok": true,
    "sesiones": 129,
-   "segundos": 9.3
+   "segundos": 5.0
   },
   "Ocine": {
    "ok": true,
    "sesiones": 766,
-   "segundos": 173.3
-  },
-  "Cinesa": {
-   "ok": false,
-   "sesiones": 0,
-   "error": "0 sesiones",
-   "segundos": 269.0
+   "segundos": 170.3
   }
  },
  "cines": [
@@ -127,6 +109,200 @@
    "lat": 40.240284,
    "lon": -3.68965,
    "web": "https://www.ocineplazaeboli.es/"
+  },
+  {
+   "id": "odeon-alcala-norte",
+   "nombre": "Odeon Alcalá Norte",
+   "cadena": "Odeon",
+   "lat": 40.437118,
+   "lon": -3.638281,
+   "web": "https://odeonmulticines.com/odeon-alcala-norte",
+   "enlace": true
+  },
+  {
+   "id": "odeon-sambil",
+   "nombre": "Odeon Sambil",
+   "cadena": "Odeon",
+   "lat": 40.359829,
+   "lon": -3.7765,
+   "web": "https://odeonmulticines.com/odeon-sambil",
+   "enlace": true
+  },
+  {
+   "id": "odeon-gran-plaza-2",
+   "nombre": "Odeon Gran Plaza 2",
+   "cadena": "Odeon",
+   "lat": 40.491032,
+   "lon": -3.896931,
+   "web": "https://odeonmulticines.com/odeon-gran-plaza-2",
+   "enlace": true
+  },
+  {
+   "id": "odeon-tres-cantos",
+   "nombre": "Odeon Tres Cantos",
+   "cadena": "Odeon",
+   "lat": 40.599904,
+   "lon": -3.708621,
+   "web": "https://odeonmulticines.com/odeon-tres-cantos",
+   "enlace": true
+  },
+  {
+   "id": "kinepolis-ciudad-de-la-imagen",
+   "nombre": "Kinépolis Ciudad de la Imagen",
+   "cadena": "Kinépolis",
+   "lat": 40.393971,
+   "lon": -3.796443,
+   "web": "https://kinepolis.es/movies/overview/?complex=KMAD",
+   "enlace": true
+  },
+  {
+   "id": "kinepolis-diversia",
+   "nombre": "Kinépolis Diversia",
+   "cadena": "Kinépolis",
+   "lat": 40.530245,
+   "lon": -3.639238,
+   "web": "https://kinepolis.es/movies/overview/?complex=KALCO",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-equinoccio",
+   "nombre": "Cinesa Equinoccio",
+   "cadena": "Cinesa",
+   "lat": 40.455019,
+   "lon": -3.873877,
+   "web": "https://www.cinesa.es/cines/equinoccio/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-xanadu",
+   "nombre": "Cinesa Xanadú",
+   "cadena": "Cinesa",
+   "lat": 40.300321,
+   "lon": -3.92288,
+   "web": "https://www.cinesa.es/cines/xanadu/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-la-gavia",
+   "nombre": "Cinesa La Gavia",
+   "cadena": "Cinesa",
+   "lat": 40.368221,
+   "lon": -3.596682,
+   "web": "https://www.cinesa.es/cines/la-gavia/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-la-moraleja",
+   "nombre": "Cinesa La Moraleja",
+   "cadena": "Cinesa",
+   "lat": 40.518697,
+   "lon": -3.654512,
+   "web": "https://www.cinesa.es/cines/la-moraleja/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-las-rosas",
+   "nombre": "Cinesa Las Rosas",
+   "cadena": "Cinesa",
+   "lat": 40.418772,
+   "lon": -3.619492,
+   "web": "https://www.cinesa.es/cines/las-rosas/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-heron-city-las-rozas",
+   "nombre": "Cinesa Heron City Las Rozas",
+   "cadena": "Cinesa",
+   "lat": 40.515969,
+   "lon": -3.895843,
+   "web": "https://www.cinesa.es/cines/heron-city-las-rozas/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-plaza-loranca-2",
+   "nombre": "Cinesa Plaza Loranca 2",
+   "cadena": "Cinesa",
+   "lat": 40.303019,
+   "lon": -3.831457,
+   "web": "https://www.cinesa.es/cines/plaza-loranca-2/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-manoteras",
+   "nombre": "Cinesa Manoteras",
+   "cadena": "Cinesa",
+   "lat": 40.486224,
+   "lon": -3.664562,
+   "web": "https://www.cinesa.es/cines/manoteras/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-mendez-alvaro",
+   "nombre": "Cinesa Méndez Álvaro",
+   "cadena": "Cinesa",
+   "lat": 40.397282,
+   "lon": -3.673513,
+   "web": "https://www.cinesa.es/cines/mendez-alvaro/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-nassica",
+   "nombre": "Cinesa Nassica",
+   "cadena": "Cinesa",
+   "lat": 40.27314,
+   "lon": -3.695161,
+   "web": "https://www.cinesa.es/cines/nassica/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-oasiz",
+   "nombre": "Cinesa Oasiz",
+   "cadena": "Cinesa",
+   "lat": 40.472344,
+   "lon": -3.440985,
+   "web": "https://www.cinesa.es/cines/oasiz/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-parquesur",
+   "nombre": "Cinesa Parquesur",
+   "cadena": "Cinesa",
+   "lat": 40.338975,
+   "lon": -3.731113,
+   "web": "https://www.cinesa.es/cines/parquesur/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-proyecciones",
+   "nombre": "Cinesa Proyecciones",
+   "cadena": "Cinesa",
+   "lat": 40.431616,
+   "lon": -3.702536,
+   "web": "https://www.cinesa.es/cines/proyecciones/",
+   "enlace": true
+  },
+  {
+   "id": "cinesa-principe-pio",
+   "nombre": "Cinesa Príncipe Pío",
+   "cadena": "Cinesa",
+   "lat": 40.423054,
+   "lon": -3.720391,
+   "web": "https://www.cinesa.es/cines/principe-pio/",
+   "enlace": true
+  }
+ ],
+ "otras_cadenas": [
+  {
+   "cadena": "Cinesa",
+   "web": "https://www.cinesa.es/peliculas/"
+  },
+  {
+   "cadena": "Kinépolis",
+   "web": "https://kinepolis.es/"
+  },
+  {
+   "cadena": "Odeon",
+   "web": "https://odeonmulticines.com/"
   }
  ],
  "peliculas": [
