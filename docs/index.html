@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cartelera Madrid</title>
+  <meta name="description" content="Horarios de los cines de Madrid en una sola página: Cinesa, Kinépolis, Odeon, Renoir, Verdi, MK2 y Ocine." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="marca">
+      <h1>Cartelera Madrid</h1>
+      <p id="actualizado" class="muted">Cargando…</p>
+    </div>
+    <nav class="vista" role="tablist" aria-label="Vista">
+      <button role="tab" data-vista="peliculas" aria-selected="true">Películas</button>
+      <button role="tab" data-vista="cines" aria-selected="false">Cines</button>
+    </nav>
+  </header>
+
+  <section class="dias" id="dias" aria-label="Día"></section>
+
+  <section class="filtros" aria-label="Filtros">
+    <input id="q" type="search" placeholder="Buscar película…" autocomplete="off" />
+    <select id="cine" aria-label="Cine"><option value="">Todos los cines</option></select>
+    <div class="chips" id="cadenas" aria-label="Cadenas"></div>
+    <label class="toggle"><input type="checkbox" id="vose" /> Sólo VOSE/VO</label>
+    <label class="toggle"><input type="checkbox" id="pasadas" checked /> Ocultar pasadas</label>
+    <div class="horas" aria-label="Franja horaria">
+      <label>Desde <input type="range" id="desde" min="10" max="24" step="1" value="10" /></label>
+      <output id="franja">10:00 – 24:00</output>
+      <label>Hasta <input type="range" id="hasta" min="10" max="24" step="1" value="24" /></label>
+    </div>
+    <button id="limpiar" class="link">Limpiar</button>
+  </section>
+
+  <main class="layout">
+    <section id="resultados" class="resultados" aria-live="polite"></section>
+    <aside class="lateral">
+      <div id="map" class="mapa" aria-label="Mapa de cines"></div>
+      <button id="cerca" class="secundario">📍 Ordenar cines por cercanía</button>
+      <div id="estado" class="estado"></div>
+    </aside>
+  </main>
+
+  <footer class="muted">
+    Proyecto personal. Datos extraídos de las webs públicas de cada cadena; los horarios
+    pueden cambiar: confirma siempre en la web del cine.
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
