@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-15T13:46",
+ "generado": "2026-11-15T20:27",
  "dias": [
   "2026-11-15",
   "2026-11-16",
@@ -13,22 +13,22 @@
   "Renoir": {
    "ok": true,
    "sesiones": 358,
-   "segundos": 3.3
+   "segundos": 3.4
   },
   "MK2": {
    "ok": true,
-   "sesiones": 200,
-   "segundos": 3.8
+   "sesiones": 214,
+   "segundos": 3.9
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 108,
-   "segundos": 8.1
+   "sesiones": 98,
+   "segundos": 4.0
   },
   "Ocine": {
    "ok": true,
    "sesiones": 619,
-   "segundos": 156.8
+   "segundos": 158.3
   }
  },
  "cines": [
@@ -63,6 +63,14 @@
    "lat": 40.463319,
    "lon": -3.635767,
    "web": "https://www.mk2palaciodehielo.es/es/cartelera"
+  },
+  {
+   "id": "mk2-cine-paz",
+   "nombre": "MK2 Cine Paz",
+   "cadena": "MK2",
+   "lat": 40.430995,
+   "lon": -3.702535,
+   "web": "https://www.cinepazmadrid.es/es/cartelera"
   },
   {
    "id": "verdi-madrid",
@@ -306,7 +314,7 @@
   },
   {
    "id": "arriba-tutto",
-   "titulo": "Arriba Tutto",
+   "titulo": "Arriba tutto",
    "poster": "https://www.bizcochito.es/img/tt37676022-es-pos.webp",
    "duracion": 102
   },
@@ -454,9 +462,7 @@
   },
   {
    "id": "la-oveja-shaun-mision-calabaza",
-   "titulo": "La oveja shaun. Misión calabaza",
-   "poster": "https://www.bizcochito.es/img/tt36841161-es-pos.webp",
-   "duracion": 91
+   "titulo": "La oveja shaun. Misión calabaza"
   },
   {
    "id": "la-violinista",
@@ -526,7 +532,7 @@
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
-   "duracion": 105
+   "duracion": 109
   },
   {
    "id": "scrooge-y-los-fantasmas-de-la-navidad",
