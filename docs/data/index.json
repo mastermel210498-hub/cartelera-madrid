@@ -1,34 +1,34 @@
 {
- "generado": "2026-11-14T19:48",
+ "generado": "2026-11-15T13:46",
  "dias": [
-  "2026-11-14",
   "2026-11-15",
   "2026-11-16",
   "2026-11-17",
   "2026-11-18",
   "2026-11-19",
-  "2026-11-20"
+  "2026-11-20",
+  "2026-11-21"
  ],
  "estado": {
   "Renoir": {
    "ok": true,
-   "sesiones": 431,
-   "segundos": 4.3
+   "sesiones": 358,
+   "segundos": 3.3
   },
   "MK2": {
    "ok": true,
-   "sesiones": 279,
-   "segundos": 6.0
+   "sesiones": 200,
+   "segundos": 3.8
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 123,
-   "segundos": 12.3
+   "sesiones": 108,
+   "segundos": 8.1
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 758,
-   "segundos": 169.5
+   "sesiones": 619,
+   "segundos": 156.8
   }
  },
  "cines": [
@@ -63,14 +63,6 @@
    "lat": 40.463319,
    "lon": -3.635767,
    "web": "https://www.mk2palaciodehielo.es/es/cartelera"
-  },
-  {
-   "id": "mk2-cine-paz",
-   "nombre": "MK2 Cine Paz",
-   "cadena": "MK2",
-   "lat": 40.430995,
-   "lon": -3.702535,
-   "web": "https://www.cinepazmadrid.es/es/cartelera"
   },
   {
    "id": "verdi-madrid",
@@ -314,8 +306,8 @@
   },
   {
    "id": "arriba-tutto",
-   "titulo": "Arriba tutto",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/arriba-tutto-poster-ig-1080x1350-2.jpg",
+   "titulo": "Arriba Tutto",
+   "poster": "https://www.bizcochito.es/img/tt37676022-es-pos.webp",
    "duracion": 102
   },
   {
@@ -525,12 +517,6 @@
    "titulo": "Resident Evil"
   },
   {
-   "id": "rigoletto-festival-arena-at-st-margarethen",
-   "titulo": "Rigoletto (Festival Arena at St. Margarethen)",
-   "poster": "https://www.bizcochito.es/img/tt99470-es-pos.webp",
-   "duracion": 120
-  },
-  {
    "id": "ruega-por-nosotras",
    "titulo": "Ruega por nosotras",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa832dd89fb595e81297ccc3ce69d983d06280c57cd1e36185404b19dbf2.jpg",
@@ -540,7 +526,7 @@
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
-   "duracion": 109
+   "duracion": 105
   },
   {
    "id": "scrooge-y-los-fantasmas-de-la-navidad",
@@ -562,9 +548,7 @@
   },
   {
    "id": "superthings-la-pelicula",
-   "titulo": "Superthings: La película",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004rh.jpg",
-   "duracion": 93
+   "titulo": "Superthings: La película"
   },
   {
    "id": "tadeo-jones-y-la-lampara-maravillosa",
