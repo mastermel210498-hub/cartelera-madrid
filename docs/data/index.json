@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-16T09:10",
+ "generado": "2026-11-16T09:37",
  "dias": [
   "2026-11-16",
   "2026-11-17",
@@ -13,22 +13,22 @@
   "Renoir": {
    "ok": true,
    "sesiones": 285,
-   "segundos": 3.0
-  },
-  "MK2": {
-   "ok": true,
-   "sesiones": 201,
-   "segundos": 3.4
+   "segundos": 3.5
   },
   "Verdi": {
    "ok": true,
    "sesiones": 90,
-   "segundos": 3.4
+   "segundos": 3.5
+  },
+  "MK2": {
+   "ok": true,
+   "sesiones": 201,
+   "segundos": 4.2
   },
   "Ocine": {
    "ok": true,
    "sesiones": 534,
-   "segundos": 137.2
+   "segundos": 138.2
   }
  },
  "cines": [
