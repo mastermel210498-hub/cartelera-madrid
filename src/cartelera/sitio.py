@@ -373,6 +373,7 @@ esta semana, o usa la <a href="../../">cartelera interactiva</a> para ordenarlos
     # ---- estrenos de la semana (películas vistas por primera vez en los últimos 7 días)
     hace7 = (date.fromisoformat(hoy) - timedelta(days=7)).isoformat()
     arranque = (date.fromisoformat(meta["desde"]) + timedelta(days=3)).isoformat()  # evitar "todo es estreno" al empezar
+    # "estreno" = primera sesión vista en los últimos 7 días o más adelante esta semana
     nuevos = sorted((pid for pid, h in hist.items() if pid in por_peli and h["primera"] >= max(hace7, arranque)),
                     key=lambda pid: pelis[pid]["titulo"].lower())
     items = "".join(
@@ -381,7 +382,7 @@ esta semana, o usa la <a href="../../">cartelera interactiva</a> para ordenarlos
         for pid in nuevos)
     nav, bc = migas(c, [("Estrenos de la semana", "estrenos/")], "../")
     cuerpo = f"""{nav}<article class="card ficha"><div><h2>Estrenos de cine en Madrid esta semana</h2>
-<p>Películas que han llegado a los cines de Madrid en los últimos 7 días{f": {len(nuevos)} novedades" if nuevos else ""}.
+<p>Películas que llegan o han llegado esta semana a los cines de Madrid{f": {len(nuevos)} novedades" if nuevos else ""}.
 Entra en cada una para ver dónde y a qué hora se proyecta.</p>
 {f'<ul class="lista-cines">{items}</ul>' if nuevos else '<p>Esta semana todavía no hemos detectado estrenos. Vuelve en unos días o mira <a href="../">la cartelera de hoy</a>.</p>'}
 </div></article>"""

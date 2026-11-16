@@ -2,8 +2,11 @@ name: Actualizar cartelera
 
 on:
   schedule:
-    - cron: "17 5 * * *"    # 06:17 Madrid (invierno) / 07:17 (verano)
-    - cron: "17 13 * * *"   # repaso a mediodía (cambios de última hora)
+    # Horas en UTC. GitHub suele retrasar los crons (a veces horas), por eso se
+    # adelantan y hay tres: madrugada, mañana y tarde (hora Madrid en invierno).
+    - cron: "17 3 * * *"    # 04:17 Madrid → web fresca al despertar
+    - cron: "47 9 * * *"    # 10:47 Madrid → cambios de la mañana
+    - cron: "17 15 * * *"   # 16:17 Madrid → antes de las sesiones de tarde/noche
   workflow_dispatch:
     inputs:
       cadenas:
