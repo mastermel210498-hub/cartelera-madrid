@@ -47,7 +47,10 @@ def main(argv: list[str] | None = None) -> int:
 
     res = asyncio.run(ejecutar(cadenas, dias=args.dias, debug_dir=args.debug_html))
     index = escribir(res, args.out)
-    if args.out.name == "data":  # docs/data → generar también las páginas estáticas de docs/
+    if args.out.name == "data":  # docs/data → TMDB + páginas estáticas de docs/
+        from .tmdb import enriquecer
+
+        print("tmdb:", enriquecer(args.out))
         print("páginas:", generar(args.out.parent))
 
     print(json.dumps(index["estado"], ensure_ascii=False, indent=1))

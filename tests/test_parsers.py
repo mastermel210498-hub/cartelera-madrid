@@ -276,6 +276,58 @@ def test_seo_zonas_historico_estrenos_y_eventos(tmp_path, monkeypatch):
     ficha = (tmp_path / "pelicula" / "hamnet" / "index.html").read_text()
     assert '"@type": "ScreeningEvent"' in ficha and '"BreadcrumbList"' in ficha
     assert ("+01:00" in ficha) or ("+02:00" in ficha)
-    assert "/pelicula/vieja/" in (tmp_path / "sitemap.xml").read_text()
+    assert "/pelicula/vieja/" not in (tmp_path / "sitemap.xml").read_text()  # noindex
+    assert 'content="noindex, follow"' in vieja
+    assert 'noindex' in (tmp_path / "aviso-legal" / "index.html").read_text()
+    assert "/aviso-legal/" not in (tmp_path / "sitemap.xml").read_text()
+    assert 'noindex' not in ficha
     portada = (tmp_path / "index.html").read_text()
     assert '"@type": "ItemList"' in portada
+
+
+def test_tmdb_eleccion_y_ficha_sin_tocar_carteles(tmp_path):
+    import json as _j
+
+    from cartelera.models import Sesion
+    from cartelera.pipeline import Resultado, escribir
+    from cartelera.sitio import generar
+    from cartelera.tmdb import elegir, enriquecer
+
+    hoy = date(2026, 11, 16)
+    res = [
+        {"id": 1, "title": "Hamlet", "original_title": "Hamlet", "release_date": "1948-05-04", "popularity": 5},
+        {"id": 2, "title": "Hamnet", "original_title": "Hamnet", "release_date": "2026-01-09", "popularity": 80},
+        {"id": 3, "title": "Otra cosa", "original_title": "Nada", "release_date": "2026-01-09", "popularity": 900},
+    ]
+    assert elegir("HAMNET", res, hoy)["id"] == 2
+    assert elegir("Película inexistente", res, hoy) is None
+
+    class Resp:
+        def __init__(self, j): self._j = j
+        def raise_for_status(self): pass
+        def json(self): return self._j
+
+    class Cli:
+        def get(self, url, params=None):
+            if url == "/search/movie":
+                return Resp({"results": res})
+            return Resp({"id": 2, "title": "Hamnet", "original_title": "Hamnet", "overview": "Shakespeare y Agnes.",
+                         "genres": [{"name": "Drama"}], "release_date": "2026-01-09", "runtime": 125,
+                         "vote_average": 7.9, "vote_count": 500, "poster_path": "/p.jpg",
+                         "credits": {"crew": [{"job": "Director", "name": "Chloé Zhao"}],
+                                     "cast": [{"name": "Jessie Buckley", "order": 0}]}})
+
+    h = date.today()
+    r = Resultado(sesiones=[Sesion(cine_id="verdi-madrid", titulo="Hamnet", poster="https://cadena/p.jpg",
+                                   inicio=datetime(h.year, h.month, h.day, 23, 0))], estado={})
+    escribir(r, tmp_path / "data")
+    out = enriquecer(tmp_path / "data", token="x", cliente=Cli())
+    assert out["tmdb_con_ficha"] == 1
+    idx = _j.loads((tmp_path / "data" / "index.json").read_text())
+    assert idx["peliculas"][0]["poster"] == "https://cadena/p.jpg"  # el cartel NO cambia
+    generar(tmp_path)
+    ficha = (tmp_path / "pelicula" / "hamnet" / "index.html").read_text()
+    assert "Shakespeare y Agnes." in ficha and "Chloé Zhao" in ficha and "Jessie Buckley" in ficha
+    assert "image.tmdb.org" not in ficha and "no está respaldado ni certificado por TMDB" in ficha
+    # sin token: no rompe nada
+    assert enriquecer(tmp_path / "data", token="")["token"] is False

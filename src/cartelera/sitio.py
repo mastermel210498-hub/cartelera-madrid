@@ -90,7 +90,7 @@ def eventos_ld(ses: list[tuple[dict, dict, dict]], c: dict, limite: int = 60) ->
 
 def pagina(c: dict, titulo: str, descripcion: str, cuerpo: str, ruta: str,
            jsonld: dict | list | None = None, raiz: str = "../../", anuncios: bool = True,
-           imagen: str | None = None) -> str:
+           imagen: str | None = None, indexar: bool = True) -> str:
     url = f"https://{c['dominio']}/{ruta}"
     ads = (
         f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
@@ -111,6 +111,7 @@ def pagina(c: dict, titulo: str, descripcion: str, cuerpo: str, ruta: str,
 <title>{e(titulo)}</title>
 <meta name="description" content="{e(descripcion)}">
 <link rel="canonical" href="{e(url)}">
+{'' if indexar else '<meta name="robots" content="noindex, follow">'}
 <meta property="og:title" content="{e(titulo)}">
 <meta property="og:description" content="{e(descripcion)}">
 <meta property="og:url" content="{e(url)}">
@@ -145,6 +146,8 @@ def pie(raiz: str) -> str:
 <a href="{raiz}cookies/">Cookies</a></nav>
 <nav class="zonas">Cines por zona: {zonas_links(raiz)}</nav>
 <p>Horarios obtenidos de las webs públicas de cada cine. Pueden cambiar: confirma siempre en la web del cine.</p>
+<p class="tmdb">Sinopsis y fichas: <a href="https://www.themoviedb.org/" rel="noopener" target="_blank">TMDB</a>.
+Este producto usa la API de TMDB pero no está respaldado ni certificado por TMDB.</p>
 </footer>"""
 
 
@@ -179,6 +182,9 @@ def generar(docs: Path) -> dict:
     cines = {x["id"]: x for x in idx["cines"]}
     hoy = date.today().isoformat()
     dias = [d for d in idx["dias"] if d >= hoy][:7] or idx["dias"][-7:]
+    tmdb_f = data / "tmdb.json"
+    tmdb = json.loads(tmdb_f.read_text("utf-8")) if tmdb_f.exists() else {}
+    noindex: set[str] = set()
 
     por_peli: dict[str, dict[str, dict[str, list]]] = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
     por_cine: dict[str, dict[str, dict[str, list]]] = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
@@ -222,7 +228,9 @@ def generar(docs: Path) -> dict:
         p = pelis[pid]
         ncines = len({cid for d in porDia.values() for cid in d})
         nvose = sum(1 for d in porDia.values() for ss in d.values() for x in ss if x.get("v") in ("VOSE", "VO"))
-        desc = (f"Horarios de {p['titulo']} hoy en {ncines} cine{'s' if ncines > 1 else ''} de Madrid"
+        _t = tmdb.get(pid) or {}
+        _dir = f" de {_t['director'][0]}" if _t.get("director") else ""
+        desc = (f"Horarios de {p['titulo']}{_dir} hoy en {ncines} cine{'s' if ncines > 1 else ''} de Madrid"
                 f"{f' ({nvose} sesiones en VOSE)' if nvose else ''}: sesiones de esta semana, salas y "
                 f"enlace a la compra de entradas.")
         bloques = []
@@ -242,8 +250,31 @@ def generar(docs: Path) -> dict:
                                           f"{ncines} cines en Madrid",
                                           f"{nvose} sesiones en VOSE" if nvose else ""] if x)
         nav, bc = migas(c, [("Películas", ""), (p["titulo"], f"pelicula/{pid}/")], "../../")
+        t = tmdb.get(pid) or {}
+        info = ""
+        if t.get("id"):
+            datos = []
+            if t.get("director"):
+                datos.append(f"<dt>Dirección</dt><dd>{e(', '.join(t['director']))}</dd>")
+            if t.get("reparto"):
+                datos.append(f"<dt>Reparto</dt><dd>{e(', '.join(t['reparto']))}</dd>")
+            if t.get("generos"):
+                datos.append(f"<dt>Género</dt><dd>{e(', '.join(t['generos']))}</dd>")
+            if t.get("estreno"):
+                datos.append(f"<dt>Estreno</dt><dd>{e(t['estreno'][:4])}</dd>")
+            if t.get("original") and t["original"].lower() != p["titulo"].lower():
+                datos.append(f"<dt>Título original</dt><dd>{e(t['original'])}</dd>")
+            if t.get("nota"):
+                datos.append(f'<dt>Nota TMDB</dt><dd>{t["nota"]}/10</dd>')
+            sinopsis = f'<p class="sinopsis">{e(t["sinopsis"])}</p>' if t.get("sinopsis") else ""
+            info = (f'{sinopsis}<dl class="datos">{"".join(datos)}</dl>'
+                    f'<p class="fuente">Ficha: <a href="{e(t.get("url", ""))}" rel="noopener" target="_blank">TMDB</a></p>')
+            if not meta_txt.startswith(str(t.get("duracion", "x"))) and t.get("duracion") and not p.get("duracion"):
+                meta_txt = f"{t['duracion']} min · " + meta_txt
         cuerpo = f"""{nav}<article class="card ficha">{poster}<div>
 <h2>{e(p['titulo'])}: horarios en cines de Madrid</h2><p class="meta">{e(meta_txt)}</p>
+{info}
+<h3 class="titulo-horarios">Dónde verla en Madrid</h3>
 <p>Dónde ver <strong>{e(p['titulo'])}</strong> en Madrid hoy y esta semana. Pulsa una hora para ir a la compra de
 entradas en la web del cine.</p>
 {''.join(bloques)}
@@ -254,8 +285,19 @@ entradas en la web del cine.</p>
                  "url": f"https://{c['dominio']}/pelicula/{pid}/"}
         if p.get("poster"):
             movie["image"] = p["poster"]
-        if p.get("duracion"):
-            movie["duration"] = f"PT{p['duracion']}M"
+        if p.get("duracion") or t.get("duracion"):
+            movie["duration"] = f"PT{p.get('duracion') or t['duracion']}M"
+        if t.get("sinopsis"):
+            movie["description"] = t["sinopsis"]
+        if t.get("director"):
+            movie["director"] = [{"@type": "Person", "name": n} for n in t["director"]]
+        if t.get("reparto"):
+            movie["actor"] = [{"@type": "Person", "name": n} for n in t["reparto"]]
+        if t.get("generos"):
+            movie["genre"] = t["generos"]
+        if t.get("estreno"):
+            movie["datePublished"] = t["estreno"]
+
         lista = {"@context": "https://schema.org", "@graph": eventos_ld(evs, c)}
         out = docs / "pelicula" / pid
         out.mkdir(parents=True, exist_ok=True)
@@ -283,8 +325,8 @@ La vimos en cartelera por última vez el {e(fecha_larga(h['ultima']))}.</p>
             pagina(c, f"{h['titulo']}: ya no está en cartelera en Madrid | Cartelera Madrid",
                    f"{h['titulo']} ya no tiene sesiones en los cines de Madrid. Última vez en cartelera: "
                    f"{fecha_larga(h['ultima'])}.", cuerpo, f"pelicula/{pid}/", [bc], anuncios=False,
-                   imagen=h.get("poster")), "utf-8")
-        urls.append(f"pelicula/{pid}/")
+                   imagen=h.get("poster"), indexar=False), "utf-8")
+        noindex.add(f"pelicula/{pid}/")
 
     # ---- cines
     for cid, cine in cines.items():
@@ -499,8 +541,10 @@ reunimos todas: {e(", ".join(tipos)) or "—"}.</p>
         out.mkdir(parents=True, exist_ok=True)
         (out / "index.html").write_text(
             pagina(c, titulo, titulo, f'<article class="card ficha legal"><div>{cuerpo}</div></article>',
-                   f"{ruta}/", raiz="../", anuncios=(ruta == "sobre")), "utf-8")
-        urls.append(f"{ruta}/")
+                   f"{ruta}/", raiz="../", anuncios=(ruta == "sobre"),
+                   indexar=(ruta == "sobre")), "utf-8")
+        if ruta == "sobre":
+            urls.append(f"{ruta}/")
 
     # ---- sitemap, robots, ads.txt
     lastmod = idx.get("generado", datetime.now().isoformat())[:10]

@@ -67,6 +67,7 @@ jobs:
           ADSENSE_CLIENT: ${{ vars.ADSENSE_CLIENT }}
           SITIO_TITULAR: ${{ vars.SITIO_TITULAR }}
           SITIO_CONTACTO: ${{ vars.SITIO_CONTACTO }}
+          TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
         run: |
           set -o pipefail
           CADENAS="${{ github.event.inputs.cadenas }}"
