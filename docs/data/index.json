@@ -1,34 +1,36 @@
 {
- "generado": "2026-11-16T20:56",
+ "generado": "2026-11-17T00:49",
  "dias": [
-  "2026-11-16",
   "2026-11-17",
   "2026-11-18",
   "2026-11-19",
   "2026-11-20",
   "2026-11-21",
-  "2026-11-22"
+  "2026-11-22",
+  "2026-11-23"
  ],
  "estado": {
-  "Renoir": {
-   "ok": true,
-   "sesiones": 280,
-   "segundos": 2.6
-  },
   "Verdi": {
-   "ok": true,
-   "sesiones": 76,
-   "segundos": 3.5
+   "ok": false,
+   "sesiones": 0,
+   "error": "0 sesiones",
+   "segundos": 0.7,
+   "reutilizadas": 68
   },
   "MK2": {
    "ok": true,
-   "sesiones": 174,
-   "segundos": 5.4
+   "sesiones": 169,
+   "segundos": 2.9
+  },
+  "Renoir": {
+   "ok": true,
+   "sesiones": 212,
+   "segundos": 3.4
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 536,
-   "segundos": 132.9
+   "sesiones": 433,
+   "segundos": 123.9
   }
  },
  "cines": [
@@ -369,7 +371,7 @@
   {
    "id": "arriba-tutto",
    "titulo": "Arriba tutto",
-   "poster": "https://www.bizcochito.es/img/tt37676022-es-pos.webp",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/arriba-tutto-poster-ig-1080x1350-2.jpg",
    "duracion": 102
   },
   {
@@ -447,7 +449,7 @@
   {
    "id": "el-mal-padre",
    "titulo": "El mal padre",
-   "poster": "/media/Peliculas/Cartel/CARTEL_CON_LOGO_3_PAbEBg2.jpg",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/afiche-elmalpadre.jpg",
    "duracion": 120
   },
   {
@@ -492,7 +494,7 @@
   },
   {
    "id": "la-bola-negra",
-   "titulo": "La bola negra",
+   "titulo": "La Bola Negra",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa831886eb920647a20198ff54902bf99ba0380ede61c8d68439955de714.jpg",
    "duracion": 155
   },
@@ -578,7 +580,7 @@
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
-   "duracion": 105
+   "duracion": 109
   },
   {
    "id": "scrooge-y-los-fantasmas-de-la-navidad",
