@@ -78,6 +78,52 @@ CINES: list[Cine] = [
        lat=40.240284, lon=-3.689650, web="https://www.ocineplazaeboli.es/"),
 ]
 
+# Zonas para las páginas /zona/<slug>/ (búsquedas tipo "cines en la zona sur de Madrid")
+ZONAS: dict[str, tuple[str, str, str]] = {  # slug → (nombre corto, "cines en …", barrios)
+    "centro": ("Centro", "el centro de Madrid", "Chamberí, Moncloa, Retiro, Arganzuela, Gran Vía y alrededores"),
+    "norte": ("Norte", "la zona norte de Madrid", "Hortaleza, Fuencarral, Alcobendas, San Sebastián de los Reyes y Tres Cantos"),
+    "este": ("Este", "la zona este de Madrid", "Ciudad Lineal, San Blas, Hortaleza este y Vallecas"),
+    "oeste": ("Oeste", "la zona oeste de Madrid", "Pozuelo, Majadahonda, Las Rozas y alrededores"),
+    "sur": ("Sur", "la zona sur de Madrid", "Alcorcón, Leganés, Getafe, Fuenlabrada, Pinto y Arroyomolinos"),
+    "henares": ("Corredor del Henares", "el Corredor del Henares", "Alcalá de Henares, Torrejón de Ardoz y alrededores"),
+}
+
+# id → (zona, localidad)
+_UBICACION: dict[str, tuple[str, str]] = {
+    "odeon-alcala-norte": ("este", "Madrid (Ciudad Lineal)"),
+    "odeon-sambil": ("sur", "Leganés"),
+    "odeon-gran-plaza-2": ("oeste", "Majadahonda"),
+    "odeon-tres-cantos": ("norte", "Tres Cantos"),
+    "cines-princesa": ("centro", "Madrid (Moncloa-Aravaca)"),
+    "renoir-retiro": ("centro", "Madrid (Retiro)"),
+    "renoir-plaza-de-espana": ("centro", "Madrid (Moncloa-Aravaca)"),
+    "kinepolis-ciudad-de-la-imagen": ("oeste", "Pozuelo de Alarcón"),
+    "kinepolis-diversia": ("norte", "Alcobendas"),
+    "mk2-palacio-de-hielo": ("este", "Madrid (Hortaleza)"),
+    "mk2-cine-paz": ("centro", "Madrid (Chamberí)"),
+    "verdi-madrid": ("centro", "Madrid (Chamberí)"),
+    "cinesa-equinoccio": ("oeste", "Majadahonda"),
+    "cinesa-xanadu": ("sur", "Arroyomolinos"),
+    "cinesa-la-gavia": ("este", "Madrid (Villa de Vallecas)"),
+    "cinesa-la-moraleja": ("norte", "Alcobendas"),
+    "cinesa-las-rosas": ("este", "Madrid (San Blas-Canillejas)"),
+    "cinesa-heron-city-las-rozas": ("oeste", "Las Rozas"),
+    "cinesa-plaza-loranca-2": ("sur", "Fuenlabrada"),
+    "cinesa-manoteras": ("norte", "Madrid (Hortaleza)"),
+    "cinesa-mendez-alvaro": ("centro", "Madrid (Arganzuela)"),
+    "cinesa-nassica": ("sur", "Getafe"),
+    "cinesa-oasiz": ("henares", "Torrejón de Ardoz"),
+    "cinesa-parquesur": ("sur", "Leganés"),
+    "cinesa-proyecciones": ("centro", "Madrid (Chamberí)"),
+    "cinesa-principe-pio": ("centro", "Madrid (Moncloa-Aravaca)"),
+    "ocine-urban-xmadrid": ("sur", "Alcorcón"),
+    "ocine-urban-caleido": ("norte", "Madrid (Fuencarral-El Pardo)"),
+    "ocine-quadernillos": ("henares", "Alcalá de Henares"),
+    "ocine-plaza-eboli": ("sur", "Pinto"),
+}
+for _c in CINES:
+    _c.zona, _c.localidad = _UBICACION[_c.id]
+
 POR_ID: dict[str, Cine] = {c.id: c for c in CINES}
 
 

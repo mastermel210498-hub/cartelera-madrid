@@ -18,3 +18,9 @@
 .lista-pre { columns: 2; gap: 2rem; padding-left: 1.1rem; }
 .lista-pre a { color: var(--accent-2); }
 @media (max-width: 700px) { .lista-pre { columns: 1; } }
+.migas { font-size: .8rem; color: var(--muted); margin: 0 0 .6rem; }
+.migas a { color: var(--accent-2); }
+.lista-cines { list-style: none; padding: 0; display: grid; gap: .7rem; }
+.lista-cines small { color: var(--muted); }
+.lista-cines a { color: var(--txt); }
+.pie .zonas { margin-top: .3rem; }

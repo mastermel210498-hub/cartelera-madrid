@@ -20,7 +20,8 @@ import json
 import os
 import shutil
 from collections import defaultdict
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
@@ -48,16 +49,60 @@ def fecha_larga(iso: str) -> str:
 
 
 # --------------------------------------------------------------------------- plantilla
+def migas(c: dict, items: list[tuple[str, str]], raiz: str) -> tuple[str, dict]:
+    """[(nombre, ruta)] → (HTML visible, JSON-LD BreadcrumbList)."""
+    todos = [("Cartelera Madrid", "")] + items
+    html_ = " › ".join(
+        f'<a href="{raiz}{e(r)}">{e(n)}</a>' if i < len(todos) - 1 else f"<span>{e(n)}</span>"
+        for i, (n, r) in enumerate(todos))
+    ld = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": n, "item": f"https://{c['dominio']}/{r}"}
+        for i, (n, r) in enumerate(todos)]}
+    return f'<nav class="migas" aria-label="Migas de pan">{html_}</nav>', ld
+
+
+def eventos_ld(ses: list[tuple[dict, dict, dict]], c: dict, limite: int = 60) -> list[dict]:
+    """(sesión, película, cine) → ScreeningEvent de schema.org (para resultados enriquecidos)."""
+    out = []
+    for s, p, cine in sorted(ses, key=lambda x: x[0]["t"])[:limite]:
+        ev = {
+            "@type": "ScreeningEvent",
+            "name": p["titulo"],
+            "startDate": datetime.fromisoformat(s["t"]).replace(tzinfo=ZoneInfo("Europe/Madrid")).isoformat(),
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "location": {"@type": "MovieTheater", "name": cine["nombre"],
+                         "address": {"@type": "PostalAddress",
+                                     "addressLocality": cine.get("localidad") or "Madrid",
+                                     "addressRegion": "Madrid", "addressCountry": "ES"}},
+            "workPresented": {"@type": "Movie", "name": p["titulo"],
+                              "url": f"https://{c['dominio']}/pelicula/{p['id']}/"},
+        }
+        if s.get("v") in ("VOSE", "VO"):
+            ev["subtitleLanguage"] = "es"
+        if str(s.get("u", "")).startswith("http"):
+            ev["offers"] = {"@type": "Offer", "url": s["u"], "availability": "https://schema.org/InStock"}
+        if p.get("poster"):
+            ev["image"] = p["poster"]
+        out.append(ev)
+    return out
+
+
 def pagina(c: dict, titulo: str, descripcion: str, cuerpo: str, ruta: str,
-           jsonld: dict | None = None, raiz: str = "../../", anuncios: bool = True) -> str:
+           jsonld: dict | list | None = None, raiz: str = "../../", anuncios: bool = True,
+           imagen: str | None = None) -> str:
     url = f"https://{c['dominio']}/{ruta}"
     ads = (
         f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
         f'?client={e(c["adsense"])}" crossorigin="anonymous"></script>'
         if c["adsense"] and anuncios else ""
     )
-    ld = (f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>'
-          if jsonld else "")
+    lds = jsonld if isinstance(jsonld, list) else ([jsonld] if jsonld else [])
+    ld = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>'
+                 for x in lds)
+    og_img = (f'<meta property="og:image" content="{e(imagen)}">\n<meta name="twitter:card" '
+              f'content="summary_large_image">' if imagen and imagen.startswith("http")
+              else '<meta name="twitter:card" content="summary">')
     return f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -70,6 +115,9 @@ def pagina(c: dict, titulo: str, descripcion: str, cuerpo: str, ruta: str,
 <meta property="og:description" content="{e(descripcion)}">
 <meta property="og:url" content="{e(url)}">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Cartelera Madrid">
+{og_img}
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
 <link rel="stylesheet" href="{raiz}styles.css">
 <link rel="stylesheet" href="{raiz}sitio.css">
@@ -91,11 +139,22 @@ def pagina(c: dict, titulo: str, descripcion: str, cuerpo: str, ruta: str,
 def pie(raiz: str) -> str:
     return f"""<footer class="muted pie">
 <nav><a href="{raiz}">Cartelera</a> · <a href="{raiz}vose/">Cine en VOSE</a> ·
-<a href="{raiz}especiales/">Sesiones especiales</a> · <a href="{raiz}sobre/">Sobre el proyecto</a> ·
+<a href="{raiz}especiales/">Sesiones especiales</a> · <a href="{raiz}estrenos/">Estrenos</a> ·
+<a href="{raiz}sobre/">Sobre el proyecto</a> ·
 <a href="{raiz}aviso-legal/">Aviso legal</a> · <a href="{raiz}privacidad/">Privacidad</a> ·
 <a href="{raiz}cookies/">Cookies</a></nav>
+<nav class="zonas">Cines por zona: {zonas_links(raiz)}</nav>
 <p>Horarios obtenidos de las webs públicas de cada cine. Pueden cambiar: confirma siempre en la web del cine.</p>
 </footer>"""
+
+
+def otras_cadenas(idx: dict) -> list[tuple[str, str]]:
+    return [(o["cadena"], o["web"]) for o in idx.get("otras_cadenas", [])]
+
+
+def zonas_links(raiz: str) -> str:
+    from .cines import ZONAS
+    return " · ".join(f'<a href="{raiz}zona/{z}/">{e(corto)}</a>' for z, (corto, _f, _b) in ZONAS.items())
 
 
 def pases_html(ses: list[dict]) -> str:
@@ -132,57 +191,117 @@ def generar(docs: Path) -> dict:
                 por_peli[s["p"]][d][s["c"]].append(s)
                 por_cine[s["c"]][d][s["p"]].append(s)
 
-    for sub in ("pelicula", "cine"):
+    for sub in ("pelicula", "cine", "zona", "estrenos"):
         shutil.rmtree(docs / sub, ignore_errors=True)
     urls = [""]
+
+    # Todos los cines del registro (si una cadena falla un día, su página no desaparece)
+    from .cines import CINES, ZONAS
+    for x in CINES:
+        if x.id not in cines:
+            cines[x.id] = {**x.model_dump(exclude_none=True), "enlace": True}
+        else:
+            cines[x.id] = {**x.model_dump(exclude_none=True), **cines[x.id]}
+
+    # ---- histórico: primera/última vez que vimos cada película (no perder URLs indexadas)
+    hist_f = data / "historico.json"
+    hist = json.loads(hist_f.read_text("utf-8")) if hist_f.exists() else {}
+    meta = hist.pop("_meta", {"desde": hoy})
+    for pid, porDia in por_peli.items():
+        h = hist.setdefault(pid, {"primera": min(porDia)})
+        h.update(titulo=pelis[pid]["titulo"], ultima=max(porDia, default=h.get("ultima", hoy)))
+        h["primera"] = min(h["primera"], min(porDia))
+        if pelis[pid].get("poster"):
+            h["poster"] = pelis[pid]["poster"]
+    limite = (date.fromisoformat(hoy) - timedelta(days=60)).isoformat()
+    hist = {k: v for k, v in hist.items() if v.get("ultima", hoy) >= limite}
+    hist_f.write_text(json.dumps({"_meta": meta, **hist}, ensure_ascii=False, indent=0), "utf-8")
 
     # ---- películas
     for pid, porDia in por_peli.items():
         p = pelis[pid]
         ncines = len({cid for d in porDia.values() for cid in d})
-        desc = (f"Horarios de {p['titulo']} en {ncines} cine{'s' if ncines > 1 else ''} de Madrid: "
-                f"sesiones de hoy y de los próximos días, versión original (VOSE) y salas.")
+        nvose = sum(1 for d in porDia.values() for ss in d.values() for x in ss if x.get("v") in ("VOSE", "VO"))
+        desc = (f"Horarios de {p['titulo']} hoy en {ncines} cine{'s' if ncines > 1 else ''} de Madrid"
+                f"{f' ({nvose} sesiones en VOSE)' if nvose else ''}: sesiones de esta semana, salas y "
+                f"enlace a la compra de entradas.")
         bloques = []
         for d in dias:
             if d not in porDia:
                 continue
             filas = "".join(
                 f'<div class="grupo"><div class="quien"><a href="../../cine/{e(cid)}/">{e(cines[cid]["nombre"])}</a>'
-                f'<small>{e(cines[cid]["cadena"])}</small></div><div class="pases">{pases_html(ss)}</div></div>'
+                f'<small>{e(cines[cid].get("localidad") or cines[cid]["cadena"])}</small></div>'
+                f'<div class="pases">{pases_html(ss)}</div></div>'
                 for cid, ss in sorted(porDia[d].items(), key=lambda kv: cines[kv[0]]["nombre"])
             )
             bloques.append(f"<section><h3>{e(fecha_larga(d)).capitalize()}</h3>{filas}</section>")
         poster = (f'<img class="poster grande" src="{e(p["poster"])}" alt="Cartel de {e(p["titulo"])}" loading="lazy" onerror="this.remove()">'
                   if str(p.get("poster", "")).startswith("http") else "")
-        meta = " · ".join(x for x in [f"{p['duracion']} min" if p.get("duracion") else "",
-                                      f"{ncines} cines en Madrid"] if x)
-        cuerpo = f"""<article class="card ficha">{poster}<div>
-<h2>{e(p['titulo'])}: horarios en cines de Madrid</h2><p class="meta">{e(meta)}</p>
-<p>Dónde ver <strong>{e(p['titulo'])}</strong> en Madrid esta semana. Pulsa una hora para ir a la compra de entradas en la web del cine.</p>
+        meta_txt = " · ".join(x for x in [f"{p['duracion']} min" if p.get("duracion") else "",
+                                          f"{ncines} cines en Madrid",
+                                          f"{nvose} sesiones en VOSE" if nvose else ""] if x)
+        nav, bc = migas(c, [("Películas", ""), (p["titulo"], f"pelicula/{pid}/")], "../../")
+        cuerpo = f"""{nav}<article class="card ficha">{poster}<div>
+<h2>{e(p['titulo'])}: horarios en cines de Madrid</h2><p class="meta">{e(meta_txt)}</p>
+<p>Dónde ver <strong>{e(p['titulo'])}</strong> en Madrid hoy y esta semana. Pulsa una hora para ir a la compra de
+entradas en la web del cine.</p>
 {''.join(bloques)}
-<p class="volver"><a href="../../#q={e(p['titulo'])}">Ver en la cartelera interactiva →</a></p>
+<p class="volver"><a href="../../#q={e(p['titulo'])}">Filtrar por hora, VOSE o cercanía en la cartelera interactiva →</a></p>
 </div></article>"""
-        ld = {"@context": "https://schema.org", "@type": "Movie", "name": p["titulo"],
-              "url": f"https://{c['dominio']}/pelicula/{pid}/"}
+        evs = [(x, p, cines[cid]) for d in porDia.values() for cid, ss in d.items() for x in ss]
+        movie = {"@context": "https://schema.org", "@type": "Movie", "name": p["titulo"],
+                 "url": f"https://{c['dominio']}/pelicula/{pid}/"}
         if p.get("poster"):
-            ld["image"] = p["poster"]
+            movie["image"] = p["poster"]
+        if p.get("duracion"):
+            movie["duration"] = f"PT{p['duracion']}M"
+        lista = {"@context": "https://schema.org", "@graph": eventos_ld(evs, c)}
         out = docs / "pelicula" / pid
         out.mkdir(parents=True, exist_ok=True)
         (out / "index.html").write_text(
-            pagina(c, f"{p['titulo']} — horarios en cines de Madrid", desc, cuerpo, f"pelicula/{pid}/", ld),
-            "utf-8")
+            pagina(c, f"{p['titulo']}: horarios hoy en cines de Madrid | Cartelera Madrid", desc, cuerpo,
+                   f"pelicula/{pid}/", [movie, bc, lista], imagen=p.get("poster")), "utf-8")
         urls.append(f"pelicula/{pid}/")
 
-    # ---- cines (incluye los de sólo enlace, con su enlace)
+    # Películas que ya no están en cartelera: la URL sigue viva 60 días (no perder posicionamiento)
+    for pid, h in hist.items():
+        if pid in por_peli:
+            continue
+        nav, bc = migas(c, [("Películas", ""), (h["titulo"], f"pelicula/{pid}/")], "../../")
+        cuerpo = f"""{nav}<article class="card ficha"><div>
+<h2>{e(h['titulo'])}</h2>
+<p><strong>Ahora mismo no hay sesiones de {e(h['titulo'])} en los cines de Madrid que seguimos.</strong>
+La vimos en cartelera por última vez el {e(fecha_larga(h['ultima']))}.</p>
+<p>Puede que siga en alguna sala que no aparece aquí: consulta también
+{" · ".join(f'<a href="{e(u)}" rel="noopener" target="_blank">{e(n)}</a>' for n, u in otras_cadenas(idx))}.</p>
+<p>Mira <a href="../../">qué hay en cartelera hoy</a> o los <a href="../../estrenos/">estrenos de la semana</a>.</p>
+</div></article>"""
+        out = docs / "pelicula" / pid
+        out.mkdir(parents=True, exist_ok=True)
+        (out / "index.html").write_text(
+            pagina(c, f"{h['titulo']}: ya no está en cartelera en Madrid | Cartelera Madrid",
+                   f"{h['titulo']} ya no tiene sesiones en los cines de Madrid. Última vez en cartelera: "
+                   f"{fecha_larga(h['ultima'])}.", cuerpo, f"pelicula/{pid}/", [bc], anuncios=False,
+                   imagen=h.get("poster")), "utf-8")
+        urls.append(f"pelicula/{pid}/")
+
+    # ---- cines
     for cid, cine in cines.items():
         porDia = por_cine.get(cid, {})
+        zona = ZONAS.get(cine.get("zona", ""), ("", "Madrid", ""))[1]
+        loc = cine.get("localidad") or "Madrid"
+        nav, bc = migas(c, [(f"Cines en {zona}", f"zona/{cine.get('zona', '')}/"),
+                            (cine["nombre"], f"cine/{cid}/")], "../../")
+        web = cine.get("web", "")
         if cine.get("enlace") or not porDia:
-            web = cine.get("web", "")
-            cuerpo = f"""<article class="card ficha"><div><h2>{e(cine['nombre'])}</h2>
-<p class="meta">{e(cine['cadena'])}</p>
+            cuerpo = f"""{nav}<article class="card ficha"><div><h2>{e(cine['nombre'])}</h2>
+<p class="meta">{e(cine['cadena'])} · {e(loc)}</p>
 <p>Consulta la cartelera y los horarios de {e(cine['nombre'])} directamente en
-<a href="{e(web)}" rel="noopener" target="_blank">la web de {e(cine['cadena'])} ↗</a>.</p></div></article>"""
-            desc = f"Cartelera y horarios de {cine['nombre']} ({cine['cadena']}) en Madrid."
+<a href="{e(web)}" rel="noopener" target="_blank">la web de {e(cine['cadena'])} ↗</a>.</p>
+<p>Otros cines cerca: <a href="../../zona/{e(cine.get('zona', ''))}/">cines en {e(zona)}</a>.</p></div></article>"""
+            desc = f"Cartelera y horarios de {cine['nombre']} ({cine['cadena']}) en {loc}."
+            evs = []
         else:
             bloques = []
             for d in dias:
@@ -195,22 +314,85 @@ def generar(docs: Path) -> dict:
                 )
                 bloques.append(f"<section><h3>{e(fecha_larga(d)).capitalize()}</h3>{filas}</section>")
             npel = len({pid for d in porDia.values() for pid in d})
-            desc = (f"Cartelera de {cine['nombre']} ({cine['cadena']}): {npel} películas, horarios de hoy "
-                    f"y de los próximos días, sesiones en VOSE.")
-            web = cine.get("web", "")
-            cuerpo = f"""<article class="card ficha"><div><h2>Cartelera de {e(cine['nombre'])}</h2>
-<p class="meta">{e(cine['cadena'])} · {npel} películas · <a href="{e(web)}" rel="noopener" target="_blank">web del cine ↗</a></p>
-{''.join(bloques)}</div></article>"""
-        ld = {"@context": "https://schema.org", "@type": "MovieTheater", "name": cine["nombre"],
-              "url": f"https://{c['dominio']}/cine/{cid}/"}
+            desc = (f"Cartelera de {cine['nombre']} ({loc}) hoy: {npel} películas, horarios de esta semana, "
+                    f"sesiones en VOSE y enlace a la compra de entradas.")
+            cuerpo = f"""{nav}<article class="card ficha"><div><h2>Cartelera de {e(cine['nombre'])}</h2>
+<p class="meta">{e(cine['cadena'])} · {e(loc)} · {npel} películas · <a href="{e(web)}" rel="noopener" target="_blank">web del cine ↗</a></p>
+{''.join(bloques)}
+<p>Otros cines cerca: <a href="../../zona/{e(cine.get('zona', ''))}/">cines en {e(zona)}</a>.</p></div></article>"""
+            evs = [(x, pelis[pid], cine) for d in porDia.values() for pid, ss in d.items() for x in ss]
+        teatro = {"@context": "https://schema.org", "@type": "MovieTheater", "name": cine["nombre"],
+                  "url": f"https://{c['dominio']}/cine/{cid}/",
+                  "address": {"@type": "PostalAddress", "addressLocality": loc,
+                              "addressRegion": "Madrid", "addressCountry": "ES"}}
         if cine.get("lat"):
-            ld["geo"] = {"@type": "GeoCoordinates", "latitude": cine["lat"], "longitude": cine["lon"]}
+            teatro["geo"] = {"@type": "GeoCoordinates", "latitude": cine["lat"], "longitude": cine["lon"]}
+        if web:
+            teatro["sameAs"] = web
+        lds = [teatro, bc] + ([{"@context": "https://schema.org", "@graph": eventos_ld(evs, c)}] if evs else [])
         out = docs / "cine" / cid
         out.mkdir(parents=True, exist_ok=True)
         (out / "index.html").write_text(
-            pagina(c, f"{cine['nombre']} — cartelera y horarios", desc, cuerpo, f"cine/{cid}/", ld,
-                   anuncios=bool(porDia) and not cine.get("enlace")), "utf-8")
+            pagina(c, f"{cine['nombre']}: cartelera y horarios hoy | Cartelera Madrid", desc, cuerpo,
+                   f"cine/{cid}/", lds, anuncios=bool(evs)), "utf-8")
         urls.append(f"cine/{cid}/")
+
+    # ---- zonas
+    for z, (_corto, nombre, barrios) in ZONAS.items():
+        de_zona = sorted((x for x in cines.values() if x.get("zona") == z), key=lambda x: x["nombre"])
+        if not de_zona:
+            continue
+        filas = []
+        for x in de_zona:
+            pd_ = por_cine.get(x["id"], {})
+            hoy_d = dias[0] if dias else None
+            pel_hoy = sorted({pelis[pid]["titulo"] for pid in pd_.get(hoy_d, {})}) if hoy_d else []
+            if pel_hoy:
+                extra = f"{len(pel_hoy)} películas hoy: " + ", ".join(e(t) for t in pel_hoy[:8]) + ("…" if len(pel_hoy) > 8 else "")
+            else:
+                extra = f'horarios en <a href="{e(x.get("web", ""))}" rel="noopener" target="_blank">su web ↗</a>'
+            filas.append(f'<li><a href="../../cine/{e(x["id"])}/"><strong>{e(x["nombre"])}</strong></a> '
+                         f'<small>({e(x.get("localidad", ""))} · {e(x["cadena"])})</small><br>{extra}</li>')
+        nav, bc = migas(c, [(f"Cines en {nombre}", f"zona/{z}/")], "../../")
+        cuerpo = f"""{nav}<article class="card ficha"><div>
+<h2>Cines en {e(nombre)}: cartelera y horarios</h2>
+<p>{len(de_zona)} cines en {e(nombre)}: {e(barrios)}. Entra en cada uno para ver sus horarios de hoy y de
+esta semana, o usa la <a href="../../">cartelera interactiva</a> para ordenarlos por cercanía.</p>
+<ul class="lista-cines">{''.join(filas)}</ul></div></article>"""
+        lista = {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "url": f"https://{c['dominio']}/cine/{x['id']}/",
+             "name": x["nombre"]} for i, x in enumerate(de_zona)]}
+        out = docs / "zona" / z
+        out.mkdir(parents=True, exist_ok=True)
+        (out / "index.html").write_text(
+            pagina(c, f"Cines en {nombre}: cartelera y horarios hoy | Cartelera Madrid",
+                   f"Todos los cines en {nombre} ({barrios}): cartelera de hoy, horarios y sesiones en VOSE.",
+                   cuerpo, f"zona/{z}/", [lista, bc]), "utf-8")
+        urls.append(f"zona/{z}/")
+
+    # ---- estrenos de la semana (películas vistas por primera vez en los últimos 7 días)
+    hace7 = (date.fromisoformat(hoy) - timedelta(days=7)).isoformat()
+    arranque = (date.fromisoformat(meta["desde"]) + timedelta(days=3)).isoformat()  # evitar "todo es estreno" al empezar
+    nuevos = sorted((pid for pid, h in hist.items() if pid in por_peli and h["primera"] >= max(hace7, arranque)),
+                    key=lambda pid: pelis[pid]["titulo"].lower())
+    items = "".join(
+        f'<li><a href="../pelicula/{e(pid)}/"><strong>{e(pelis[pid]["titulo"])}</strong></a> — en '
+        f'{len({cid for d in por_peli[pid].values() for cid in d})} cines desde el {e(fecha_larga(hist[pid]["primera"]))}</li>'
+        for pid in nuevos)
+    nav, bc = migas(c, [("Estrenos de la semana", "estrenos/")], "../")
+    cuerpo = f"""{nav}<article class="card ficha"><div><h2>Estrenos de cine en Madrid esta semana</h2>
+<p>Películas que han llegado a los cines de Madrid en los últimos 7 días{f": {len(nuevos)} novedades" if nuevos else ""}.
+Entra en cada una para ver dónde y a qué hora se proyecta.</p>
+{f'<ul class="lista-cines">{items}</ul>' if nuevos else '<p>Esta semana todavía no hemos detectado estrenos. Vuelve en unos días o mira <a href="../">la cartelera de hoy</a>.</p>'}
+</div></article>"""
+    out = docs / "estrenos"
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "index.html").write_text(
+        pagina(c, "Estrenos de cine en Madrid esta semana | Cartelera Madrid",
+               f"Las películas que se estrenan esta semana en los cines de Madrid"
+               f"{f' ({len(nuevos)})' if nuevos else ''}: dónde verlas, horarios y sesiones en VOSE.",
+               cuerpo, "estrenos/", [bc], raiz="../", anuncios=bool(nuevos)), "utf-8")
+    urls.append("estrenos/")
 
     # ---- páginas temáticas (contenido propio: agregación que ninguna cadena ofrece)
     def listado_tematico(filtro) -> tuple[str, int, int]:
@@ -290,6 +472,18 @@ reunimos todas: {e(", ".join(tipos)) or "—"}.</p>
                f'<p>{len(items)} películas en {len({cid for p in por_peli.values() for cid in p.get(hoy_d, {})})} cines. '
                f'Consulta también el <a href="vose/">cine en VOSE</a> y las <a href="especiales/">sesiones especiales</a>.</p>'
                f'<ul class="lista-pre">{"".join(items)}</ul></div></article>')
+        pids_hoy = [pid for pid in por_peli if por_peli[pid].get(hoy_d)]
+        ld_home = [
+            {"@context": "https://schema.org", "@type": "WebSite", "name": "Cartelera Madrid",
+             "url": f"https://{c['dominio']}/", "inLanguage": "es-ES"},
+            {"@context": "https://schema.org", "@type": "ItemList",
+             "name": f"Películas en cines de Madrid el {fecha_larga(hoy_d)}",
+             "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": pelis[pid]["titulo"],
+                                  "url": f"https://{c['dominio']}/pelicula/{pid}/"}
+                                 for i, pid in enumerate(pids_hoy)]},
+        ]
+        pre += "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>'
+                       for x in ld_home)
         idx_html = docs / "index.html"
         if idx_html.exists():
             import re as _re

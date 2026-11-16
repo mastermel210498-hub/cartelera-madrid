@@ -18,6 +18,8 @@ class Cine(BaseModel):
     lat: float | None = None
     lon: float | None = None
     web: str | None = None
+    zona: str | None = None  # slug de ZONAS en cines.py
+    localidad: str | None = None
 
 
 class Sesion(BaseModel):

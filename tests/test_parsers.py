@@ -237,3 +237,45 @@ def test_tematicas_prerender_y_sin_anuncios_en_legales(tmp_path, monkeypatch):
     assert "adsbygoogle" not in (tmp_path / "cine" / "cinesa-proyecciones" / "index.html").read_text()
     portada = (tmp_path / "index.html").read_text()
     assert 'href="pelicula/hamnet/"' in portada and "<!--/PRERENDER-->" in portada
+
+
+def test_seo_zonas_historico_estrenos_y_eventos(tmp_path, monkeypatch):
+    import json as _j
+    import shutil as _sh
+    from datetime import timedelta
+
+    from cartelera.models import Sesion
+    from cartelera.pipeline import Resultado, escribir
+    from cartelera.sitio import generar
+
+    _sh.copy(Path(__file__).parent.parent / "docs" / "index.html", tmp_path / "index.html")
+    h = date.today()
+    ini = datetime(h.year, h.month, h.day, 23, 0)
+    # histórico previo: una peli que ya no está, y arranque hace 10 días (para que haya "estrenos")
+    (tmp_path / "data").mkdir()
+    (tmp_path / "data" / "historico.json").write_text(_j.dumps({
+        "_meta": {"desde": (h - timedelta(days=10)).isoformat()},
+        "vieja": {"titulo": "Peli Vieja", "primera": (h - timedelta(days=20)).isoformat(),
+                  "ultima": (h - timedelta(days=5)).isoformat()},
+        "hamnet": {"titulo": "Hamnet", "primera": (h - timedelta(days=30)).isoformat(),
+                   "ultima": (h - timedelta(days=1)).isoformat()},
+    }))
+    r = Resultado(sesiones=[
+        Sesion(cine_id="verdi-madrid", titulo="Hamnet", inicio=ini, version="VOSE", url="https://x/1"),
+        Sesion(cine_id="renoir-retiro", titulo="Novedad", inicio=ini),
+    ], estado={})
+    escribir(r, tmp_path / "data")
+    generar(tmp_path)
+
+    centro = (tmp_path / "zona" / "centro" / "index.html").read_text()
+    assert "Cines Verdi Madrid" in centro and "Cinesa Proyecciones" in centro  # también los de enlace
+    vieja = (tmp_path / "pelicula" / "vieja" / "index.html").read_text()
+    assert "ya no está en cartelera" in vieja and "adsbygoogle" not in vieja
+    estrenos = (tmp_path / "estrenos" / "index.html").read_text()
+    assert "Novedad" in estrenos and "Hamnet" not in estrenos
+    ficha = (tmp_path / "pelicula" / "hamnet" / "index.html").read_text()
+    assert '"@type": "ScreeningEvent"' in ficha and '"BreadcrumbList"' in ficha
+    assert ("+01:00" in ficha) or ("+02:00" in ficha)
+    assert "/pelicula/vieja/" in (tmp_path / "sitemap.xml").read_text()
+    portada = (tmp_path / "index.html").read_text()
+    assert '"@type": "ItemList"' in portada
