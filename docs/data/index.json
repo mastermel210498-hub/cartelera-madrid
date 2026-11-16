@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-16T09:37",
+ "generado": "2026-11-16T20:56",
  "dias": [
   "2026-11-16",
   "2026-11-17",
@@ -12,23 +12,23 @@
  "estado": {
   "Renoir": {
    "ok": true,
-   "sesiones": 285,
-   "segundos": 3.5
+   "sesiones": 280,
+   "segundos": 2.6
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 90,
+   "sesiones": 76,
    "segundos": 3.5
   },
   "MK2": {
    "ok": true,
-   "sesiones": 201,
-   "segundos": 4.2
+   "sesiones": 174,
+   "segundos": 5.4
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 534,
-   "segundos": 138.2
+   "sesiones": 536,
+   "segundos": 132.9
   }
  },
  "cines": [
@@ -578,7 +578,7 @@
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
-   "duracion": 109
+   "duracion": 105
   },
   {
    "id": "scrooge-y-los-fantasmas-de-la-navidad",
