@@ -1,34 +1,34 @@
 {
- "generado": "2026-11-14T15:06",
+ "generado": "2026-11-15T20:27",
  "dias": [
-  "2026-11-14",
   "2026-11-15",
   "2026-11-16",
   "2026-11-17",
   "2026-11-18",
   "2026-11-19",
-  "2026-11-20"
+  "2026-11-20",
+  "2026-11-21"
  ],
  "estado": {
   "Renoir": {
    "ok": true,
-   "sesiones": 432,
-   "segundos": 3.5
+   "sesiones": 358,
+   "segundos": 3.4
   },
   "MK2": {
    "ok": true,
-   "sesiones": 312,
-   "segundos": 7.1
+   "sesiones": 214,
+   "segundos": 3.9
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 129,
-   "segundos": 9.3
+   "sesiones": 98,
+   "segundos": 4.0
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 766,
-   "segundos": 170.3
+   "sesiones": 619,
+   "segundos": 158.3
   }
  },
  "cines": [
@@ -315,7 +315,7 @@
   {
    "id": "arriba-tutto",
    "titulo": "Arriba tutto",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/arriba-tutto-poster-ig-1080x1350-2.jpg",
+   "poster": "https://www.bizcochito.es/img/tt37676022-es-pos.webp",
    "duracion": 102
   },
   {
@@ -374,9 +374,7 @@
   },
   {
    "id": "diversion-navidena-con-peppa-la-experiencia-en-cines",
-   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines",
-   "poster": "https://www.bizcochito.es/img/tt115317-es-pos.webp",
-   "duracion": 60
+   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines"
   },
   {
    "id": "el-cielo-es-para-siempre",
@@ -464,9 +462,7 @@
   },
   {
    "id": "la-oveja-shaun-mision-calabaza",
-   "titulo": "La oveja shaun. Misión calabaza",
-   "poster": "https://www.bizcochito.es/img/tt36841161-es-pos.webp",
-   "duracion": 91
+   "titulo": "La oveja shaun. Misión calabaza"
   },
   {
    "id": "la-violinista",
@@ -527,12 +523,6 @@
    "titulo": "Resident Evil"
   },
   {
-   "id": "rigoletto-festival-arena-at-st-margarethen",
-   "titulo": "Rigoletto (Festival Arena at St. Margarethen)",
-   "poster": "https://www.bizcochito.es/img/tt99470-es-pos.webp",
-   "duracion": 120
-  },
-  {
    "id": "ruega-por-nosotras",
    "titulo": "Ruega por nosotras",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa832dd89fb595e81297ccc3ce69d983d06280c57cd1e36185404b19dbf2.jpg",
@@ -541,7 +531,7 @@
   {
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
    "duracion": 109
   },
   {
@@ -564,9 +554,7 @@
   },
   {
    "id": "superthings-la-pelicula",
-   "titulo": "Superthings: La película",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004rh.jpg",
-   "duracion": 93
+   "titulo": "Superthings: La película"
   },
   {
    "id": "tadeo-jones-y-la-lampara-maravillosa",
