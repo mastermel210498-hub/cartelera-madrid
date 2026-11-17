@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-17T12:56",
+ "generado": "2026-11-17T19:50",
  "dias": [
   "2026-11-17",
   "2026-11-18",
@@ -10,25 +10,27 @@
   "2026-11-23"
  ],
  "estado": {
+  "Verdi": {
+   "ok": false,
+   "sesiones": 0,
+   "error": "0 sesiones",
+   "segundos": 0.8,
+   "reutilizadas": 53
+  },
   "Renoir": {
    "ok": true,
-   "sesiones": 213,
-   "segundos": 3.3
-  },
-  "Verdi": {
-   "ok": true,
-   "sesiones": 68,
-   "segundos": 3.5
+   "sesiones": 514,
+   "segundos": 3.7
   },
   "MK2": {
    "ok": true,
-   "sesiones": 136,
-   "segundos": 4.0
+   "sesiones": 357,
+   "segundos": 6.9
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 574,
-   "segundos": 123.0
+   "sesiones": 858,
+   "segundos": 166.5
   }
  },
  "cines": [
@@ -71,6 +73,16 @@
    "web": "https://www.mk2palaciodehielo.es/es/cartelera",
    "zona": "este",
    "localidad": "Madrid (Hortaleza)"
+  },
+  {
+   "id": "mk2-cine-paz",
+   "nombre": "MK2 Cine Paz",
+   "cadena": "MK2",
+   "lat": 40.430995,
+   "lon": -3.702535,
+   "web": "https://www.cinepazmadrid.es/es/cartelera",
+   "zona": "centro",
+   "localidad": "Madrid (Chamberí)"
   },
   {
    "id": "verdi-madrid",
@@ -357,10 +369,22 @@
  ],
  "peliculas": [
   {
+   "id": "adolescencia-sexo-y-muerte-en-campamento-miasma",
+   "titulo": "Adolescencia sexo y muerte en campamento miasma",
+   "poster": "https://media.pillalas.com/imagenes/4b5d4bda4099a011046b6839d9e1d860eea08ddf433e9030076b0aaa.jpg",
+   "duracion": 111
+  },
+  {
    "id": "arriba-tutto",
-   "titulo": "Arriba Tutto",
-   "poster": "https://www.bizcochito.es/img/tt37676022-es-pos.webp",
+   "titulo": "Arriba tutto",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/arriba-tutto-poster-ig-1080x1350-2.jpg",
    "duracion": 102
+  },
+  {
+   "id": "bailar-la-muerte",
+   "titulo": "Bailar la muerte",
+   "poster": "https://media.pillalas.com/imagenes/171bdf20f23dfed44c225f881fa216a71dd6d7a61a9fe8fd0d60cfb2.jpg",
+   "duracion": 80
   },
   {
    "id": "caravaggio",
@@ -379,6 +403,12 @@
    "titulo": "Chopin",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa8393c9f862680d98e427db248e3719faf1382551a9dcbf5ed802747808.jpg",
    "duracion": 113
+  },
+  {
+   "id": "citas-la-pelicula",
+   "titulo": "Citas: La película",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004tf.jpg",
+   "duracion": 87
   },
   {
    "id": "clayface",
@@ -428,7 +458,9 @@
   },
   {
    "id": "el-director",
-   "titulo": "El director"
+   "titulo": "El director",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004ti.jpg",
+   "duracion": 115
   },
   {
    "id": "el-extranjero",
@@ -445,7 +477,7 @@
   {
    "id": "el-mal-padre",
    "titulo": "El mal padre",
-   "poster": "/media/Peliculas/Cartel/CARTEL_CON_LOGO_3_PAbEBg2.jpg",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83ad9761c875da7afd0b06e8e4cda16b52b1c4eb93e415fdf3a7cd7175.jpg",
    "duracion": 120
   },
   {
@@ -471,10 +503,20 @@
    "duracion": 110
   },
   {
+   "id": "hechos-probados",
+   "titulo": "Hechos probados"
+  },
+  {
    "id": "hope",
    "titulo": "Hope",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83e291b05ecf98ff92816e19d3419b3a0e23580f3c8c001594b17c98f3.jpg",
    "duracion": 156
+  },
+  {
+   "id": "iron-boy",
+   "titulo": "Iron boy",
+   "poster": "https://media.pillalas.com/imagenes/4741fcae8bb23ffe2346487f5cba58ffe21058eafd2cc4347a8a2483.jpg",
+   "duracion": 90
   },
   {
    "id": "jaleos",
@@ -499,6 +541,10 @@
    "titulo": "La invitación",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83b881dcf969c745f4ec3cf473b33d4b10237fea09d16aad17429daa0b.jpg",
    "duracion": 106
+  },
+  {
+   "id": "la-odisea",
+   "titulo": "La Odisea"
   },
   {
    "id": "la-otra-madre",
@@ -547,6 +593,12 @@
    "duracion": 77
   },
   {
+   "id": "ooh-la-la-quien-lo-hubiera-pensado",
+   "titulo": "Ooh la la! ¿quién lo hubiera pensado?",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004te.jpg",
+   "duracion": 91
+  },
+  {
    "id": "peppa-pig-diversion-navidena-con-peppa",
    "titulo": "Peppa pig: diversión navideña con Peppa",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004sv.jpg",
@@ -567,6 +619,12 @@
    "titulo": "Resident Evil"
   },
   {
+   "id": "rose",
+   "titulo": "Rose",
+   "poster": "https://media.pillalas.com/imagenes/f113c79b7eebe0ee85ce1e08ca997b152a9e6cb587fb8f924fda9245.jpg",
+   "duracion": 94
+  },
+  {
    "id": "ruega-por-nosotras",
    "titulo": "Ruega por nosotras",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa832dd89fb595e81297ccc3ce69d983d06280c57cd1e36185404b19dbf2.jpg",
@@ -575,8 +633,8 @@
   {
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
-   "duracion": 105
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg",
+   "duracion": 109
   },
   {
    "id": "scrooge-y-los-fantasmas-de-la-navidad",
@@ -613,7 +671,7 @@
   {
    "id": "victorian-psycho",
    "titulo": "Victorian Psycho",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/victorian-psycho-110308.jpg",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa836ffa1374f400cd084fa0466dda97f9bcc15c75d4406bb97a8e8f8c09.jpg",
    "duracion": 102
   },
   {
