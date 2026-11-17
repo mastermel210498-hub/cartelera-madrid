@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-17T19:50",
+ "generado": "2026-11-18T00:05",
  "dias": [
   "2026-11-17",
   "2026-11-18",
@@ -15,22 +15,22 @@
    "sesiones": 0,
    "error": "0 sesiones",
    "segundos": 0.8,
-   "reutilizadas": 53
+   "reutilizadas": 46
   },
   "Renoir": {
    "ok": true,
    "sesiones": 514,
-   "segundos": 3.7
+   "segundos": 4.4
   },
   "MK2": {
    "ok": true,
-   "sesiones": 357,
-   "segundos": 6.9
+   "sesiones": 341,
+   "segundos": 5.4
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 858,
-   "segundos": 166.5
+   "sesiones": 741,
+   "segundos": 348.1
   }
  },
  "cines": [
@@ -377,7 +377,7 @@
   {
    "id": "arriba-tutto",
    "titulo": "Arriba tutto",
-   "poster": "https://www.cinepazmadrid.es/data/fotos/arriba-tutto-poster-ig-1080x1350-2.jpg",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/arriba-tutto-poster-ig-1080x1350-2.jpg",
    "duracion": 102
   },
   {
@@ -633,7 +633,7 @@
   {
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
    "duracion": 109
   },
   {
