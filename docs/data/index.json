@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-17T00:49",
+ "generado": "2026-11-17T12:56",
  "dias": [
   "2026-11-17",
   "2026-11-18",
@@ -10,27 +10,25 @@
   "2026-11-23"
  ],
  "estado": {
+  "Renoir": {
+   "ok": true,
+   "sesiones": 213,
+   "segundos": 3.3
+  },
   "Verdi": {
-   "ok": false,
-   "sesiones": 0,
-   "error": "0 sesiones",
-   "segundos": 0.7,
-   "reutilizadas": 68
+   "ok": true,
+   "sesiones": 68,
+   "segundos": 3.5
   },
   "MK2": {
    "ok": true,
-   "sesiones": 169,
-   "segundos": 2.9
-  },
-  "Renoir": {
-   "ok": true,
-   "sesiones": 212,
-   "segundos": 3.4
+   "sesiones": 136,
+   "segundos": 4.0
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 433,
-   "segundos": 123.9
+   "sesiones": 574,
+   "segundos": 123.0
   }
  },
  "cines": [
@@ -73,16 +71,6 @@
    "web": "https://www.mk2palaciodehielo.es/es/cartelera",
    "zona": "este",
    "localidad": "Madrid (Hortaleza)"
-  },
-  {
-   "id": "mk2-cine-paz",
-   "nombre": "MK2 Cine Paz",
-   "cadena": "MK2",
-   "lat": 40.430995,
-   "lon": -3.702535,
-   "web": "https://www.cinepazmadrid.es/es/cartelera",
-   "zona": "centro",
-   "localidad": "Madrid (Chamberí)"
   },
   {
    "id": "verdi-madrid",
@@ -370,8 +358,8 @@
  "peliculas": [
   {
    "id": "arriba-tutto",
-   "titulo": "Arriba tutto",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/arriba-tutto-poster-ig-1080x1350-2.jpg",
+   "titulo": "Arriba Tutto",
+   "poster": "https://www.bizcochito.es/img/tt37676022-es-pos.webp",
    "duracion": 102
   },
   {
@@ -429,10 +417,18 @@
    "duracion": 128
   },
   {
+   "id": "diversion-navidena-con-peppa-la-experiencia-en-cines",
+   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines"
+  },
+  {
    "id": "el-cielo-es-para-siempre",
    "titulo": "El cielo es para siempre",
    "poster": "https://www.bizcochito.es/img/tt116868-es-pos.webp",
    "duracion": 79
+  },
+  {
+   "id": "el-director",
+   "titulo": "El director"
   },
   {
    "id": "el-extranjero",
@@ -449,7 +445,7 @@
   {
    "id": "el-mal-padre",
    "titulo": "El mal padre",
-   "poster": "https://www.cinepazmadrid.es/data/fotos/afiche-elmalpadre.jpg",
+   "poster": "/media/Peliculas/Cartel/CARTEL_CON_LOGO_3_PAbEBg2.jpg",
    "duracion": 120
   },
   {
@@ -580,7 +576,7 @@
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
-   "duracion": 109
+   "duracion": 105
   },
   {
    "id": "scrooge-y-los-fantasmas-de-la-navidad",
