@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-18T12:45",
+ "generado": "2026-11-18T19:37",
  "dias": [
   "2026-11-18",
   "2026-11-19",
@@ -12,23 +12,23 @@
  "estado": {
   "Renoir": {
    "ok": true,
-   "sesiones": 516,
-   "segundos": 3.8
-  },
-  "Verdi": {
-   "ok": true,
-   "sesiones": 144,
-   "segundos": 4.0
+   "sesiones": 515,
+   "segundos": 3.9
   },
   "MK2": {
    "ok": true,
-   "sesiones": 391,
-   "segundos": 7.1
+   "sesiones": 355,
+   "segundos": 4.1
+  },
+  "Verdi": {
+   "ok": true,
+   "sesiones": 140,
+   "segundos": 5.2
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 857,
-   "segundos": 164.3
+   "sesiones": 858,
+   "segundos": 170.3
   }
  },
  "cines": [
@@ -385,12 +385,6 @@
    "duracion": 80
   },
   {
-   "id": "caravaggio",
-   "titulo": "Caravaggio",
-   "poster": "https://www.bizcochito.es/img/tt38351366-es-pos.webp",
-   "duracion": 100
-  },
-  {
    "id": "cecilia-una-luz-de-manana",
    "titulo": "Cecilia, una luz de mañana",
    "poster": "https://www.bizcochito.es/img/tt41103037-es-pos.webp",
@@ -643,7 +637,7 @@
   {
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
    "duracion": 109
   },
   {
