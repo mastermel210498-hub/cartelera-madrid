@@ -1,36 +1,34 @@
 {
- "generado": "2026-11-18T00:05",
+ "generado": "2026-11-18T12:45",
  "dias": [
-  "2026-11-17",
   "2026-11-18",
   "2026-11-19",
   "2026-11-20",
   "2026-11-21",
   "2026-11-22",
-  "2026-11-23"
+  "2026-11-23",
+  "2026-11-24"
  ],
  "estado": {
-  "Verdi": {
-   "ok": false,
-   "sesiones": 0,
-   "error": "0 sesiones",
-   "segundos": 0.8,
-   "reutilizadas": 46
-  },
   "Renoir": {
    "ok": true,
-   "sesiones": 514,
-   "segundos": 4.4
+   "sesiones": 516,
+   "segundos": 3.8
+  },
+  "Verdi": {
+   "ok": true,
+   "sesiones": 144,
+   "segundos": 4.0
   },
   "MK2": {
    "ok": true,
-   "sesiones": 341,
-   "segundos": 5.4
+   "sesiones": 391,
+   "segundos": 7.1
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 741,
-   "segundos": 348.1
+   "sesiones": 857,
+   "segundos": 164.3
   }
  },
  "cines": [
@@ -376,8 +374,8 @@
   },
   {
    "id": "arriba-tutto",
-   "titulo": "Arriba tutto",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/arriba-tutto-poster-ig-1080x1350-2.jpg",
+   "titulo": "Arriba Tutto",
+   "poster": "https://www.bizcochito.es/img/tt37676022-es-pos.webp",
    "duracion": 102
   },
   {
@@ -435,10 +433,10 @@
    "duracion": 121
   },
   {
-   "id": "dersu-uzala-el-cazador",
-   "titulo": "Dersu uzala (el cazador)",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83af4c02b17246c1f6f93988eb4bce0c33fb73c72e75aeb1af67b92c39.jpg",
-   "duracion": 144
+   "id": "diarios-de-ozu",
+   "titulo": "Diarios de Ozu",
+   "poster": "https://www.bizcochito.es/img/tt18259698-es-pos.webp",
+   "duracion": 137
   },
   {
    "id": "digger",
@@ -507,6 +505,12 @@
    "titulo": "Hechos probados"
   },
   {
+   "id": "hermanas",
+   "titulo": "Hermanas",
+   "poster": "https://media.pillalas.com/imagenes/becdc7aa1d4b9b721f38bbd1a2f849ce39a7f381dec3d20a19e60c9b.jpg",
+   "duracion": 100
+  },
+  {
    "id": "hope",
    "titulo": "Hope",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83e291b05ecf98ff92816e19d3419b3a0e23580f3c8c001594b17c98f3.jpg",
@@ -514,7 +518,7 @@
   },
   {
    "id": "iron-boy",
-   "titulo": "Iron boy",
+   "titulo": "Iron Boy",
    "poster": "https://media.pillalas.com/imagenes/4741fcae8bb23ffe2346487f5cba58ffe21058eafd2cc4347a8a2483.jpg",
    "duracion": 90
   },
@@ -532,7 +536,7 @@
   },
   {
    "id": "la-bola-negra",
-   "titulo": "La Bola Negra",
+   "titulo": "La bola negra",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa831886eb920647a20198ff54902bf99ba0380ede61c8d68439955de714.jpg",
    "duracion": 155
   },
@@ -594,7 +598,7 @@
   },
   {
    "id": "ooh-la-la-quien-lo-hubiera-pensado",
-   "titulo": "Ooh la la! ¿quién lo hubiera pensado?",
+   "titulo": "Ooh La La! ¿Quién lo hubiera pensado?",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004te.jpg",
    "duracion": 91
   },
@@ -603,6 +607,12 @@
    "titulo": "Peppa pig: diversión navideña con Peppa",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004sv.jpg",
    "duracion": 60
+  },
+  {
+   "id": "por-que-no-escribo-nada",
+   "titulo": "Por qué no escribo nada",
+   "poster": "https://www.bizcochito.es/img/tt41046922-es-pos.webp",
+   "duracion": 103
   },
   {
    "id": "ramayana-el-nacimiento-de-una-leyenda",
@@ -633,7 +643,7 @@
   {
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg",
    "duracion": 109
   },
   {
@@ -669,10 +679,28 @@
    "duracion": 119
   },
   {
+   "id": "turandot-opera-estatal-de-viena",
+   "titulo": "Turandot - Ópera Estatal de Viena",
+   "poster": "https://www.bizcochito.es/img/tt102724-es-pos.webp",
+   "duracion": 142
+  },
+  {
+   "id": "viaje-al-pais-de-los-blancos",
+   "titulo": "Viaje al país de los blancos",
+   "poster": "https://www.bizcochito.es/img/tt37162873-es-pos.webp",
+   "duracion": 110
+  },
+  {
    "id": "victorian-psycho",
    "titulo": "Victorian Psycho",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa836ffa1374f400cd084fa0466dda97f9bcc15c75d4406bb97a8e8f8c09.jpg",
    "duracion": 102
+  },
+  {
+   "id": "viva",
+   "titulo": "Viva",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa830acb00a3569b44f67bc3ace567977edc5e3423b3a8dfa15bf779569d.jpg",
+   "duracion": 113
   },
   {
    "id": "washington-el-origen-de-un-lider",
@@ -707,6 +735,12 @@
   {
    "id": "me-entiendes-o-te-lo-explico",
    "titulo": "¿Me entiendes o te lo explico?"
+  },
+  {
+   "id": "telefono-rojo-volamos-hacia-moscu",
+   "titulo": "¿teléfono rojo? volamos hacia moscú",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83f09b8ad8eac9064bc8a18d7e9f57e49aede8facd79c7d2e386f6b1ba.jpg",
+   "duracion": 95
   },
   {
    "id": "erase-una-vez-en-hollywood",
