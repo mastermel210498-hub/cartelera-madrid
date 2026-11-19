@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-19T12:44",
+ "generado": "2026-11-19T19:53",
  "dias": [
   "2026-11-19",
   "2026-11-20",
@@ -10,25 +10,27 @@
   "2026-11-25"
  ],
  "estado": {
+  "Verdi": {
+   "ok": false,
+   "sesiones": 0,
+   "error": "0 sesiones",
+   "segundos": 0.8,
+   "reutilizadas": 141
+  },
   "Renoir": {
    "ok": true,
-   "sesiones": 511,
-   "segundos": 4.1
-  },
-  "Verdi": {
-   "ok": true,
-   "sesiones": 156,
-   "segundos": 4.4
+   "sesiones": 513,
+   "segundos": 3.5
   },
   "MK2": {
    "ok": true,
-   "sesiones": 394,
-   "segundos": 5.3
+   "sesiones": 278,
+   "segundos": 4.8
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 855,
-   "segundos": 160.8
+   "sesiones": 859,
+   "segundos": 169.9
   }
  },
  "cines": [
@@ -71,16 +73,6 @@
    "web": "https://www.mk2palaciodehielo.es/es/cartelera",
    "zona": "este",
    "localidad": "Madrid (Hortaleza)"
-  },
-  {
-   "id": "mk2-cine-paz",
-   "nombre": "MK2 Cine Paz",
-   "cadena": "MK2",
-   "lat": 40.430995,
-   "lon": -3.702535,
-   "web": "https://www.cinepazmadrid.es/es/cartelera",
-   "zona": "centro",
-   "localidad": "Madrid (Chamberí)"
   },
   {
    "id": "verdi-madrid",
@@ -443,12 +435,6 @@
    "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines"
   },
   {
-   "id": "el-cielo-es-para-siempre",
-   "titulo": "El cielo es para siempre",
-   "poster": "https://www.bizcochito.es/img/tt116868-es-pos.webp",
-   "duracion": 79
-  },
-  {
    "id": "el-director",
    "titulo": "El director",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004ti.jpg",
@@ -501,6 +487,12 @@
    "duracion": 127
   },
   {
+   "id": "fatherland",
+   "titulo": "Fatherland",
+   "poster": "https://media.pillalas.com/imagenes/23ced0fe55a870baeb37574479e059a31715f807f9f84b693d9431d0.jpg",
+   "duracion": 82
+  },
+  {
    "id": "hechos-probados",
    "titulo": "Hechos probados"
   },
@@ -518,7 +510,7 @@
   },
   {
    "id": "iron-boy",
-   "titulo": "Iron Boy",
+   "titulo": "Iron boy",
    "poster": "https://media.pillalas.com/imagenes/4741fcae8bb23ffe2346487f5cba58ffe21058eafd2cc4347a8a2483.jpg",
    "duracion": 90
   },
@@ -530,13 +522,11 @@
   },
   {
    "id": "karateka",
-   "titulo": "Karateka",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s0.jpg",
-   "duracion": 110
+   "titulo": "Karateka"
   },
   {
    "id": "la-bola-negra",
-   "titulo": "La bola negra",
+   "titulo": "La Bola Negra",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa831886eb920647a20198ff54902bf99ba0380ede61c8d68439955de714.jpg",
    "duracion": 155
   },
@@ -601,12 +591,6 @@
    "titulo": "Ooh La La! ¿Quién lo hubiera pensado?",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004te.jpg",
    "duracion": 91
-  },
-  {
-   "id": "peppa-pig-diversion-navidena-con-peppa",
-   "titulo": "Peppa pig: diversión navideña con Peppa",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004sv.jpg",
-   "duracion": 60
   },
   {
    "id": "por-que-no-escribo-nada",
@@ -701,12 +685,6 @@
    "titulo": "Viva",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa830acb00a3569b44f67bc3ace567977edc5e3423b3a8dfa15bf779569d.jpg",
    "duracion": 113
-  },
-  {
-   "id": "washington-el-origen-de-un-lider",
-   "titulo": "Washington. El origen de un líder",
-   "poster": "https://www.bizcochito.es/img/tt32104007-es-pos.webp",
-   "duracion": 125
   },
   {
    "id": "wicker",

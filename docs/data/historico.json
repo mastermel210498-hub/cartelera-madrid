@@ -4,7 +4,7 @@
 },
 "la-bola-negra": {
 "primera": "2026-11-16",
-"titulo": "La bola negra",
+"titulo": "La Bola Negra",
 "ultima": "2026-11-25",
 "poster": "https://media.pillalas.com/imagenes/726afb526abffa831886eb920647a20198ff54902bf99ba0380ede61c8d68439955de714.jpg"
 },
@@ -323,7 +323,7 @@
 },
 "iron-boy": {
 "primera": "2026-11-20",
-"titulo": "Iron Boy",
+"titulo": "Iron boy",
 "ultima": "2026-11-25",
 "poster": "https://media.pillalas.com/imagenes/4741fcae8bb23ffe2346487f5cba58ffe21058eafd2cc4347a8a2483.jpg"
 },
@@ -414,5 +414,11 @@
 "titulo": "Canaletto y el arte de Venecia",
 "ultima": "2026-11-25",
 "poster": "https://www.bizcochito.es/img/tt7829440-es-pos.webp"
+},
+"fatherland": {
+"primera": "2026-11-25",
+"titulo": "Fatherland",
+"ultima": "2026-11-25",
+"poster": "https://media.pillalas.com/imagenes/23ced0fe55a870baeb37574479e059a31715f807f9f84b693d9431d0.jpg"
 }
 }
