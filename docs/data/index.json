@@ -1,34 +1,34 @@
 {
- "generado": "2026-11-18T23:41",
+ "generado": "2026-11-19T12:44",
  "dias": [
-  "2026-11-18",
   "2026-11-19",
   "2026-11-20",
   "2026-11-21",
   "2026-11-22",
   "2026-11-23",
-  "2026-11-24"
+  "2026-11-24",
+  "2026-11-25"
  ],
  "estado": {
   "Renoir": {
    "ok": true,
-   "sesiones": 515,
-   "segundos": 4.4
+   "sesiones": 511,
+   "segundos": 4.1
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 132,
-   "segundos": 4.9
+   "sesiones": 156,
+   "segundos": 4.4
   },
   "MK2": {
    "ok": true,
-   "sesiones": 335,
-   "segundos": 6.1
+   "sesiones": 394,
+   "segundos": 5.3
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 858,
-   "segundos": 163.8
+   "sesiones": 855,
+   "segundos": 160.8
   }
  },
  "cines": [
@@ -385,6 +385,12 @@
    "duracion": 80
   },
   {
+   "id": "canaletto-y-el-arte-de-venecia",
+   "titulo": "Canaletto y el arte de Venecia",
+   "poster": "https://www.bizcochito.es/img/tt7829440-es-pos.webp",
+   "duracion": 87
+  },
+  {
    "id": "cecilia-una-luz-de-manana",
    "titulo": "Cecilia, una luz de mañana",
    "poster": "https://www.bizcochito.es/img/tt41103037-es-pos.webp",
@@ -413,12 +419,6 @@
    "titulo": "Club kid",
    "poster": "https://media.pillalas.com/imagenes/9cfdd53a98e834a757e045668ec8271d8986fdc117e1c203411fedb1.jpg",
    "duracion": 126
-  },
-  {
-   "id": "clasicos-al-detalle-taller-de-analisis-filmico-y-metacine-sobre-profecia",
-   "titulo": "Clásicos al detalle – taller de análisis fílmico y metacine sobre profecía",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83db593141e5428e7e8bb3f8ac48bf64eea8bbcc7a8f1770c069a047da.png",
-   "duracion": 270
   },
   {
    "id": "como-robar-un-banco",
@@ -493,6 +493,12 @@
    "titulo": "Esta soledad",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa838c3e928d4d5123cc0e4a894e2b5ad42333686b42ca54f68e89dd8f7a.jpg",
    "duracion": 110
+  },
+  {
+   "id": "f-espectador-cartas-de-estado",
+   "titulo": "F. Espectador: Cartas de Estado",
+   "poster": "https://www.bizcochito.es/img/tt32888226-1-es-pos.webp",
+   "duracion": 127
   },
   {
    "id": "hechos-probados",
@@ -637,8 +643,8 @@
   {
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
-   "duracion": 105
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg",
+   "duracion": 109
   },
   {
    "id": "scrooge-y-los-fantasmas-de-la-navidad",
