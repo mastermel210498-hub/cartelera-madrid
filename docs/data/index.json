@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-19T19:53",
+ "generado": "2026-11-19T23:45",
  "dias": [
   "2026-11-19",
   "2026-11-20",
@@ -10,27 +10,25 @@
   "2026-11-25"
  ],
  "estado": {
-  "Verdi": {
-   "ok": false,
-   "sesiones": 0,
-   "error": "0 sesiones",
-   "segundos": 0.8,
-   "reutilizadas": 141
+  "MK2": {
+   "ok": true,
+   "sesiones": 348,
+   "segundos": 3.2
   },
   "Renoir": {
    "ok": true,
    "sesiones": 513,
-   "segundos": 3.5
+   "segundos": 4.0
   },
-  "MK2": {
+  "Verdi": {
    "ok": true,
-   "sesiones": 278,
-   "segundos": 4.8
+   "sesiones": 136,
+   "segundos": 4.1
   },
   "Ocine": {
    "ok": true,
    "sesiones": 859,
-   "segundos": 169.9
+   "segundos": 167.4
   }
  },
  "cines": [
@@ -73,6 +71,16 @@
    "web": "https://www.mk2palaciodehielo.es/es/cartelera",
    "zona": "este",
    "localidad": "Madrid (Hortaleza)"
+  },
+  {
+   "id": "mk2-cine-paz",
+   "nombre": "MK2 Cine Paz",
+   "cadena": "MK2",
+   "lat": 40.430995,
+   "lon": -3.702535,
+   "web": "https://www.cinepazmadrid.es/es/cartelera",
+   "zona": "centro",
+   "localidad": "Madrid (Chamberí)"
   },
   {
    "id": "verdi-madrid",
@@ -402,9 +410,7 @@
   },
   {
    "id": "clayface",
-   "titulo": "Clayface",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/clayface-110107.jpg",
-   "duracion": 108
+   "titulo": "Clayface"
   },
   {
    "id": "club-kid",
@@ -432,19 +438,15 @@
   },
   {
    "id": "diversion-navidena-con-peppa-la-experiencia-en-cines",
-   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines"
+   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines",
+   "poster": "https://www.bizcochito.es/img/tt46666063-es-pos.webp",
+   "duracion": 60
   },
   {
    "id": "el-director",
    "titulo": "El director",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004ti.jpg",
    "duracion": 115
-  },
-  {
-   "id": "el-extranjero",
-   "titulo": "El extranjero",
-   "poster": "https://www.bizcochito.es/img/tt0062310-es-pos.webp",
-   "duracion": 104
   },
   {
    "id": "el-gato-con-sombrero",
@@ -510,7 +512,7 @@
   },
   {
    "id": "iron-boy",
-   "titulo": "Iron boy",
+   "titulo": "Iron Boy",
    "poster": "https://media.pillalas.com/imagenes/4741fcae8bb23ffe2346487f5cba58ffe21058eafd2cc4347a8a2483.jpg",
    "duracion": 90
   },
@@ -526,7 +528,7 @@
   },
   {
    "id": "la-bola-negra",
-   "titulo": "La Bola Negra",
+   "titulo": "La bola negra",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa831886eb920647a20198ff54902bf99ba0380ede61c8d68439955de714.jpg",
    "duracion": 155
   },
@@ -627,8 +629,8 @@
   {
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg",
-   "duracion": 109
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
+   "duracion": 105
   },
   {
    "id": "scrooge-y-los-fantasmas-de-la-navidad",
@@ -641,12 +643,6 @@
    "titulo": "Sentido y sensibilidad",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83e9a608e8f5d4a82598b7cb63667af13fe2853de34387ca9fc7961cca.jpg",
    "duracion": 132
-  },
-  {
-   "id": "sesion-de-cortometrajes-terror-2026",
-   "titulo": "Sesión de Cortometrajes - Terror 2026",
-   "poster": "https://www.bizcochito.es/img/tt116338-es-pos.webp",
-   "duracion": 75
   },
   {
    "id": "superthings-la-pelicula",
@@ -703,12 +699,6 @@
    "titulo": "Wildwood",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa838e0144d155325222ca263ff7760db4e399771e06a80fceb4b260eac8.jpg",
    "duracion": 132
-  },
-  {
-   "id": "wildwood-el-bosque-salvaje",
-   "titulo": "Wildwood (El bosque salvaje)",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/wildwood-el-bosque-salvaje-110287.jpg",
-   "duracion": 140
   },
   {
    "id": "me-entiendes-o-te-lo-explico",

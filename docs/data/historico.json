@@ -4,7 +4,7 @@
 },
 "la-bola-negra": {
 "primera": "2026-11-16",
-"titulo": "La Bola Negra",
+"titulo": "La bola negra",
 "ultima": "2026-11-25",
 "poster": "https://media.pillalas.com/imagenes/726afb526abffa831886eb920647a20198ff54902bf99ba0380ede61c8d68439955de714.jpg"
 },
@@ -72,7 +72,7 @@
 "primera": "2026-11-16",
 "titulo": "Sacamantecas",
 "ultima": "2026-11-25",
-"poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg"
+"poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg"
 },
 "wildwood": {
 "primera": "2026-11-16",
@@ -313,7 +313,8 @@
 "diversion-navidena-con-peppa-la-experiencia-en-cines": {
 "primera": "2026-11-21",
 "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines",
-"ultima": "2026-11-22"
+"ultima": "2026-11-22",
+"poster": "https://www.bizcochito.es/img/tt46666063-es-pos.webp"
 },
 "rose": {
 "primera": "2026-11-20",
@@ -323,7 +324,7 @@
 },
 "iron-boy": {
 "primera": "2026-11-20",
-"titulo": "Iron boy",
+"titulo": "Iron Boy",
 "ultima": "2026-11-25",
 "poster": "https://media.pillalas.com/imagenes/4741fcae8bb23ffe2346487f5cba58ffe21058eafd2cc4347a8a2483.jpg"
 },
