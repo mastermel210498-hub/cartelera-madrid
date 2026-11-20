@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-20T12:43",
+ "generado": "2026-11-20T19:06",
  "dias": [
   "2026-11-20",
   "2026-11-21",
@@ -10,25 +10,27 @@
   "2026-11-26"
  ],
  "estado": {
-  "Renoir": {
-   "ok": true,
-   "sesiones": 512,
-   "segundos": 3.7
+  "Verdi": {
+   "ok": false,
+   "sesiones": 0,
+   "error": "0 sesiones",
+   "segundos": 0.4,
+   "reutilizadas": 143
   },
   "MK2": {
    "ok": true,
-   "sesiones": 399,
-   "segundos": 4.2
+   "sesiones": 365,
+   "segundos": 2.6
   },
-  "Verdi": {
+  "Renoir": {
    "ok": true,
-   "sesiones": 153,
-   "segundos": 5.4
+   "sesiones": 512,
+   "segundos": 3.1
   },
   "Ocine": {
    "ok": true,
    "sesiones": 840,
-   "segundos": 152.3
+   "segundos": 151.0
   }
  },
  "cines": [
@@ -432,9 +434,7 @@
   },
   {
    "id": "diversion-navidena-con-peppa-la-experiencia-en-cines",
-   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines",
-   "poster": "https://www.bizcochito.es/img/tt46666063-es-pos.webp",
-   "duracion": 60
+   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines"
   },
   {
    "id": "el-cielo-es-para-siempre",
@@ -518,7 +518,7 @@
   },
   {
    "id": "iron-boy",
-   "titulo": "Iron Boy",
+   "titulo": "Iron boy",
    "poster": "https://media.pillalas.com/imagenes/4741fcae8bb23ffe2346487f5cba58ffe21058eafd2cc4347a8a2483.jpg",
    "duracion": 90
   },
@@ -530,7 +530,7 @@
   },
   {
    "id": "la-bola-negra",
-   "titulo": "La bola negra",
+   "titulo": "La Bola Negra",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa831886eb920647a20198ff54902bf99ba0380ede61c8d68439955de714.jpg",
    "duracion": 155
   },
