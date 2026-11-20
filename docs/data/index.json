@@ -1,34 +1,34 @@
 {
- "generado": "2026-11-19T23:45",
+ "generado": "2026-11-20T12:43",
  "dias": [
-  "2026-11-19",
   "2026-11-20",
   "2026-11-21",
   "2026-11-22",
   "2026-11-23",
   "2026-11-24",
-  "2026-11-25"
+  "2026-11-25",
+  "2026-11-26"
  ],
  "estado": {
-  "MK2": {
-   "ok": true,
-   "sesiones": 348,
-   "segundos": 3.2
-  },
   "Renoir": {
    "ok": true,
-   "sesiones": 513,
-   "segundos": 4.0
+   "sesiones": 512,
+   "segundos": 3.7
+  },
+  "MK2": {
+   "ok": true,
+   "sesiones": 399,
+   "segundos": 4.2
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 136,
-   "segundos": 4.1
+   "sesiones": 153,
+   "segundos": 5.4
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 859,
-   "segundos": 167.4
+   "sesiones": 840,
+   "segundos": 152.3
   }
  },
  "cines": [
@@ -397,12 +397,6 @@
    "duracion": 87
   },
   {
-   "id": "chopin",
-   "titulo": "Chopin",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa8393c9f862680d98e427db248e3719faf1382551a9dcbf5ed802747808.jpg",
-   "duracion": 113
-  },
-  {
    "id": "citas-la-pelicula",
    "titulo": "Citas: La película",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004tf.jpg",
@@ -419,6 +413,12 @@
    "duracion": 126
   },
   {
+   "id": "con-la-muerte-en-los-talones",
+   "titulo": "Con la muerte en los talones",
+   "poster": "https://www.bizcochito.es/img/tt0053125-es-pos.webp",
+   "duracion": 136
+  },
+  {
    "id": "como-robar-un-banco",
    "titulo": "Cómo robar un banco",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/como-robar-un-banco-110020-1.jpg",
@@ -431,16 +431,16 @@
    "duracion": 137
   },
   {
-   "id": "digger",
-   "titulo": "Digger",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa836c08c9846a4787d9dd4ce85cb5f3168a5acfec3dd749f3a3ba224764.jpg",
-   "duracion": 128
-  },
-  {
    "id": "diversion-navidena-con-peppa-la-experiencia-en-cines",
    "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines",
    "poster": "https://www.bizcochito.es/img/tt46666063-es-pos.webp",
    "duracion": 60
+  },
+  {
+   "id": "el-cielo-es-para-siempre",
+   "titulo": "El cielo es para siempre",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004sd.jpg",
+   "duracion": 78
   },
   {
    "id": "el-director",
@@ -461,6 +461,12 @@
    "duracion": 120
   },
   {
+   "id": "el-maquinista-de-la-general-con-musica-en-directo",
+   "titulo": "El maquinista de la general con música en directo",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa837484b21cd764fee468e6c79645404eddc30163967889d4a08af1c2a9.png",
+   "duracion": 74
+  },
+  {
    "id": "el-precio-de-la-red",
    "titulo": "El precio de la red",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83cd53d56a34175822a29ca27295096337c63a4692152e4bedcfa84cd2.jpg",
@@ -475,12 +481,6 @@
   {
    "id": "en-el-corazon-de-la-bestia",
    "titulo": "En el corazón de la bestia"
-  },
-  {
-   "id": "esta-soledad",
-   "titulo": "Esta soledad",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa838c3e928d4d5123cc0e4a894e2b5ad42333686b42ca54f68e89dd8f7a.jpg",
-   "duracion": 110
   },
   {
    "id": "f-espectador-cartas-de-estado",
@@ -511,6 +511,12 @@
    "duracion": 156
   },
   {
+   "id": "incendies",
+   "titulo": "Incendies",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa837c5bfccdb28685f56fc89868e118401ad03edb5e682309e0247c27e3.jpg",
+   "duracion": 125
+  },
+  {
    "id": "iron-boy",
    "titulo": "Iron Boy",
    "poster": "https://media.pillalas.com/imagenes/4741fcae8bb23ffe2346487f5cba58ffe21058eafd2cc4347a8a2483.jpg",
@@ -521,10 +527,6 @@
    "titulo": "Jaleos",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa831e10982bc078ea7d200e3ea44e3e98e2d1425c105961f27a80d8d4f3.jpg",
    "duracion": 80
-  },
-  {
-   "id": "karateka",
-   "titulo": "Karateka"
   },
   {
    "id": "la-bola-negra",
@@ -545,10 +547,6 @@
   {
    "id": "la-otra-madre",
    "titulo": "La otra madre"
-  },
-  {
-   "id": "la-oveja-shaun-mision-calabaza",
-   "titulo": "La oveja shaun. Misión calabaza"
   },
   {
    "id": "la-violinista",
@@ -579,10 +577,6 @@
    "duracion": 178
   },
   {
-   "id": "los-rivales-de-amziah-king",
-   "titulo": "Los rivales de Amziah King"
-  },
-  {
    "id": "naza",
    "titulo": "Naza",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa839f49a928edf70529a7dec2d9c2fe80bdcbbf3f05d20a7955536f6e29.jpg",
@@ -601,8 +595,10 @@
    "duracion": 103
   },
   {
-   "id": "ramayana-el-nacimiento-de-una-leyenda",
-   "titulo": "Ramayana: El nacimiento de una leyenda"
+   "id": "puedes-verlo-todo",
+   "titulo": "Puedes verlo todo",
+   "poster": "https://media.pillalas.com/imagenes/360fcd28745c15acd0da3be60af401bcb0f8c6b706c63d0f9839e87b.jpg",
+   "duracion": 174
   },
   {
    "id": "ratones-al-ataque-operacion-navidad",
@@ -613,6 +609,11 @@
   {
    "id": "resident-evil",
    "titulo": "Resident Evil"
+  },
+  {
+   "id": "rompemadrid-abono-general",
+   "titulo": "ROMPEMADRID: Abono general",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/abonogeneralrmii.jpg"
   },
   {
    "id": "rose",
@@ -629,8 +630,8 @@
   {
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
-   "duracion": 105
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg",
+   "duracion": 109
   },
   {
    "id": "scrooge-y-los-fantasmas-de-la-navidad",
@@ -705,16 +706,16 @@
    "titulo": "¿Me entiendes o te lo explico?"
   },
   {
+   "id": "quien-puede-matar-a-un-nino",
+   "titulo": "¿quién puede matar a un niño?",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83460c970a706a73c4e60cb37e89eb67ab2f4fdf879b9db70c28349f67.png",
+   "duracion": 100
+  },
+  {
    "id": "telefono-rojo-volamos-hacia-moscu",
    "titulo": "¿teléfono rojo? volamos hacia moscú",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83f09b8ad8eac9064bc8a18d7e9f57e49aede8facd79c7d2e386f6b1ba.jpg",
    "duracion": 95
-  },
-  {
-   "id": "erase-una-vez-en-hollywood",
-   "titulo": "Érase una vez en... Hollywood",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83211e6b45afeb3871476128871fa1c8581ece600c5b895982d877ca02.jpg",
-   "duracion": 161
   }
  ]
 }
