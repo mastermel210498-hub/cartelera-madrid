@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-21T18:02",
+ "generado": "2026-11-21T21:59",
  "dias": [
   "2026-11-21",
   "2026-11-22",
@@ -10,25 +10,25 @@
   "2026-11-27"
  ],
  "estado": {
-  "Renoir": {
-   "ok": true,
-   "sesiones": 436,
-   "segundos": 2.5
-  },
   "MK2": {
    "ok": true,
-   "sesiones": 309,
+   "sesiones": 287,
+   "segundos": 3.4
+  },
+  "Renoir": {
+   "ok": true,
+   "sesiones": 431,
    "segundos": 3.8
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 127,
-   "segundos": 7.1
+   "sesiones": 121,
+   "segundos": 6.8
   },
   "Ocine": {
    "ok": true,
    "sesiones": 723,
-   "segundos": 141.7
+   "segundos": 144.6
   }
  },
  "cines": [
@@ -439,7 +439,7 @@
   {
    "id": "el-director",
    "titulo": "El director",
-   "poster": "https://www.cinepazmadrid.es/data/fotos/el-director-110543.jpg",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004ti.jpg",
    "duracion": 115
   },
   {
