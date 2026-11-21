@@ -1,34 +1,36 @@
 {
- "generado": "2026-11-20T23:19",
+ "generado": "2026-11-21T12:04",
  "dias": [
-  "2026-11-20",
   "2026-11-21",
   "2026-11-22",
   "2026-11-23",
   "2026-11-24",
   "2026-11-25",
-  "2026-11-26"
+  "2026-11-26",
+  "2026-11-27"
  ],
  "estado": {
+  "Verdi": {
+   "ok": false,
+   "sesiones": 0,
+   "error": "0 sesiones",
+   "segundos": 0.4,
+   "reutilizadas": 130
+  },
   "Renoir": {
    "ok": true,
-   "sesiones": 511,
-   "segundos": 3.6
-  },
-  "Verdi": {
-   "ok": true,
-   "sesiones": 138,
-   "segundos": 4.2
+   "sesiones": 436,
+   "segundos": 2.2
   },
   "MK2": {
    "ok": true,
-   "sesiones": 339,
-   "segundos": 4.8
+   "sesiones": 332,
+   "segundos": 2.9
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 840,
-   "segundos": 150.6
+   "sesiones": 720,
+   "segundos": 141.5
   }
  },
  "cines": [
@@ -391,12 +393,6 @@
    "duracion": 87
   },
   {
-   "id": "cecilia-una-luz-de-manana",
-   "titulo": "Cecilia, una luz de mañana",
-   "poster": "https://www.bizcochito.es/img/tt41103037-es-pos.webp",
-   "duracion": 87
-  },
-  {
    "id": "citas-la-pelicula",
    "titulo": "Citas: La película",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004tf.jpg",
@@ -432,9 +428,7 @@
   },
   {
    "id": "diversion-navidena-con-peppa-la-experiencia-en-cines",
-   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines",
-   "poster": "https://www.bizcochito.es/img/tt46666063-es-pos.webp",
-   "duracion": 60
+   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines"
   },
   {
    "id": "el-cielo-es-para-siempre",
@@ -445,7 +439,7 @@
   {
    "id": "el-director",
    "titulo": "El director",
-   "poster": "https://media.pillalas.com/imagenes/f2eaf7bcf073da91b63d7e746283c8a318e9f29d4c4d40ba61c66001.jpg",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004ti.jpg",
    "duracion": 115
   },
   {
@@ -495,6 +489,12 @@
    "duracion": 82
   },
   {
+   "id": "hechizo-bienvenidos-a-hexe",
+   "titulo": "Hechizo: Bienvenidos a Hexe",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/hechizo19.jpg",
+   "duracion": 110
+  },
+  {
    "id": "hechos-probados",
    "titulo": "Hechos probados"
   },
@@ -518,7 +518,7 @@
   },
   {
    "id": "iron-boy",
-   "titulo": "Iron Boy",
+   "titulo": "Iron boy",
    "poster": "https://media.pillalas.com/imagenes/4741fcae8bb23ffe2346487f5cba58ffe21058eafd2cc4347a8a2483.jpg",
    "duracion": 90
   },
