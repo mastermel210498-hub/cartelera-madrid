@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-21T12:04",
+ "generado": "2026-11-21T18:02",
  "dias": [
   "2026-11-21",
   "2026-11-22",
@@ -10,27 +10,25 @@
   "2026-11-27"
  ],
  "estado": {
-  "Verdi": {
-   "ok": false,
-   "sesiones": 0,
-   "error": "0 sesiones",
-   "segundos": 0.4,
-   "reutilizadas": 130
-  },
   "Renoir": {
    "ok": true,
    "sesiones": 436,
-   "segundos": 2.2
+   "segundos": 2.5
   },
   "MK2": {
    "ok": true,
-   "sesiones": 332,
-   "segundos": 2.9
+   "sesiones": 309,
+   "segundos": 3.8
+  },
+  "Verdi": {
+   "ok": true,
+   "sesiones": 127,
+   "segundos": 7.1
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 720,
-   "segundos": 141.5
+   "sesiones": 723,
+   "segundos": 141.7
   }
  },
  "cines": [
@@ -428,7 +426,9 @@
   },
   {
    "id": "diversion-navidena-con-peppa-la-experiencia-en-cines",
-   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines"
+   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines",
+   "poster": "https://www.bizcochito.es/img/tt46666063-es-pos.webp",
+   "duracion": 60
   },
   {
    "id": "el-cielo-es-para-siempre",
@@ -439,7 +439,7 @@
   {
    "id": "el-director",
    "titulo": "El director",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004ti.jpg",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/el-director-110543.jpg",
    "duracion": 115
   },
   {
@@ -593,6 +593,12 @@
    "titulo": "Por qué no escribo nada",
    "poster": "https://www.bizcochito.es/img/tt41046922-es-pos.webp",
    "duracion": 103
+  },
+  {
+   "id": "porco-rosso",
+   "titulo": "Porco Rosso",
+   "poster": "https://www.bizcochito.es/img/tt0104652-es-pos.webp",
+   "duracion": 94
   },
   {
    "id": "puedes-verlo-todo",
