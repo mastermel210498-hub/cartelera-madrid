@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-22T18:29",
+ "generado": "2026-11-22T22:09",
  "dias": [
   "2026-11-22",
   "2026-11-23",
@@ -13,22 +13,22 @@
   "Renoir": {
    "ok": true,
    "sesiones": 355,
-   "segundos": 4.2
+   "segundos": 3.7
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 98,
-   "segundos": 8.0
+   "sesiones": 97,
+   "segundos": 4.3
   },
   "MK2": {
    "ok": true,
-   "sesiones": 245,
-   "segundos": 8.2
+   "sesiones": 226,
+   "segundos": 5.2
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 582,
-   "segundos": 129.4
+   "sesiones": 581,
+   "segundos": 127.2
   }
  },
  "cines": [
@@ -437,7 +437,7 @@
   {
    "id": "el-director",
    "titulo": "El director",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004ti.jpg",
+   "poster": "https://media.pillalas.com/imagenes/f2eaf7bcf073da91b63d7e746283c8a318e9f29d4c4d40ba61c66001.jpg",
    "duracion": 115
   },
   {
@@ -565,8 +565,8 @@
   {
    "id": "los-juegos-del-hambre-amanecer-en-la-cosecha",
    "titulo": "Los juegos del hambre: Amanecer en la cosecha",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/losjuegos.jpg",
-   "duracion": 157
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa8313aebffbc88c58dbad8b45e8a840ef5ca61d67d8087d1d6d18ef77a5.jpg",
+   "duracion": 150
   },
   {
    "id": "los-mejores-cortometrajes-28-de-noviembre",
