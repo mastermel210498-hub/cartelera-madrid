@@ -1,34 +1,34 @@
 {
- "generado": "2026-11-21T21:59",
+ "generado": "2026-11-22T12:27",
  "dias": [
-  "2026-11-21",
   "2026-11-22",
   "2026-11-23",
   "2026-11-24",
   "2026-11-25",
   "2026-11-26",
-  "2026-11-27"
+  "2026-11-27",
+  "2026-11-28"
  ],
  "estado": {
-  "MK2": {
-   "ok": true,
-   "sesiones": 287,
-   "segundos": 3.4
-  },
   "Renoir": {
    "ok": true,
-   "sesiones": 431,
-   "segundos": 3.8
+   "sesiones": 355,
+   "segundos": 4.6
+  },
+  "MK2": {
+   "ok": true,
+   "sesiones": 271,
+   "segundos": 5.2
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 121,
-   "segundos": 6.8
+   "sesiones": 109,
+   "segundos": 8.9
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 723,
-   "segundos": 144.6
+   "sesiones": 582,
+   "segundos": 128.9
   }
  },
  "cines": [
@@ -426,9 +426,7 @@
   },
   {
    "id": "diversion-navidena-con-peppa-la-experiencia-en-cines",
-   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines",
-   "poster": "https://www.bizcochito.es/img/tt46666063-es-pos.webp",
-   "duracion": 60
+   "titulo": "Diversión Navideña con Peppa: La Experiencia en Cines"
   },
   {
    "id": "el-cielo-es-para-siempre",
@@ -571,6 +569,12 @@
    "duracion": 157
   },
   {
+   "id": "los-mejores-cortometrajes-28-de-noviembre",
+   "titulo": "Los mejores cortometrajes - 28 de noviembre",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/02-afiche-web-28-noviembre-cortos-f.png",
+   "duracion": 75
+  },
+  {
    "id": "los-miserables",
    "titulo": "Los miserables",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa837b0b3fc43e289a230abcac5141e1b0af86e1dbc68ae03c9321c0e805.jpg",
@@ -615,6 +619,11 @@
   {
    "id": "resident-evil",
    "titulo": "Resident Evil"
+  },
+  {
+   "id": "rompemadrid-abono-fin-de-semana",
+   "titulo": "ROMPEMADRID: Abono fin de semana",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/abonofindesemanarmii.jpg"
   },
   {
    "id": "rompemadrid-abono-general",
@@ -664,18 +673,6 @@
    "titulo": "Tiempos de ilusión",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa8345521d25e2a4480ad1250167ef633067346b55bfb75f7f7945aa6b35.jpg",
    "duracion": 119
-  },
-  {
-   "id": "turandot-opera-estatal-de-viena",
-   "titulo": "Turandot - Ópera Estatal de Viena",
-   "poster": "https://www.bizcochito.es/img/tt102724-es-pos.webp",
-   "duracion": 142
-  },
-  {
-   "id": "viaje-al-pais-de-los-blancos",
-   "titulo": "Viaje al país de los blancos",
-   "poster": "https://www.bizcochito.es/img/tt37162873-es-pos.webp",
-   "duracion": 110
   },
   {
    "id": "victorian-psycho",

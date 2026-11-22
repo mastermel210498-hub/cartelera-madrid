@@ -461,13 +461,25 @@
 "hechizo-bienvenidos-a-hexe": {
 "primera": "2026-11-27",
 "titulo": "Hechizo: Bienvenidos a Hexe",
-"ultima": "2026-11-27",
+"ultima": "2026-11-28",
 "poster": "https://www.mk2palaciodehielo.es/data/fotos/hechizo19.jpg"
 },
 "porco-rosso": {
 "primera": "2026-11-27",
 "titulo": "Porco Rosso",
-"ultima": "2026-11-27",
+"ultima": "2026-11-28",
 "poster": "https://www.bizcochito.es/img/tt0104652-es-pos.webp"
+},
+"rompemadrid-abono-fin-de-semana": {
+"primera": "2026-11-28",
+"titulo": "ROMPEMADRID: Abono fin de semana",
+"ultima": "2026-11-28",
+"poster": "https://www.mk2palaciodehielo.es/data/fotos/abonofindesemanarmii.jpg"
+},
+"los-mejores-cortometrajes-28-de-noviembre": {
+"primera": "2026-11-28",
+"titulo": "Los mejores cortometrajes - 28 de noviembre",
+"ultima": "2026-11-28",
+"poster": "https://www.cinepazmadrid.es/data/fotos/02-afiche-web-28-noviembre-cortos-f.png"
 }
 }
