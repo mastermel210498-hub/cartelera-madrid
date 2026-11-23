@@ -5,7 +5,7 @@
 "la-bola-negra": {
 "primera": "2026-11-16",
 "titulo": "La Bola Negra",
-"ultima": "2026-11-26",
+"ultima": "2026-11-29",
 "poster": "https://media.pillalas.com/imagenes/726afb526abffa831886eb920647a20198ff54902bf99ba0380ede61c8d68439955de714.jpg"
 },
 "ruega-por-nosotras": {
@@ -29,13 +29,13 @@
 "el-gato-con-sombrero": {
 "primera": "2026-11-16",
 "titulo": "El gato con sombrero",
-"ultima": "2026-11-26",
+"ultima": "2026-11-29",
 "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s1.jpg"
 },
 "scrooge-y-los-fantasmas-de-la-navidad": {
 "primera": "2026-11-16",
 "titulo": "Scrooge y los fantasmas de la navidad",
-"ultima": "2026-11-26",
+"ultima": "2026-11-29",
 "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004st.jpg"
 },
 "sentido-y-sensibilidad": {
@@ -77,7 +77,7 @@
 "wildwood": {
 "primera": "2026-11-16",
 "titulo": "Wildwood",
-"ultima": "2026-11-26",
+"ultima": "2026-11-29",
 "poster": "https://media.pillalas.com/imagenes/726afb526abffa838e0144d155325222ca263ff7760db4e399771e06a80fceb4b260eac8.jpg"
 },
 "como-robar-un-banco": {
@@ -295,8 +295,8 @@
 "los-juegos-del-hambre-amanecer-en-la-cosecha": {
 "primera": "2026-11-20",
 "titulo": "Los juegos del hambre: Amanecer en la cosecha",
-"ultima": "2026-11-26",
-"poster": "https://www.mk2palaciodehielo.es/data/fotos/losjuegos.jpg"
+"ultima": "2026-11-29",
+"poster": "https://media.pillalas.com/imagenes/726afb526abffa8313aebffbc88c58dbad8b45e8a840ef5ca61d67d8087d1d6d18ef77a5.jpg"
 },
 "cecilia-una-luz-de-manana": {
 "primera": "2026-11-20",
@@ -307,8 +307,8 @@
 "el-director": {
 "primera": "2026-11-20",
 "titulo": "El director",
-"ultima": "2026-11-26",
-"poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004ti.jpg"
+"ultima": "2026-11-29",
+"poster": "https://media.pillalas.com/imagenes/f2eaf7bcf073da91b63d7e746283c8a318e9f29d4c4d40ba61c66001.jpg"
 },
 "diversion-navidena-con-peppa-la-experiencia-en-cines": {
 "primera": "2026-11-21",
@@ -499,5 +499,16 @@
 "titulo": "Los mejores cortometrajes - 29 de noviembre",
 "ultima": "2026-11-29",
 "poster": "https://www.cinepazmadrid.es/data/fotos/ficbueu--29-de-noviembre.jpg"
+},
+"ahora-los-suegros-son-ellos": {
+"primera": "2026-11-27",
+"titulo": "Ahora los suegros son ellos",
+"ultima": "2026-11-29"
+},
+"haz-que-pare": {
+"primera": "2026-11-28",
+"titulo": "Haz que pare",
+"ultima": "2026-11-28",
+"poster": "https://www.cinepazmadrid.es/data/fotos/afiche-hazquepare-ok.png"
 }
 }
