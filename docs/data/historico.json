@@ -23,7 +23,7 @@
 "wild-horse-nine": {
 "primera": "2026-11-16",
 "titulo": "Wild Horse Nine",
-"ultima": "2026-11-26",
+"ultima": "2026-11-29",
 "poster": "https://media.pillalas.com/imagenes/726afb526abffa83cf2bcb9a69c605ec76c37dc25ad047a0dcc02dc5560e90e75a7b97ae.jpg"
 },
 "el-gato-con-sombrero": {
@@ -296,7 +296,7 @@
 "primera": "2026-11-20",
 "titulo": "Los juegos del hambre: Amanecer en la cosecha",
 "ultima": "2026-11-26",
-"poster": "https://media.pillalas.com/imagenes/726afb526abffa8313aebffbc88c58dbad8b45e8a840ef5ca61d67d8087d1d6d18ef77a5.jpg"
+"poster": "https://www.mk2palaciodehielo.es/data/fotos/losjuegos.jpg"
 },
 "cecilia-una-luz-de-manana": {
 "primera": "2026-11-20",
@@ -308,7 +308,7 @@
 "primera": "2026-11-20",
 "titulo": "El director",
 "ultima": "2026-11-26",
-"poster": "https://media.pillalas.com/imagenes/f2eaf7bcf073da91b63d7e746283c8a318e9f29d4c4d40ba61c66001.jpg"
+"poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004ti.jpg"
 },
 "diversion-navidena-con-peppa-la-experiencia-en-cines": {
 "primera": "2026-11-21",
@@ -461,13 +461,13 @@
 "hechizo-bienvenidos-a-hexe": {
 "primera": "2026-11-27",
 "titulo": "Hechizo: Bienvenidos a Hexe",
-"ultima": "2026-11-28",
+"ultima": "2026-11-29",
 "poster": "https://www.mk2palaciodehielo.es/data/fotos/hechizo19.jpg"
 },
 "porco-rosso": {
 "primera": "2026-11-27",
 "titulo": "Porco Rosso",
-"ultima": "2026-11-28",
+"ultima": "2026-11-29",
 "poster": "https://www.bizcochito.es/img/tt0104652-es-pos.webp"
 },
 "rompemadrid-abono-fin-de-semana": {
@@ -481,5 +481,23 @@
 "titulo": "Los mejores cortometrajes - 28 de noviembre",
 "ultima": "2026-11-28",
 "poster": "https://www.cinepazmadrid.es/data/fotos/02-afiche-web-28-noviembre-cortos-f.png"
+},
+"rompemadrid-abono-domingo-pirata": {
+"primera": "2026-11-29",
+"titulo": "ROMPEMADRID: Abono Domingo Pirata",
+"ultima": "2026-11-29",
+"poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s2.jpg"
+},
+"rompemadrid-domingo-pirata-hook": {
+"primera": "2026-11-29",
+"titulo": "Rompemadrid Domingo Pirata: Hook",
+"ultima": "2026-11-29",
+"poster": "https://www.mk2palaciodehielo.es/data/fotos/posterhook.jpg"
+},
+"los-mejores-cortometrajes-29-de-noviembre": {
+"primera": "2026-11-29",
+"titulo": "Los mejores cortometrajes - 29 de noviembre",
+"ultima": "2026-11-29",
+"poster": "https://www.cinepazmadrid.es/data/fotos/ficbueu--29-de-noviembre.jpg"
 }
 }
