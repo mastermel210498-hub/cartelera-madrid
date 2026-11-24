@@ -11,7 +11,7 @@
 "ruega-por-nosotras": {
 "primera": "2026-11-16",
 "titulo": "Ruega por nosotras",
-"ultima": "2026-11-26",
+"ultima": "2026-11-30",
 "poster": "https://media.pillalas.com/imagenes/726afb526abffa832dd89fb595e81297ccc3ce69d983d06280c57cd1e36185404b19dbf2.jpg"
 },
 "washington-el-origen-de-un-lider": {
@@ -77,13 +77,13 @@
 "wildwood": {
 "primera": "2026-11-16",
 "titulo": "Wildwood",
-"ultima": "2026-11-29",
+"ultima": "2026-11-30",
 "poster": "https://media.pillalas.com/imagenes/726afb526abffa838e0144d155325222ca263ff7760db4e399771e06a80fceb4b260eac8.jpg"
 },
 "como-robar-un-banco": {
 "primera": "2026-11-16",
 "titulo": "Cómo robar un banco",
-"ultima": "2026-11-26",
+"ultima": "2026-11-30",
 "poster": "https://www.mk2palaciodehielo.es/data/fotos/como-robar-un-banco-110020-1.jpg"
 },
 "superthings-la-pelicula": {
@@ -130,7 +130,7 @@
 "ratones-al-ataque-operacion-navidad": {
 "primera": "2026-11-16",
 "titulo": "Ratones al ataque: Operación Navidad",
-"ultima": "2026-11-26",
+"ultima": "2026-11-30",
 "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004sq.jpg"
 },
 "me-entiendes-o-te-lo-explico": {
@@ -176,12 +176,12 @@
 "tadeo-jones-y-la-lampara-maravillosa": {
 "primera": "2026-11-16",
 "titulo": "Tadeo Jones y la lámpara maravillosa",
-"ultima": "2026-11-26"
+"ultima": "2026-11-30"
 },
 "en-el-corazon-de-la-bestia": {
 "primera": "2026-11-16",
 "titulo": "En el corazón de la bestia",
-"ultima": "2026-11-26"
+"ultima": "2026-11-30"
 },
 "la-otra-madre": {
 "primera": "2026-11-16",
@@ -191,7 +191,7 @@
 "clayface": {
 "primera": "2026-11-16",
 "titulo": "Clayface",
-"ultima": "2026-11-25",
+"ultima": "2026-11-26",
 "poster": "https://www.mk2palaciodehielo.es/data/fotos/clayface-110107.jpg"
 },
 "jaleos": {
@@ -215,7 +215,7 @@
 "leones-en-invierno": {
 "primera": "2026-11-16",
 "titulo": "Leones en Invierno",
-"ultima": "2026-11-26"
+"ultima": "2026-11-30"
 },
 "los-rivales-de-amziah-king": {
 "primera": "2026-11-16",
@@ -241,7 +241,7 @@
 "el-mal-padre": {
 "primera": "2026-11-17",
 "titulo": "El mal padre",
-"ultima": "2026-11-26",
+"ultima": "2026-11-30",
 "poster": "https://media.pillalas.com/imagenes/726afb526abffa83ad9761c875da7afd0b06e8e4cda16b52b1c4eb93e415fdf3a7cd7175.jpg"
 },
 "dersu-uzala-el-cazador": {
@@ -389,8 +389,8 @@
 "hermanas": {
 "primera": "2026-11-24",
 "titulo": "Hermanas",
-"ultima": "2026-11-24",
-"poster": "https://media.pillalas.com/imagenes/becdc7aa1d4b9b721f38bbd1a2f849ce39a7f381dec3d20a19e60c9b.jpg"
+"ultima": "2026-11-30",
+"poster": "https://media.pillalas.com/imagenes/bbdd0a4b80e05baab8fe01db1dab63f301eb0e86dabb4a2e91b173c0.jpg"
 },
 "telefono-rojo-volamos-hacia-moscu": {
 "primera": "2026-11-24",
@@ -510,5 +510,10 @@
 "titulo": "Haz que pare",
 "ultima": "2026-11-28",
 "poster": "https://www.cinepazmadrid.es/data/fotos/afiche-hazquepare-ok.png"
+},
+"oro-sin-ley": {
+"primera": "2026-11-27",
+"titulo": "Oro sin ley",
+"ultima": "2026-11-30"
 }
 }

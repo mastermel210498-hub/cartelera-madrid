@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-24T03:22",
+ "generado": "2026-11-24T14:46",
  "dias": [
   "2026-11-24",
   "2026-11-25",
@@ -12,23 +12,23 @@
  "estado": {
   "Renoir": {
    "ok": true,
-   "sesiones": 205,
-   "segundos": 4.6
-  },
-  "Verdi": {
-   "ok": true,
-   "sesiones": 70,
-   "segundos": 4.7
+   "sesiones": 264,
+   "segundos": 3.1
   },
   "MK2": {
    "ok": true,
    "sesiones": 179,
-   "segundos": 22.2
+   "segundos": 3.1
+  },
+  "Verdi": {
+   "ok": true,
+   "sesiones": 65,
+   "segundos": 6.4
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 472,
-   "segundos": 163.9
+   "sesiones": 625,
+   "segundos": 108.6
   }
  },
  "cines": [
@@ -490,7 +490,7 @@
    "id": "haz-que-pare",
    "titulo": "Haz que pare",
    "poster": "https://www.cinepazmadrid.es/data/fotos/afiche-hazquepare-ok.png",
-   "duracion": 150
+   "duracion": 120
   },
   {
    "id": "hechizo-bienvenidos-a-hexe",
@@ -505,7 +505,7 @@
   {
    "id": "hermanas",
    "titulo": "Hermanas",
-   "poster": "https://media.pillalas.com/imagenes/becdc7aa1d4b9b721f38bbd1a2f849ce39a7f381dec3d20a19e60c9b.jpg",
+   "poster": "https://media.pillalas.com/imagenes/bbdd0a4b80e05baab8fe01db1dab63f301eb0e86dabb4a2e91b173c0.jpg",
    "duracion": 100
   },
   {
@@ -599,6 +599,10 @@
    "titulo": "Ooh La La! ¿Quién lo hubiera pensado?",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004te.jpg",
    "duracion": 91
+  },
+  {
+   "id": "oro-sin-ley",
+   "titulo": "Oro sin ley"
   },
   {
    "id": "por-que-no-escribo-nada",
