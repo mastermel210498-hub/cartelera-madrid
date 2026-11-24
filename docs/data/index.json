@@ -1,34 +1,36 @@
 {
- "generado": "2026-11-24T21:26",
+ "generado": "2026-11-25T00:59",
  "dias": [
-  "2026-11-24",
   "2026-11-25",
   "2026-11-26",
   "2026-11-27",
   "2026-11-28",
   "2026-11-29",
-  "2026-11-30"
+  "2026-11-30",
+  "2026-12-01"
  ],
  "estado": {
+  "Verdi": {
+   "ok": false,
+   "sesiones": 0,
+   "error": "0 sesiones",
+   "segundos": 0.8,
+   "reutilizadas": 130
+  },
   "Renoir": {
    "ok": true,
-   "sesiones": 425,
-   "segundos": 3.9
-  },
-  "Verdi": {
-   "ok": true,
-   "sesiones": 138,
-   "segundos": 4.7
+   "sesiones": 510,
+   "segundos": 4.1
   },
   "MK2": {
    "ok": true,
-   "sesiones": 349,
-   "segundos": 7.5
+   "sesiones": 382,
+   "segundos": 4.3
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 840,
-   "segundos": 143.0
+   "sesiones": 836,
+   "segundos": 137.1
   }
  },
  "cines": [
@@ -391,6 +393,12 @@
    "duracion": 80
   },
   {
+   "id": "ballet-el-cascanueces-desde-the-royal-ballet",
+   "titulo": "Ballet El Cascanueces desde The Royal Ballet",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/2627-rbo-cinema-thumbnails-nutcrack64.jpg",
+   "duracion": 140
+  },
+  {
    "id": "canaletto-y-el-arte-de-venecia",
    "titulo": "Canaletto y el arte de Venecia",
    "poster": "https://www.bizcochito.es/img/tt7829440-es-pos.webp",
@@ -405,12 +413,6 @@
   {
    "id": "clayface",
    "titulo": "Clayface"
-  },
-  {
-   "id": "club-kid",
-   "titulo": "Club kid",
-   "poster": "https://media.pillalas.com/imagenes/9cfdd53a98e834a757e045668ec8271d8986fdc117e1c203411fedb1.jpg",
-   "duracion": 126
   },
   {
    "id": "con-la-muerte-en-los-talones",
@@ -483,10 +485,10 @@
    "duracion": 90
   },
   {
-   "id": "f-espectador-cartas-de-estado",
-   "titulo": "F. Espectador: Cartas de Estado",
-   "poster": "https://www.bizcochito.es/img/tt32888226-1-es-pos.webp",
-   "duracion": 127
+   "id": "fanny-y-alexander",
+   "titulo": "Fanny y alexander",
+   "poster": "https://media.pillalas.com/imagenes/266c4cdbaf7248302b3ed1929ee3357a5b2fbc9036245959351c5015.jpg",
+   "duracion": 188
   },
   {
    "id": "fatherland",
@@ -513,7 +515,7 @@
   {
    "id": "hermanas",
    "titulo": "Hermanas",
-   "poster": "https://www.cinepazmadrid.es/data/fotos/hermanas-109924.jpg",
+   "poster": "https://media.pillalas.com/imagenes/bbdd0a4b80e05baab8fe01db1dab63f301eb0e86dabb4a2e91b173c0.jpg",
    "duracion": 100
   },
   {
@@ -645,6 +647,12 @@
    "duracion": 94
   },
   {
+   "id": "primavera",
+   "titulo": "Primavera",
+   "poster": "https://media.pillalas.com/imagenes/fbea892d98a497eb891e456da5fc2df2f25884adc28e2e5c76645cd2.jpg",
+   "duracion": 111
+  },
+  {
    "id": "puedes-verlo-todo",
    "titulo": "Puedes verlo todo",
    "poster": "https://media.pillalas.com/imagenes/360fcd28745c15acd0da3be60af401bcb0f8c6b706c63d0f9839e87b.jpg",
@@ -690,7 +698,7 @@
   {
    "id": "ruega-por-nosotras",
    "titulo": "Ruega por nosotras",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004rv.jpg",
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa832dd89fb595e81297ccc3ce69d983d06280c57cd1e36185404b19dbf2.jpg",
    "duracion": 136
   },
   {
@@ -740,12 +748,6 @@
    "duracion": 102
   },
   {
-   "id": "viva",
-   "titulo": "Viva",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa830acb00a3569b44f67bc3ace567977edc5e3423b3a8dfa15bf779569d.jpg",
-   "duracion": 113
-  },
-  {
    "id": "wicker",
    "titulo": "Wicker",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83d5bf4e792081a9ede9e980410467ef4083dfe33e70be35d5e3a7576e.jpg",
@@ -772,12 +774,6 @@
    "titulo": "¿quién puede matar a un niño?",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83460c970a706a73c4e60cb37e89eb67ab2f4fdf879b9db70c28349f67.png",
    "duracion": 100
-  },
-  {
-   "id": "telefono-rojo-volamos-hacia-moscu",
-   "titulo": "¿teléfono rojo? volamos hacia moscú",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83f09b8ad8eac9064bc8a18d7e9f57e49aede8facd79c7d2e386f6b1ba.jpg",
-   "duracion": 95
   }
  ]
 }
