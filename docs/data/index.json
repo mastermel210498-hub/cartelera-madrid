@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-24T14:46",
+ "generado": "2026-11-24T21:26",
  "dias": [
   "2026-11-24",
   "2026-11-25",
@@ -12,23 +12,23 @@
  "estado": {
   "Renoir": {
    "ok": true,
-   "sesiones": 264,
-   "segundos": 3.1
-  },
-  "MK2": {
-   "ok": true,
-   "sesiones": 179,
-   "segundos": 3.1
+   "sesiones": 425,
+   "segundos": 3.9
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 65,
-   "segundos": 6.4
+   "sesiones": 138,
+   "segundos": 4.7
+  },
+  "MK2": {
+   "ok": true,
+   "sesiones": 349,
+   "segundos": 7.5
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 625,
-   "segundos": 108.6
+   "sesiones": 840,
+   "segundos": 143.0
   }
  },
  "cines": [
@@ -374,7 +374,9 @@
   },
   {
    "id": "ahora-los-suegros-son-ellos",
-   "titulo": "Ahora los suegros son ellos"
+   "titulo": "Ahora los suegros son ellos",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/ahora-los-suegros-son-ellos-110536-.jpg",
+   "duracion": 105
   },
   {
    "id": "arriba-tutto",
@@ -475,6 +477,12 @@
    "titulo": "En el corazón de la bestia"
   },
   {
+   "id": "entre-fronteras",
+   "titulo": "Entre fronteras",
+   "poster": "https://www.bizcochito.es/img/tt31123933-es-pos.webp",
+   "duracion": 90
+  },
+  {
    "id": "f-espectador-cartas-de-estado",
    "titulo": "F. Espectador: Cartas de Estado",
    "poster": "https://www.bizcochito.es/img/tt32888226-1-es-pos.webp",
@@ -505,7 +513,7 @@
   {
    "id": "hermanas",
    "titulo": "Hermanas",
-   "poster": "https://media.pillalas.com/imagenes/bbdd0a4b80e05baab8fe01db1dab63f301eb0e86dabb4a2e91b173c0.jpg",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/hermanas-109924.jpg",
    "duracion": 100
   },
   {
@@ -513,6 +521,12 @@
    "titulo": "Hope",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83e291b05ecf98ff92816e19d3419b3a0e23580f3c8c001594b17c98f3.jpg",
    "duracion": 156
+  },
+  {
+   "id": "hora-y-veinte",
+   "titulo": "Hora y veinte",
+   "poster": "https://www.bizcochito.es/img/tt30811432-es-pos.webp",
+   "duracion": 80
   },
   {
    "id": "incendies",
@@ -534,7 +548,7 @@
   },
   {
    "id": "la-bola-negra",
-   "titulo": "La Bola Negra",
+   "titulo": "La bola negra",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa831886eb920647a20198ff54902bf99ba0380ede61c8d68439955de714.jpg",
    "duracion": 155
   },
@@ -571,6 +585,12 @@
    "duracion": 157
   },
   {
+   "id": "los-mejores-anos-de-nuestra-vida",
+   "titulo": "Los mejores años de nuestra vida",
+   "poster": "https://www.bizcochito.es/img/tt38990608-es-pos.webp",
+   "duracion": 108
+  },
+  {
    "id": "los-mejores-cortometrajes-28-de-noviembre",
    "titulo": "Los mejores cortometrajes - 28 de noviembre",
    "poster": "https://www.cinepazmadrid.es/data/fotos/02-afiche-web-28-noviembre-cortos-f.png",
@@ -602,7 +622,15 @@
   },
   {
    "id": "oro-sin-ley",
-   "titulo": "Oro sin ley"
+   "titulo": "Oro sin ley",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004tr.jpg",
+   "duracion": 115
+  },
+  {
+   "id": "oro-sin-ley-el-peso-de-la-libertad",
+   "titulo": "Oro sin ley: El peso de la libertad",
+   "poster": "https://media.pillalas.com/imagenes/38827a7f8fdbd2896d7346ba4823848e8e9185446a5dcc7b8022ca14.jpg",
+   "duracion": 113
   },
   {
    "id": "por-que-no-escribo-nada",
@@ -662,14 +690,20 @@
   {
    "id": "ruega-por-nosotras",
    "titulo": "Ruega por nosotras",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa832dd89fb595e81297ccc3ce69d983d06280c57cd1e36185404b19dbf2.jpg",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004rv.jpg",
    "duracion": 136
   },
   {
    "id": "sacamantecas",
    "titulo": "Sacamantecas",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004s9.jpg",
-   "duracion": 109
+   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83befb8cb206d34654260239441bb501e27b1d20a0f104525d81368dc8.jpg",
+   "duracion": 105
+  },
+  {
+   "id": "sanguine",
+   "titulo": "Sanguine",
+   "poster": "https://media.pillalas.com/imagenes/20df3810100f6896dbb6af28e06557e67fb3c671697899c01362e5e3.jpg",
+   "duracion": 103
   },
   {
    "id": "scrooge-y-los-fantasmas-de-la-navidad",
@@ -692,6 +726,12 @@
    "titulo": "Tiempos de ilusión",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa8345521d25e2a4480ad1250167ef633067346b55bfb75f7f7945aa6b35.jpg",
    "duracion": 119
+  },
+  {
+   "id": "un-hombre-en-un-puente",
+   "titulo": "Un hombre en un puente",
+   "poster": "https://media.pillalas.com/imagenes/2cdaa35604080da853e62f45888824b439018d689f96dde144f32c41.jpg",
+   "duracion": 117
   },
   {
    "id": "victorian-psycho",
