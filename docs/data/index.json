@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-25T13:58",
+ "generado": "2026-11-25T20:40",
  "dias": [
   "2026-11-25",
   "2026-11-26",
@@ -12,23 +12,23 @@
  "estado": {
   "MK2": {
    "ok": true,
-   "sesiones": 382,
-   "segundos": 2.3
+   "sesiones": 340,
+   "segundos": 3.6
   },
   "Renoir": {
    "ok": true,
    "sesiones": 510,
-   "segundos": 2.3
+   "segundos": 3.7
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 151,
-   "segundos": 4.1
+   "sesiones": 144,
+   "segundos": 3.7
   },
   "Ocine": {
    "ok": true,
    "sesiones": 836,
-   "segundos": 138.6
+   "segundos": 140.5
   }
  },
  "cines": [
@@ -377,12 +377,6 @@
    "titulo": "Ahora los suegros son ellos",
    "poster": "https://www.bizcochito.es/img/tt34966140-es-pos.webp",
    "duracion": 106
-  },
-  {
-   "id": "arriba-tutto",
-   "titulo": "Arriba Tutto",
-   "poster": "https://www.bizcochito.es/img/tt37676022-es-pos.webp",
-   "duracion": 102
   },
   {
    "id": "bailar-la-muerte",
