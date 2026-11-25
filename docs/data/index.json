@@ -1,34 +1,34 @@
 {
- "generado": "2026-11-25T20:40",
+ "generado": "2026-11-26T00:44",
  "dias": [
-  "2026-11-25",
   "2026-11-26",
   "2026-11-27",
   "2026-11-28",
   "2026-11-29",
   "2026-11-30",
-  "2026-12-01"
+  "2026-12-01",
+  "2026-12-02"
  ],
  "estado": {
   "MK2": {
    "ok": true,
-   "sesiones": 340,
-   "segundos": 3.6
-  },
-  "Renoir": {
-   "ok": true,
-   "sesiones": 510,
-   "segundos": 3.7
+   "sesiones": 376,
+   "segundos": 2.5
   },
   "Verdi": {
    "ok": true,
-   "sesiones": 144,
-   "segundos": 3.7
+   "sesiones": 156,
+   "segundos": 3.4
+  },
+  "Renoir": {
+   "ok": true,
+   "sesiones": 516,
+   "segundos": 4.6
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 836,
-   "segundos": 140.5
+   "sesiones": 834,
+   "segundos": 137.1
   }
  },
  "cines": [
@@ -379,22 +379,10 @@
    "duracion": 106
   },
   {
-   "id": "bailar-la-muerte",
-   "titulo": "Bailar la muerte",
-   "poster": "https://media.pillalas.com/imagenes/171bdf20f23dfed44c225f881fa216a71dd6d7a61a9fe8fd0d60cfb2.jpg",
-   "duracion": 80
-  },
-  {
    "id": "ballet-el-cascanueces-desde-the-royal-ballet",
    "titulo": "Ballet El Cascanueces desde The Royal Ballet",
    "poster": "https://www.cinepazmadrid.es/data/fotos/2627-rbo-cinema-thumbnails-nutcrack64.jpg",
    "duracion": 140
-  },
-  {
-   "id": "canaletto-y-el-arte-de-venecia",
-   "titulo": "Canaletto y el arte de Venecia",
-   "poster": "https://www.bizcochito.es/img/tt7829440-es-pos.webp",
-   "duracion": 87
   },
   {
    "id": "carmen-st-margarethen-open-air-opera",
@@ -489,12 +477,6 @@
    "duracion": 188
   },
   {
-   "id": "fatherland",
-   "titulo": "Fatherland",
-   "poster": "https://media.pillalas.com/imagenes/23ced0fe55a870baeb37574479e059a31715f807f9f84b693d9431d0.jpg",
-   "duracion": 82
-  },
-  {
    "id": "haz-que-pare",
    "titulo": "Haz que pare",
    "poster": "https://www.cinepazmadrid.es/data/fotos/afiche-hazquepare-ok.png",
@@ -517,12 +499,6 @@
    "duracion": 100
   },
   {
-   "id": "hope",
-   "titulo": "Hope",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83e291b05ecf98ff92816e19d3419b3a0e23580f3c8c001594b17c98f3.jpg",
-   "duracion": 156
-  },
-  {
    "id": "hora-y-veinte",
    "titulo": "Hora y veinte",
    "poster": "https://www.bizcochito.es/img/tt30811432-es-pos.webp",
@@ -533,6 +509,12 @@
    "titulo": "Incendies",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa837c5bfccdb28685f56fc89868e118401ad03edb5e682309e0247c27e3.jpg",
    "duracion": 125
+  },
+  {
+   "id": "inside-the-uffizi",
+   "titulo": "Inside the Uffizi",
+   "poster": "https://www.bizcochito.es/img/tt15583714-es-pos.webp",
+   "duracion": 96
   },
   {
    "id": "iron-boy",
