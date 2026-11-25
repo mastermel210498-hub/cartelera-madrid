@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-25T00:59",
+ "generado": "2026-11-25T13:58",
  "dias": [
   "2026-11-25",
   "2026-11-26",
@@ -10,27 +10,25 @@
   "2026-12-01"
  ],
  "estado": {
-  "Verdi": {
-   "ok": false,
-   "sesiones": 0,
-   "error": "0 sesiones",
-   "segundos": 0.8,
-   "reutilizadas": 130
+  "MK2": {
+   "ok": true,
+   "sesiones": 382,
+   "segundos": 2.3
   },
   "Renoir": {
    "ok": true,
    "sesiones": 510,
-   "segundos": 4.1
+   "segundos": 2.3
   },
-  "MK2": {
+  "Verdi": {
    "ok": true,
-   "sesiones": 382,
-   "segundos": 4.3
+   "sesiones": 151,
+   "segundos": 4.1
   },
   "Ocine": {
    "ok": true,
    "sesiones": 836,
-   "segundos": 137.1
+   "segundos": 138.6
   }
  },
  "cines": [
@@ -377,8 +375,8 @@
   {
    "id": "ahora-los-suegros-son-ellos",
    "titulo": "Ahora los suegros son ellos",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/ahora-los-suegros-son-ellos-110536-.jpg",
-   "duracion": 105
+   "poster": "https://www.bizcochito.es/img/tt34966140-es-pos.webp",
+   "duracion": 106
   },
   {
    "id": "arriba-tutto",
@@ -403,6 +401,12 @@
    "titulo": "Canaletto y el arte de Venecia",
    "poster": "https://www.bizcochito.es/img/tt7829440-es-pos.webp",
    "duracion": 87
+  },
+  {
+   "id": "carmen-st-margarethen-open-air-opera",
+   "titulo": "Carmen (St. Margarethen Open Air Opera)",
+   "poster": "https://www.bizcochito.es/img/tt111199-es-pos.webp",
+   "duracion": 150
   },
   {
    "id": "citas-la-pelicula",
