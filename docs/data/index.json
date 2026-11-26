@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-26T00:44",
+ "generado": "2026-11-26T13:37",
  "dias": [
   "2026-11-26",
   "2026-11-27",
@@ -10,25 +10,27 @@
   "2026-12-02"
  ],
  "estado": {
+  "Verdi": {
+   "ok": false,
+   "sesiones": 0,
+   "error": "0 sesiones",
+   "segundos": 0.6,
+   "reutilizadas": 150
+  },
   "MK2": {
    "ok": true,
    "sesiones": 376,
-   "segundos": 2.5
-  },
-  "Verdi": {
-   "ok": true,
-   "sesiones": 156,
    "segundos": 3.4
   },
   "Renoir": {
    "ok": true,
    "sesiones": 516,
-   "segundos": 4.6
+   "segundos": 4.1
   },
   "Ocine": {
    "ok": true,
    "sesiones": 834,
-   "segundos": 137.1
+   "segundos": 139.8
   }
  },
  "cines": [
@@ -375,8 +377,8 @@
   {
    "id": "ahora-los-suegros-son-ellos",
    "titulo": "Ahora los suegros son ellos",
-   "poster": "https://www.bizcochito.es/img/tt34966140-es-pos.webp",
-   "duracion": 106
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/ahora-los-suegros-son-ellos-110536-.jpg",
+   "duracion": 105
   },
   {
    "id": "ballet-el-cascanueces-desde-the-royal-ballet",
@@ -615,12 +617,6 @@
    "duracion": 113
   },
   {
-   "id": "por-que-no-escribo-nada",
-   "titulo": "Por qué no escribo nada",
-   "poster": "https://www.bizcochito.es/img/tt41046922-es-pos.webp",
-   "duracion": 103
-  },
-  {
    "id": "porco-rosso",
    "titulo": "Porco Rosso",
    "poster": "https://www.bizcochito.es/img/tt0104652-es-pos.webp",
@@ -735,7 +731,7 @@
   },
   {
    "id": "wild-horse-nine",
-   "titulo": "Wild Horse Nine",
+   "titulo": "Wild horse nine",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83cf2bcb9a69c605ec76c37dc25ad047a0dcc02dc5560e90e75a7b97ae.jpg",
    "duracion": 116
   },
