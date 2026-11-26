@@ -1,34 +1,36 @@
 {
- "generado": "2026-11-26T20:22",
+ "generado": "2026-11-27T00:58",
  "dias": [
-  "2026-11-26",
   "2026-11-27",
   "2026-11-28",
   "2026-11-29",
   "2026-11-30",
   "2026-12-01",
-  "2026-12-02"
+  "2026-12-02",
+  "2026-12-03"
  ],
  "estado": {
   "Verdi": {
-   "ok": true,
-   "sesiones": 147,
-   "segundos": 3.6
-  },
-  "Renoir": {
-   "ok": true,
-   "sesiones": 516,
-   "segundos": 3.6
+   "ok": false,
+   "sesiones": 0,
+   "error": "0 sesiones",
+   "segundos": 0.6,
+   "reutilizadas": 135
   },
   "MK2": {
    "ok": true,
-   "sesiones": 341,
-   "segundos": 8.1
+   "sesiones": 279,
+   "segundos": 3.8
+  },
+  "Renoir": {
+   "ok": true,
+   "sesiones": 523,
+   "segundos": 3.9
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 848,
-   "segundos": 143.8
+   "sesiones": 714,
+   "segundos": 143.9
   }
  },
  "cines": [
@@ -73,16 +75,6 @@
    "localidad": "Madrid (Hortaleza)"
   },
   {
-   "id": "mk2-cine-paz",
-   "nombre": "MK2 Cine Paz",
-   "cadena": "MK2",
-   "lat": 40.430995,
-   "lon": -3.702535,
-   "web": "https://www.cinepazmadrid.es/es/cartelera",
-   "zona": "centro",
-   "localidad": "Madrid (Chamberí)"
-  },
-  {
    "id": "verdi-madrid",
    "nombre": "Cines Verdi Madrid",
    "cadena": "Verdi",
@@ -119,16 +111,6 @@
    "web": "https://www.ocinequadernillos.es/",
    "zona": "henares",
    "localidad": "Alcalá de Henares"
-  },
-  {
-   "id": "ocine-plaza-eboli",
-   "nombre": "Ocine Plaza Éboli (Pinto)",
-   "cadena": "Ocine",
-   "lat": 40.240284,
-   "lon": -3.68965,
-   "web": "https://www.ocineplazaeboli.es/",
-   "zona": "sur",
-   "localidad": "Pinto"
   },
   {
    "id": "odeon-alcala-norte",
@@ -375,14 +357,8 @@
   {
    "id": "ahora-los-suegros-son-ellos",
    "titulo": "Ahora los suegros son ellos",
-   "poster": "https://www.bizcochito.es/img/tt34966140-es-pos.webp",
-   "duracion": 106
-  },
-  {
-   "id": "ballet-el-cascanueces-desde-the-royal-ballet",
-   "titulo": "Ballet El Cascanueces desde The Royal Ballet",
-   "poster": "https://www.cinepazmadrid.es/data/fotos/2627-rbo-cinema-thumbnails-nutcrack64.jpg",
-   "duracion": 140
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/ahora-los-suegros-son-ellos-110536-.jpg",
+   "duracion": 105
   },
   {
    "id": "carmen-st-margarethen-open-air-opera",
@@ -391,26 +367,12 @@
    "duracion": 150
   },
   {
-   "id": "citas-la-pelicula",
-   "titulo": "Citas: La película",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004tf.jpg",
-   "duracion": 87
-  },
-  {
    "id": "clayface",
    "titulo": "Clayface"
   },
   {
-   "id": "con-la-muerte-en-los-talones",
-   "titulo": "Con la muerte en los talones",
-   "poster": "https://www.bizcochito.es/img/tt0053125-es-pos.webp",
-   "duracion": 136
-  },
-  {
    "id": "como-robar-un-banco",
-   "titulo": "Cómo robar un banco",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/como-robar-un-banco-110020-1.jpg",
-   "duracion": 121
+   "titulo": "Cómo robar un banco"
   },
   {
    "id": "el-director",
@@ -429,12 +391,6 @@
    "titulo": "El mal padre",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83ad9761c875da7afd0b06e8e4cda16b52b1c4eb93e415fdf3a7cd7175.jpg",
    "duracion": 120
-  },
-  {
-   "id": "el-maquinista-de-la-general-con-musica-en-directo",
-   "titulo": "El maquinista de la general con música en directo",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa837484b21cd764fee468e6c79645404eddc30163967889d4a08af1c2a9.png",
-   "duracion": 74
   },
   {
    "id": "el-precio-de-la-red",
@@ -465,20 +421,10 @@
    "duracion": 188
   },
   {
-   "id": "haz-que-pare",
-   "titulo": "Haz que pare",
-   "poster": "https://www.cinepazmadrid.es/data/fotos/afiche-hazquepare-ok.png",
-   "duracion": 120
-  },
-  {
    "id": "hechizo-bienvenidos-a-hexe",
    "titulo": "Hechizo: Bienvenidos a Hexe",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/hechizo19.jpg",
    "duracion": 110
-  },
-  {
-   "id": "hechos-probados",
-   "titulo": "Hechos probados"
   },
   {
    "id": "hermanas",
@@ -491,12 +437,6 @@
    "titulo": "Hora y veinte",
    "poster": "https://www.bizcochito.es/img/tt30811432-es-pos.webp",
    "duracion": 80
-  },
-  {
-   "id": "incendies",
-   "titulo": "Incendies",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa837c5bfccdb28685f56fc89868e118401ad03edb5e682309e0247c27e3.jpg",
-   "duracion": 125
   },
   {
    "id": "inside-the-uffizi",
@@ -533,10 +473,10 @@
    "titulo": "La otra madre"
   },
   {
-   "id": "la-violinista",
-   "titulo": "La violinista",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83ef9e32730cf973d20f0186496d1d1dd4e671e8d58f4d1d940ad1b299.jpg",
-   "duracion": 109
+   "id": "la-pieta",
+   "titulo": "La pietà",
+   "poster": "https://media.pillalas.com/imagenes/71db65bd1feb9609ed54d281569e10a7baa05a2c53d207b4c12e3139.jpg",
+   "duracion": 82
   },
   {
    "id": "leones-en-invierno",
@@ -553,24 +493,6 @@
    "titulo": "Los juegos del hambre: Amanecer en la cosecha",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/losjuegos.jpg",
    "duracion": 157
-  },
-  {
-   "id": "los-mejores-cortometrajes-28-de-noviembre",
-   "titulo": "Los mejores cortometrajes - 28 de noviembre",
-   "poster": "https://www.cinepazmadrid.es/data/fotos/02-afiche-web-28-noviembre-cortos-f.png",
-   "duracion": 75
-  },
-  {
-   "id": "los-mejores-cortometrajes-29-de-noviembre",
-   "titulo": "Los mejores cortometrajes - 29 de noviembre",
-   "poster": "https://www.cinepazmadrid.es/data/fotos/ficbueu--29-de-noviembre.jpg",
-   "duracion": 73
-  },
-  {
-   "id": "los-miserables",
-   "titulo": "Los miserables",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa837b0b3fc43e289a230abcac5141e1b0af86e1dbc68ae03c9321c0e805.jpg",
-   "duracion": 178
   },
   {
    "id": "naza",
@@ -599,14 +521,8 @@
   {
    "id": "primavera",
    "titulo": "Primavera",
-   "poster": "https://www.bizcochito.es/img/tt33586629-es-pos.webp",
-   "duracion": 110
-  },
-  {
-   "id": "puedes-verlo-todo",
-   "titulo": "Puedes verlo todo",
-   "poster": "https://media.pillalas.com/imagenes/360fcd28745c15acd0da3be60af401bcb0f8c6b706c63d0f9839e87b.jpg",
-   "duracion": 174
+   "poster": "https://media.pillalas.com/imagenes/fbea892d98a497eb891e456da5fc2df2f25884adc28e2e5c76645cd2.jpg",
+   "duracion": 111
   },
   {
    "id": "ratones-al-ataque-operacion-navidad",
@@ -633,11 +549,6 @@
    "id": "rompemadrid-abono-fin-de-semana",
    "titulo": "ROMPEMADRID: Abono fin de semana",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/abonofindesemanarmii.jpg"
-  },
-  {
-   "id": "rompemadrid-abono-general",
-   "titulo": "ROMPEMADRID: Abono general",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/abonogeneralrmii.jpg"
   },
   {
    "id": "rose",
@@ -686,16 +597,16 @@
    "duracion": 119
   },
   {
+   "id": "tokyo-godfathers",
+   "titulo": "Tokyo godfathers",
+   "poster": "https://media.pillalas.com/imagenes/bc7c43ebcfd3a016c13bc4d914ceb2911bc79c2f31233fdcd1b64088.jpg",
+   "duracion": 92
+  },
+  {
    "id": "un-hombre-en-un-puente",
    "titulo": "Un hombre en un puente",
    "poster": "https://media.pillalas.com/imagenes/2cdaa35604080da853e62f45888824b439018d689f96dde144f32c41.jpg",
    "duracion": 117
-  },
-  {
-   "id": "victorian-psycho",
-   "titulo": "Victorian Psycho",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa836ffa1374f400cd084fa0466dda97f9bcc15c75d4406bb97a8e8f8c09.jpg",
-   "duracion": 102
   },
   {
    "id": "wicker",
@@ -705,7 +616,7 @@
   },
   {
    "id": "wild-horse-nine",
-   "titulo": "Wild Horse Nine",
+   "titulo": "Wild horse nine",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83cf2bcb9a69c605ec76c37dc25ad047a0dcc02dc5560e90e75a7b97ae.jpg",
    "duracion": 116
   },
@@ -714,16 +625,6 @@
    "titulo": "Wildwood",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa838e0144d155325222ca263ff7760db4e399771e06a80fceb4b260eac8.jpg",
    "duracion": 132
-  },
-  {
-   "id": "me-entiendes-o-te-lo-explico",
-   "titulo": "¿Me entiendes o te lo explico?"
-  },
-  {
-   "id": "quien-puede-matar-a-un-nino",
-   "titulo": "¿quién puede matar a un niño?",
-   "poster": "https://media.pillalas.com/imagenes/726afb526abffa83460c970a706a73c4e60cb37e89eb67ab2f4fdf879b9db70c28349f67.png",
-   "duracion": 100
   }
  ]
 }
