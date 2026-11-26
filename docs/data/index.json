@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-26T13:37",
+ "generado": "2026-11-26T20:22",
  "dias": [
   "2026-11-26",
   "2026-11-27",
@@ -11,26 +11,24 @@
  ],
  "estado": {
   "Verdi": {
-   "ok": false,
-   "sesiones": 0,
-   "error": "0 sesiones",
-   "segundos": 0.6,
-   "reutilizadas": 150
-  },
-  "MK2": {
    "ok": true,
-   "sesiones": 376,
-   "segundos": 3.4
+   "sesiones": 147,
+   "segundos": 3.6
   },
   "Renoir": {
    "ok": true,
    "sesiones": 516,
-   "segundos": 4.1
+   "segundos": 3.6
+  },
+  "MK2": {
+   "ok": true,
+   "sesiones": 341,
+   "segundos": 8.1
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 834,
-   "segundos": 139.8
+   "sesiones": 848,
+   "segundos": 143.8
   }
  },
  "cines": [
@@ -377,8 +375,8 @@
   {
    "id": "ahora-los-suegros-son-ellos",
    "titulo": "Ahora los suegros son ellos",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/ahora-los-suegros-son-ellos-110536-.jpg",
-   "duracion": 105
+   "poster": "https://www.bizcochito.es/img/tt34966140-es-pos.webp",
+   "duracion": 106
   },
   {
    "id": "ballet-el-cascanueces-desde-the-royal-ballet",
@@ -413,18 +411,6 @@
    "titulo": "Cómo robar un banco",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/como-robar-un-banco-110020-1.jpg",
    "duracion": 121
-  },
-  {
-   "id": "diarios-de-ozu",
-   "titulo": "Diarios de Ozu",
-   "poster": "https://www.bizcochito.es/img/tt18259698-es-pos.webp",
-   "duracion": 137
-  },
-  {
-   "id": "el-cielo-es-para-siempre",
-   "titulo": "El cielo es para siempre",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004sd.jpg",
-   "duracion": 78
   },
   {
    "id": "el-director",
@@ -569,12 +555,6 @@
    "duracion": 157
   },
   {
-   "id": "los-mejores-anos-de-nuestra-vida",
-   "titulo": "Los mejores años de nuestra vida",
-   "poster": "https://www.bizcochito.es/img/tt38990608-es-pos.webp",
-   "duracion": 108
-  },
-  {
    "id": "los-mejores-cortometrajes-28-de-noviembre",
    "titulo": "Los mejores cortometrajes - 28 de noviembre",
    "poster": "https://www.cinepazmadrid.es/data/fotos/02-afiche-web-28-noviembre-cortos-f.png",
@@ -599,12 +579,6 @@
    "duracion": 77
   },
   {
-   "id": "ooh-la-la-quien-lo-hubiera-pensado",
-   "titulo": "Ooh La La! ¿Quién lo hubiera pensado?",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004te.jpg",
-   "duracion": 91
-  },
-  {
    "id": "oro-sin-ley",
    "titulo": "Oro sin ley",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/jpg004tr.jpg",
@@ -625,8 +599,8 @@
   {
    "id": "primavera",
    "titulo": "Primavera",
-   "poster": "https://media.pillalas.com/imagenes/fbea892d98a497eb891e456da5fc2df2f25884adc28e2e5c76645cd2.jpg",
-   "duracion": 111
+   "poster": "https://www.bizcochito.es/img/tt33586629-es-pos.webp",
+   "duracion": 110
   },
   {
    "id": "puedes-verlo-todo",
@@ -731,7 +705,7 @@
   },
   {
    "id": "wild-horse-nine",
-   "titulo": "Wild horse nine",
+   "titulo": "Wild Horse Nine",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83cf2bcb9a69c605ec76c37dc25ad047a0dcc02dc5560e90e75a7b97ae.jpg",
    "duracion": 116
   },
