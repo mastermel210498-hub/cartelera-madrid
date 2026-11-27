@@ -22,7 +22,7 @@
 },
 "wild-horse-nine": {
 "primera": "2026-11-16",
-"titulo": "Wild horse nine",
+"titulo": "Wild Horse Nine",
 "ultima": "2026-12-03",
 "poster": "https://media.pillalas.com/imagenes/726afb526abffa83cf2bcb9a69c605ec76c37dc25ad047a0dcc02dc5560e90e75a7b97ae.jpg"
 },
@@ -601,5 +601,11 @@
 "titulo": "Lisboa Story",
 "ultima": "2026-12-03",
 "poster": "https://www.bizcochito.es/img/tt0110361-es-pos.webp"
+},
+"spider-man-brand-new-day-reestreno": {
+"primera": "2026-12-04",
+"titulo": "Spider-Man: Brand New Day (reestreno)",
+"ultima": "2026-12-04",
+"poster": "https://www.mk2palaciodehielo.es/data/fotos/spider.png"
 }
 }

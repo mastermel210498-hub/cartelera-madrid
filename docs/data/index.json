@@ -1,34 +1,34 @@
 {
- "generado": "2026-11-27T20:15",
+ "generado": "2026-11-28T00:34",
  "dias": [
-  "2026-11-27",
   "2026-11-28",
   "2026-11-29",
   "2026-11-30",
   "2026-12-01",
   "2026-12-02",
-  "2026-12-03"
+  "2026-12-03",
+  "2026-12-04"
  ],
  "estado": {
   "Verdi": {
    "ok": true,
-   "sesiones": 145,
-   "segundos": 2.9
+   "sesiones": 136,
+   "segundos": 3.3
   },
   "Renoir": {
    "ok": true,
-   "sesiones": 523,
-   "segundos": 4.1
+   "sesiones": 447,
+   "segundos": 3.8
   },
   "MK2": {
    "ok": true,
-   "sesiones": 256,
-   "segundos": 6.3
+   "sesiones": 314,
+   "segundos": 6.9
   },
   "Ocine": {
    "ok": true,
-   "sesiones": 714,
-   "segundos": 139.8
+   "sesiones": 611,
+   "segundos": 129.4
   }
  },
  "cines": [
@@ -71,6 +71,16 @@
    "web": "https://www.mk2palaciodehielo.es/es/cartelera",
    "zona": "este",
    "localidad": "Madrid (Hortaleza)"
+  },
+  {
+   "id": "mk2-cine-paz",
+   "nombre": "MK2 Cine Paz",
+   "cadena": "MK2",
+   "lat": 40.430995,
+   "lon": -3.702535,
+   "web": "https://www.cinepazmadrid.es/es/cartelera",
+   "zona": "centro",
+   "localidad": "Madrid (Chamberí)"
   },
   {
    "id": "verdi-madrid",
@@ -359,6 +369,12 @@
    "duracion": 106
   },
   {
+   "id": "ballet-el-cascanueces-desde-the-royal-ballet",
+   "titulo": "Ballet El Cascanueces desde The Royal Ballet",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/2627-rbo-cinema-thumbnails-nutcrack64.jpg",
+   "duracion": 140
+  },
+  {
    "id": "carmen-st-margarethen-open-air-opera",
    "titulo": "Carmen (St. Margarethen Open Air Opera)",
    "poster": "https://www.bizcochito.es/img/tt111199-es-pos.webp",
@@ -417,6 +433,12 @@
    "titulo": "Fanny y alexander",
    "poster": "https://media.pillalas.com/imagenes/266c4cdbaf7248302b3ed1929ee3357a5b2fbc9036245959351c5015.jpg",
    "duracion": 188
+  },
+  {
+   "id": "haz-que-pare",
+   "titulo": "Haz que pare",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/afiche-hazquepare-ok.png",
+   "duracion": 120
   },
   {
    "id": "hechizo-bienvenidos-a-hexe",
@@ -497,6 +519,18 @@
    "titulo": "Los juegos del hambre: Amanecer en la cosecha",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/losjuegos.jpg",
    "duracion": 157
+  },
+  {
+   "id": "los-mejores-cortometrajes-28-de-noviembre",
+   "titulo": "Los mejores cortometrajes - 28 de noviembre",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/02-afiche-web-28-noviembre-cortos-f.png",
+   "duracion": 75
+  },
+  {
+   "id": "los-mejores-cortometrajes-29-de-noviembre",
+   "titulo": "Los mejores cortometrajes - 29 de noviembre",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/ficbueu--29-de-noviembre.jpg",
+   "duracion": 73
   },
   {
    "id": "naza",
@@ -591,6 +625,12 @@
    "duracion": 132
   },
   {
+   "id": "spider-man-brand-new-day-reestreno",
+   "titulo": "Spider-Man: Brand New Day (reestreno)",
+   "poster": "https://www.mk2palaciodehielo.es/data/fotos/spider.png",
+   "duracion": 154
+  },
+  {
    "id": "tadeo-jones-y-la-lampara-maravillosa",
    "titulo": "Tadeo Jones y la lámpara maravillosa"
   },
@@ -620,7 +660,7 @@
   },
   {
    "id": "wild-horse-nine",
-   "titulo": "Wild horse nine",
+   "titulo": "Wild Horse Nine",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83cf2bcb9a69c605ec76c37dc25ad047a0dcc02dc5560e90e75a7b97ae.jpg",
    "duracion": 116
   },
