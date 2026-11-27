@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-27T00:58",
+ "generado": "2026-11-27T13:22",
  "dias": [
   "2026-11-27",
   "2026-11-28",
@@ -10,27 +10,25 @@
   "2026-12-03"
  ],
  "estado": {
-  "Verdi": {
-   "ok": false,
-   "sesiones": 0,
-   "error": "0 sesiones",
-   "segundos": 0.6,
-   "reutilizadas": 135
-  },
-  "MK2": {
-   "ok": true,
-   "sesiones": 279,
-   "segundos": 3.8
-  },
   "Renoir": {
    "ok": true,
    "sesiones": 523,
-   "segundos": 3.9
+   "segundos": 3.8
+  },
+  "Verdi": {
+   "ok": true,
+   "sesiones": 155,
+   "segundos": 5.5
+  },
+  "MK2": {
+   "ok": true,
+   "sesiones": 363,
+   "segundos": 7.6
   },
   "Ocine": {
    "ok": true,
    "sesiones": 714,
-   "segundos": 143.9
+   "segundos": 142.4
   }
  },
  "cines": [
@@ -73,6 +71,16 @@
    "web": "https://www.mk2palaciodehielo.es/es/cartelera",
    "zona": "este",
    "localidad": "Madrid (Hortaleza)"
+  },
+  {
+   "id": "mk2-cine-paz",
+   "nombre": "MK2 Cine Paz",
+   "cadena": "MK2",
+   "lat": 40.430995,
+   "lon": -3.702535,
+   "web": "https://www.cinepazmadrid.es/es/cartelera",
+   "zona": "centro",
+   "localidad": "Madrid (Chamberí)"
   },
   {
    "id": "verdi-madrid",
@@ -357,8 +365,14 @@
   {
    "id": "ahora-los-suegros-son-ellos",
    "titulo": "Ahora los suegros son ellos",
-   "poster": "https://www.mk2palaciodehielo.es/data/fotos/ahora-los-suegros-son-ellos-110536-.jpg",
-   "duracion": 105
+   "poster": "https://www.bizcochito.es/img/tt34966140-es-pos.webp",
+   "duracion": 106
+  },
+  {
+   "id": "ballet-el-cascanueces-desde-the-royal-ballet",
+   "titulo": "Ballet El Cascanueces desde The Royal Ballet",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/2627-rbo-cinema-thumbnails-nutcrack64.jpg",
+   "duracion": 140
   },
   {
    "id": "carmen-st-margarethen-open-air-opera",
@@ -419,6 +433,12 @@
    "titulo": "Fanny y alexander",
    "poster": "https://media.pillalas.com/imagenes/266c4cdbaf7248302b3ed1929ee3357a5b2fbc9036245959351c5015.jpg",
    "duracion": 188
+  },
+  {
+   "id": "haz-que-pare",
+   "titulo": "Haz que pare",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/afiche-hazquepare-ok.png",
+   "duracion": 120
   },
   {
    "id": "hechizo-bienvenidos-a-hexe",
@@ -489,10 +509,28 @@
    "duracion": 88
   },
   {
+   "id": "lisboa-story",
+   "titulo": "Lisboa Story",
+   "poster": "https://www.bizcochito.es/img/tt0110361-es-pos.webp",
+   "duracion": 100
+  },
+  {
    "id": "los-juegos-del-hambre-amanecer-en-la-cosecha",
    "titulo": "Los juegos del hambre: Amanecer en la cosecha",
    "poster": "https://www.mk2palaciodehielo.es/data/fotos/losjuegos.jpg",
    "duracion": 157
+  },
+  {
+   "id": "los-mejores-cortometrajes-28-de-noviembre",
+   "titulo": "Los mejores cortometrajes - 28 de noviembre",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/02-afiche-web-28-noviembre-cortos-f.png",
+   "duracion": 75
+  },
+  {
+   "id": "los-mejores-cortometrajes-29-de-noviembre",
+   "titulo": "Los mejores cortometrajes - 29 de noviembre",
+   "poster": "https://www.cinepazmadrid.es/data/fotos/ficbueu--29-de-noviembre.jpg",
+   "duracion": 73
   },
   {
    "id": "naza",
@@ -521,8 +559,8 @@
   {
    "id": "primavera",
    "titulo": "Primavera",
-   "poster": "https://media.pillalas.com/imagenes/fbea892d98a497eb891e456da5fc2df2f25884adc28e2e5c76645cd2.jpg",
-   "duracion": 111
+   "poster": "https://www.bizcochito.es/img/tt33586629-es-pos.webp",
+   "duracion": 110
   },
   {
    "id": "ratones-al-ataque-operacion-navidad",
@@ -616,7 +654,7 @@
   },
   {
    "id": "wild-horse-nine",
-   "titulo": "Wild horse nine",
+   "titulo": "Wild Horse Nine",
    "poster": "https://media.pillalas.com/imagenes/726afb526abffa83cf2bcb9a69c605ec76c37dc25ad047a0dcc02dc5560e90e75a7b97ae.jpg",
    "duracion": 116
   },
